@@ -1,0 +1,6 @@
+# Obsidian session state
+.obsidian/workspace*.json
+
+# Python bytecode
+__pycache__/
+*.py[cod]

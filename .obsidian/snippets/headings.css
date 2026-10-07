@@ -1,0 +1,227 @@
+/* ==========================================================================
+   headings.css: 헤딩 스타일 조정용 스니펫
+
+   현재 상태: Obsidian 기본 테마의 헤딩 값을 그대로 옮겨 적은 baseline.
+   켜도 겉보기 변화 없음. 아래 값을 한 줄씩 고쳐가며 원하는 스타일을 잡음.
+
+   적용 범위: 이 변수들은 읽기 모드(.markdown-rendered), 편집 모드
+   (.HyperMD-header-*), 파일 제목(.inline-title)이 공통으로 읽음.
+   여기만 고치면 세 곳이 함께 바뀜.
+
+   켜는 법: Obsidian 설정 → 화면(Appearance) → CSS 스니펫 → 새로고침 →
+   headings 토글 ON. 이후 이 파일 저장 시 즉시 반영됨.
+
+   기준: Obsidian 1.x 기본 테마 app.css에서 추출 (2026-07-14).
+   ========================================================================== */
+
+body {
+	/* ----------------------------------------------------------------------
+	   공통
+	   ---------------------------------------------------------------------- */
+
+	/* 헤딩 위 여백. Obsidian 기본값은 레벨 구분 없이 이 값 하나를 모든 헤딩에 씀.
+	   그러면 H5도 H1과 같은 크기의 공백을 달아 묶음의 크기가 안 보임.
+	   아래 "헤딩 위 여백 사다리"에서 레벨별로 덮어씀. 여기 값은 H1용 기준선임. */
+	--heading-spacing: calc(var(--p-spacing) * 2.5);
+
+	/* 레벨별 위 여백 (깊을수록 자기 문단에 붙음) */
+	--h1-space-above: 2.5rem;
+	--h2-space-above: 1.8rem;
+	--h3-space-above: 1.4rem;
+	--h4-space-above: 1rem;
+	--h5-space-above: 0.8rem;
+
+	/* 편집 모드에서 보이는 '#' 기호 색 */
+	--heading-formatting: var(--text-faint);
+
+	/* 크기 사다리: 한 단계마다 약 1.15배로 벌림.
+	   1.15는 한글(네모 틀 글자)에서도 인접 레벨이 구분되는 최소선임.
+	   기존 1.107배는 H4와 H5가 2px 차이라 사실상 같아 보였음.
+
+	   굵기: 폰트가 실제로 가진 값만 씀(700, 600).
+	   기존 700/680/660/640/620은 렌더 시 모두 700으로 반올림돼 사다리가 없었음. */
+
+	/* ----------------------------------------------------------------------
+	   H1: 이 위키에서는 문서 제목이 아니라 본문 최상위 절
+	   ---------------------------------------------------------------------- */
+	--h1-size: 1.75em;   /* 16px 기준 28px */
+	--h1-weight: 700;
+	--h1-line-height: 1.35;  /* 한글 받침이 눌리지 않게 1.2에서 올림 */
+	--h1-letter-spacing: -0.015em;
+	--h1-color: inherit;
+	--h1-font: inherit;
+	--h1-style: normal;
+	--h1-variant: normal;
+
+	/* ----------------------------------------------------------------------
+	   H2: 가. 나. 다.
+	   ---------------------------------------------------------------------- */
+	--h2-size: 1.52em;   /* 24px */
+	--h2-weight: 700;
+	--h2-line-height: 1.35;
+	--h2-letter-spacing: -0.011em;
+	--h2-color: inherit;
+	--h2-font: inherit;
+	--h2-style: normal;
+	--h2-variant: normal;
+
+	/* ----------------------------------------------------------------------
+	   H3: 1) 2) 3)
+	   ---------------------------------------------------------------------- */
+	--h3-size: 1.32em;   /* 21px */
+	--h3-weight: 700;
+	--h3-line-height: 1.4;
+	--h3-letter-spacing: -0.008em;
+	--h3-color: inherit;
+	--h3-font: inherit;
+	--h3-style: normal;
+	--h3-variant: normal;
+
+	/* ----------------------------------------------------------------------
+	   H4: 가) 나) 다)
+	   ---------------------------------------------------------------------- */
+	--h4-size: 1.15em;   /* 18px */
+	--h4-weight: 700;
+	--h4-line-height: 1.4;
+	--h4-letter-spacing: -0.005em;
+	--h4-color: inherit;
+	--h4-font: inherit;
+	--h4-style: normal;
+	--h4-variant: normal;
+
+	/* ----------------------------------------------------------------------
+	   H5: (1) (2) (3)
+	   본문과 같은 크기로 둠. 문단 위 라벨에 가까운 자리라 크기로 우기지 않고,
+	   굵기와 흐린 색, (1) 넘버링으로 헤딩임을 알림. 이래야 H3와 H4의 크기 차이가 삶.
+	   ---------------------------------------------------------------------- */
+	--h5-size: 1em;      /* 16px, 본문과 같음 */
+	--h5-weight: 600;
+	--h5-line-height: var(--line-height-normal); /* 1.5 */
+	--h5-letter-spacing: 0em;
+	--h5-color: var(--text-muted);
+	--h5-font: inherit;
+	--h5-style: normal;
+	--h5-variant: normal;
+
+	/* ----------------------------------------------------------------------
+	   H6: 이 위키에서는 사용하지 않음 (H5까지)
+	   ---------------------------------------------------------------------- */
+	--h6-size: 1em;
+	--h6-weight: 600;
+	--h6-line-height: var(--line-height-normal); /* 1.5 */
+	--h6-letter-spacing: 0em;
+	--h6-color: inherit;
+	--h6-font: inherit;
+	--h6-style: normal;
+	--h6-variant: normal;
+
+	/* ----------------------------------------------------------------------
+	   장식 값 (아래 H1 박스와 H2 밑줄이 읽는 값. 여기만 고치면 둘 다 바뀜)
+	   ---------------------------------------------------------------------- */
+
+	/* H1 박스 */
+	--h1-box-bg: #4f81bd;              /* 박스 채움색 */
+	--h1-box-text: #ffffff;            /* 박스 안 글자색 */
+	--h1-box-padding: 0.3em 0.7em;     /* 박스 안 여백 (위아래 / 좌우) */
+	--h1-box-radius: 2px;              /* 모서리 둥글기. 각지게 하려면 0 */
+	--h1-box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.28);  /* 오른쪽 아래 그림자 */
+
+	/* H2 밑줄 */
+	--h2-rule-color: #a6a6a6;          /* 바닥 테두리 색 */
+	--h2-rule-width: 1.5px;            /* 바닥 테두리 두께 */
+	--h2-rule-gap: 0.25em;             /* 글자와 테두리 사이 간격 */
+}
+
+/* 어두운 테마 대비 조정 (밝은 테마 값 그대로 쓰면 눈부심) */
+.theme-dark {
+	--h1-box-bg: #2f5597;
+	--h1-box-text: #ffffff;
+	--h1-box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
+	--h2-rule-color: #6b6b6b;
+}
+
+/* ==========================================================================
+   헤딩 위 여백 사다리
+
+   위계는 글자 크기만이 아니라 묶음 사이의 공백 크기로도 읽힘.
+   모든 레벨이 같은 공백을 달면 H5가 새 절처럼 보여 구조가 평평해짐.
+   읽기 모드와 편집 모드에 함께 걸음.
+   ========================================================================== */
+
+.markdown-rendered h1,
+.markdown-source-view.mod-cm6 .HyperMD-header-1 {
+	margin-top: var(--h1-space-above);
+}
+
+.markdown-rendered h2,
+.markdown-source-view.mod-cm6 .HyperMD-header-2 {
+	margin-top: var(--h2-space-above);
+}
+
+.markdown-rendered h3,
+.markdown-source-view.mod-cm6 .HyperMD-header-3 {
+	margin-top: var(--h3-space-above);
+}
+
+.markdown-rendered h4,
+.markdown-source-view.mod-cm6 .HyperMD-header-4 {
+	margin-top: var(--h4-space-above);
+}
+
+.markdown-rendered h5,
+.markdown-source-view.mod-cm6 .HyperMD-header-5 {
+	margin-top: var(--h5-space-above);
+}
+
+/* ==========================================================================
+   H1: 채운 박스 + 오른쪽 아래 그림자
+
+   읽기 모드(.markdown-rendered h1)와 편집 모드(.HyperMD-header-1)에 함께 걸음.
+   파일 제목(.inline-title)은 이 위키에서 H1이 아니므로 제외함(선택자에 안 넣음).
+   ========================================================================== */
+
+.markdown-rendered h1,
+.markdown-source-view.mod-cm6 .HyperMD-header-1 {
+	background-color: var(--h1-box-bg);
+	color: var(--h1-box-text);
+	padding: var(--h1-box-padding);
+	border-radius: var(--h1-box-radius);
+	box-shadow: var(--h1-box-shadow);
+	/* 그림자가 다음 문단에 닿지 않게 아래 여백을 조금 더 줌 */
+	margin-bottom: 0.8em;
+}
+
+/* 편집 모드의 '#' 기호도 박스 안에 들어가므로 배경 위에서 읽히는 색으로 */
+.markdown-source-view.mod-cm6 .HyperMD-header-1 .cm-formatting-header {
+	color: var(--h1-box-text);
+	opacity: 0.55;
+}
+
+/* ==========================================================================
+   H2: 바닥 테두리
+   ========================================================================== */
+
+.markdown-rendered h2,
+.markdown-source-view.mod-cm6 .HyperMD-header-2 {
+	border-bottom: var(--h2-rule-width) solid var(--h2-rule-color);
+	padding-bottom: var(--h2-rule-gap);
+}
+
+/* ==========================================================================
+   예외: 콜아웃과 표 안의 헤딩에는 장식을 걸지 않음
+   (좁은 칸에서 박스와 밑줄이 레이아웃을 깨뜨림)
+   ========================================================================== */
+
+.markdown-rendered .callout h1,
+.markdown-rendered table h1 {
+	background-color: transparent;
+	color: inherit;
+	padding: 0;
+	box-shadow: none;
+}
+
+.markdown-rendered .callout h2,
+.markdown-rendered table h2 {
+	border-bottom: none;
+	padding-bottom: 0;
+}
