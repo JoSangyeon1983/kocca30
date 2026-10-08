@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>버나잡이 한 판</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header class="page-header">
+      <div><span class="eyebrow">남사당놀이 기본 돌리기</span><h1>버나잡이 한 판</h1><p>막대를 움직이며, 돌아가는 버나의 균형을 살펴보세요.</p></div>
+      <span class="prototype-tag">체험 프로토타입</span>
+    </header>
+    <section class="experience" aria-label="버나 돌리기 시뮬레이션">
+      <div class="stage">
+        <div class="stage-top"><span id="state" role="status">돌리는 중</span><div class="view-switch" aria-label="시점 선택"><button data-view="perspective" class="selected" aria-pressed="true">입체</button><button data-view="front" aria-pressed="false">정면</button><button data-view="top" aria-pressed="false">위에서</button></div></div>
+        <canvas id="scene" tabindex="0" aria-label="버나와 손, 막대. 드래그로 손을 좌우 이동하고, Shift를 누른 채 드래그하면 막대 기울기 조절"></canvas>
+        <div class="stage-caption"><span id="stageHint">← → 위치 &nbsp; A D 기울기 &nbsp; W S 속도 &nbsp; Space 던질사위</span><span id="time">0.0초</span></div>
+        <div class="stage-actions"><button id="throw" class="primary">던질사위 <kbd>Space</kbd></button><button id="pause" class="secondary">일시정지</button><button id="reset" class="secondary">처음 상태로 <kbd>R</kbd></button></div>
+      </div>
+      <aside class="panel">
+        <div class="panel-heading"><span class="eyebrow">내 손의 움직임</span><h2>막대 조작</h2></div>
+        <div class="control-group"><label for="speed">움직이는 속도 <output id="speedValue">2.90회/초</output></label><input id="speed" type="range" min="0" max="5" value="2.9" step=".01"><div class="hold-pair"><button data-action="slower"><kbd>S</kbd> 느리게</button><button data-action="faster"><kbd>W</kbd> 빠르게</button></div></div>
+        <div class="control-group"><label for="tilt">막대 좌우 기울기 <output id="tiltValue">0.0°</output></label><input id="tilt" type="range" min="-28" max="28" value="0" step=".1"><div class="hold-pair"><button data-action="tiltLeft"><kbd>A</kbd> 왼쪽</button><button data-action="tiltRight"><kbd>D</kbd> 오른쪽</button></div></div>
+        <div class="control-group"><label for="position">손의 좌우 위치 <output id="positionValue">0.0cm</output></label><input id="position" type="range" min="-.42" max=".42" value="0" step=".001"><div class="hold-pair"><button data-action="left"><kbd>←</kbd> 왼쪽</button><button data-action="right"><kbd>→</kbd> 오른쪽</button></div></div>
+        <p class="mouse-help">화면 드래그: 손 이동<br>Shift + 드래그: 막대 기울기<br>Space: 던질사위<br>P: 일시정지, R: 다시 시작</p>
+        <div class="wheel-readout"><span class="eyebrow">버나의 반응</span><div class="readout-grid"><div><span>회전 속도</span><strong id="rpm">210 <small>rpm</small></strong></div><div><span>버나 기울기</span><strong id="wheelTilt">2.5 <small>°</small></strong></div></div><canvas id="chart" aria-label="최근 20초 동안의 회전 속도와 버나 기울기 그래프"></canvas><div class="chart-legend"><span class="rpm-line">회전</span><span class="tilt-line">기울기</span><span>최근 20초</span></div></div>
+      </aside>
+    </section>
+    <footer><p>Space로 회전 중인 버나를 던졌다가 다시 받습니다. 공중에서 손 위치와 막대 기울기를 바꾸면 받는 위치도 달라집니다.</p><details><summary>관찰 도구</summary><div class="tools"><label><input id="showPath" type="checkbox" checked> 막대 끝의 궤적</label><label><input id="showContact" type="checkbox" checked> 접촉 위치</label><button id="export">기록 내려받기</button></div><p>제공 자료를 참고한 근사 모델입니다. 실제 기구의 치수, 마찰과 던지기 힘은 미측정 상태입니다.</p></details></footer>
+  </main>
+  <script src="physics.js"></script><script src="app.js"></script>
+</body>
+</html>

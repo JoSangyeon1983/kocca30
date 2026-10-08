@@ -131,13 +131,106 @@ class HeadingNumbersTests(unittest.TestCase):
         _, errors = hn.numbered(self.document("# A\n## 1.4 B\n"), "check")
         self.assertEqual([issue.code for issue in errors], ["NUMBER", "NUMBER"])
 
+    def test_article_info_and_children_unnumbered_body_starts_at_one(self):
+        text = '---\ntype: article\n---\n# 1 문서 정보\n' + (
+            "| 버전 | 항목 |\n| 1.0.0 | 4.3 |\n"
+            "## 1.1 이력\n### 1.1.1 변경\n#### 1) 기록\n##### (1) 상세\n"
+            "# 2 개요\n## 2.1 범위\n# 3 내용\n## 3.1 구성\n"
+        )
+        expected = (
+            '---\ntype: article\n---\n# 문서 정보\n'
+            "| 버전 | 항목 |\n| 1.0.0 | 4.3 |\n"
+            "## 이력\n### 변경\n#### 기록\n##### 상세\n"
+            "# 1 개요\n## 1.1 범위\n# 2 내용\n## 2.1 구성\n"
+        )
+        relative = "03_Articles/plans/note.md"
+        actual, errors = hn.numbered(self.document(text, relative), "numbered")
+        self.assertFalse(errors)
+        self.assertEqual(actual, expected)
+        again, errors = hn.numbered(self.document(actual, relative), "numbered")
+        self.assertFalse(errors)
+        self.assertEqual(again, expected)
+        self.assertFalse(hn.numbered(self.document(actual, relative), "check")[1])
+
+    def test_first_application_preserves_article_info_section(self):
+        original = '---\ntype: article\n---\n# 문서 정보\n## 작성 이력\n# 개요\n## 범위\n'
+        actual, errors = hn.numbered(self.document(original, "03_Articles/note.md"), "unnumbered")
+        self.assertFalse(errors)
+        self.assertEqual(actual, original.replace("# 개요", "# 1 개요").replace("## 범위", "## 1.1 범위"))
+
+    def test_check_rejects_numbered_article_info_including_zero(self):
+        for prefix in ("0", "0.", "1", "1."):
+            with self.subTest(prefix=prefix):
+                doc = self.document(f'---\ntype: article\n---\n# {prefix} 문서 정보\n# 1 개요\n', "03_Articles/note.md")
+                _, errors = hn.numbered(doc, "check")
+                self.assertEqual([issue.code for issue in errors], ["UNNUMBERED"])
+                actual, errors = hn.numbered(doc, "numbered")
+                self.assertFalse(errors)
+                self.assertIn("# 문서 정보\n# 1 개요", actual)
+
+    def test_workspace_article_target_with_quoted_metadata(self):
+        original = '---\ntype: "article" # draft\ntarget_folder: \'03_Articles\' # destination\n---\n# 문서 정보\n## 이력\n# 개요\n'
+        self.document(original, "90_Workspace/drafts/note.md")
+        code, _ = self.cli("apply", "90_Workspace/drafts/note.md", "--input", "unnumbered")
+        self.assertEqual(code, 0)
+        self.assertEqual(self.cli("check", "90_Workspace")[0], 0)
+        actual = (self.root / "90_Workspace/drafts/note.md").read_bytes().decode("utf-8")
+        self.assertEqual(actual, original.replace("# 개요", "# 1 개요"))
+
+    def test_article_info_exception_requires_type_and_destination(self):
+        cases = (
+            ("03_Articles/note.md", "type: reference"),
+            ("03_Articles/note.md", "settings:\n  type: article"),
+            ("90_Workspace/note.md", "type: article"),
+            ("90_Workspace/note.md", "type: article\ntarget_folder: 02_Syntheses"),
+            ("90_Workspace/note.md", "type: article\nsettings:\n  target_folder: 03_Articles"),
+            ("elsewhere/note.md", "type: article\ntarget_folder: 03_Articles"),
+        )
+        for relative, metadata in cases:
+            with self.subTest(relative=relative, metadata=metadata):
+                original = f"---\n{metadata}\n---\n# 문서 정보\n# 개요\n"
+                doc = self.document(original, relative)
+                self.assertFalse(doc.article_info_scope)
+                actual, errors = hn.numbered(doc, "unnumbered")
+                self.assertFalse(errors)
+                self.assertEqual(actual, original.replace("# 문서 정보", "# 1 문서 정보").replace("# 개요", "# 2 개요"))
+
+    def test_article_without_info_and_later_info_use_regular_numbers(self):
+        original = '---\ntype: article\n---\n# 개요\n## 범위\n# 문서 정보\n'
+        actual, errors = hn.numbered(self.document(original, "03_Articles/note.md"), "unnumbered")
+        self.assertFalse(errors)
+        self.assertEqual(actual, original.replace("# 개요", "# 1 개요").replace("## 범위", "## 1.1 범위").replace("# 문서 정보", "# 2 문서 정보"))
+
+    def test_article_info_exception_still_checks_hierarchy(self):
+        original = '---\ntype: article\n---\n# 문서 정보\n### 이력\n# 개요\n'
+        actual, errors = hn.numbered(self.document(original, "03_Articles/note.md"), "unnumbered")
+        self.assertEqual(actual, original)
+        self.assertIn("HIERARCHY", [issue.code for issue in errors])
+
+    def test_article_info_heading_links_block_renumbering_until_updated(self):
+        original = '---\ntype: article\n---\n# 1 문서 정보\n# 2 개요\n'
+        target = self.document(original, "03_Articles/note.md")
+        source = self.document("# 1 참조\n[[03_Articles/note#1 문서 정보]]\n", "source.md")
+        code, output = self.cli("apply", "03_Articles/note.md", "--input", "numbered")
+        self.assertEqual(code, 1)
+        self.assertIn("HEADING_LINK", output)
+        self.assertEqual(target.path.read_bytes().decode("utf-8"), original)
+        source.path.write_bytes("# 1 참조\n[[03_Articles/note#문서 정보]]\n[개요](03_Articles/note.md#1-개요)\n".encode("utf-8"))
+        self.assertEqual(self.cli("apply", "03_Articles/note.md", "--input", "numbered")[0], 0)
+        self.assertEqual(self.cli("check")[0], 0)
+
+    def test_h1_trailing_period_is_rejected_and_removed(self):
+        doc = self.document("# 1. 개요\n## 1.1 범위\n")
+        self.assertEqual([issue.code for issue in hn.numbered(doc, "check")[1]], ["NUMBER"])
+        self.assertEqual(hn.numbered(doc, "numbered")[0], "# 1 개요\n## 1.1 범위\n")
+
     def test_batch_with_structure_error_writes_nothing(self):
         first = self.document("# A\n", "a.md")
         second = self.document("### B\n", "b.md")
         code, _ = self.cli("apply", "a.md", "b.md", "--input", "unnumbered")
         self.assertEqual(code, 1)
-        self.assertEqual(first.path.read_text(), first.text)
-        self.assertEqual(second.path.read_text(), second.text)
+        self.assertEqual(first.path.read_text(encoding="utf-8"), first.text)
+        self.assertEqual(second.path.read_text(encoding="utf-8"), second.text)
 
     def test_apply_updates_only_frontmatter_date_and_is_repeatable(self):
         doc = self.document('---\ntitle: Test\nupdated: "2020-01-01"\n---\n# A\n```yaml\nupdated: "PRESERVE"\n```\n')
@@ -153,13 +246,13 @@ class HeadingNumbersTests(unittest.TestCase):
     def test_missing_frontmatter_date_does_not_change_code_example(self):
         doc = self.document('---\ntitle: Test\n---\n# A\n```yaml\nupdated: "PRESERVE"\n```\n')
         self.cli("apply", "note.md", "--input", "unnumbered", "--date", "2026-10-07")
-        self.assertIn('updated: "PRESERVE"', doc.path.read_text())
+        self.assertIn('updated: "PRESERVE"', doc.path.read_text(encoding="utf-8"))
 
     def test_apply_requires_explicit_input_mode(self):
         doc = self.document("# 2026 계획\n")
         code, _ = self.cli("apply", "note.md")
         self.assertEqual(code, 2)
-        self.assertEqual(doc.path.read_text(), doc.text)
+        self.assertEqual(doc.path.read_text(encoding="utf-8"), doc.text)
 
     def test_heading_links_that_would_break_block_apply(self):
         doc = self.document("# Old\n", "target.md")
@@ -167,7 +260,7 @@ class HeadingNumbersTests(unittest.TestCase):
         code, output = self.cli("apply", "target.md", "--input", "unnumbered")
         self.assertEqual(code, 1)
         self.assertIn("HEADING_LINK", output)
-        self.assertEqual(doc.path.read_text(), doc.text)
+        self.assertEqual(doc.path.read_text(encoding="utf-8"), doc.text)
 
     def test_links_updated_to_future_heading_allow_apply(self):
         self.document("# Old\n", "target.md")

@@ -9,6 +9,8 @@ unnumbered headings. Use --literal-line for a new title beginning with a number.
 Only standalone ATX headings are managed. Frontmatter, fenced/indented code,
 quoted/list-contained headings, raw HTML, and inline-code examples are preserved.
 Monthly logs are excluded by folder or top-level `type: log` metadata.
+Articles in 03_Articles, and article drafts targeting it in 90_Workspace,
+keep their initial document-information section and its children unnumbered.
 """
 
 from __future__ import annotations
@@ -29,6 +31,8 @@ ATX = re.compile(r"^( {0,3})(#{1,6})(?:[ \t]+(.*)|$)")
 FENCE = re.compile(r"^ {0,3}(`{3,}|~{3,})(.*)$")
 NUMBER = re.compile(r"^(\(\d+\)|\d+(?:\.\d+)*[.)]?)[ \t]+(.*)$")
 LOG_TYPE = re.compile(r'''^type:[ \t]*(?:log|"log"|'log')[ \t]*(?:#.*)?$''')
+ARTICLE_TYPE = re.compile(r'''^type:[ \t]*(?:article|"article"|'article')[ \t]*(?:#.*)?$''')
+ARTICLE_TARGET = re.compile(r'''^target_folder:[ \t]*(?:03_Articles|"03_Articles"|'03_Articles')[ \t]*(?:#.*)?$''')
 IGNORED_DIRS = {"node_modules", "__pycache__"}
 HTML_BLOCK = re.compile(r"^ {0,3}</?(?:div|table|section|article|details|summary|p|ul|ol|li|blockquote|h[1-6])(?:[ >]|$)", re.I)
 
@@ -61,6 +65,7 @@ class Document:
     visible: list[tuple[int, str]]
     is_log: bool
     front_end: int
+    article_info_scope: bool = False
 
 
 def parse(path: Path, text: str, root: Path) -> Document:
@@ -78,6 +83,12 @@ def parse(path: Path, text: str, root: Path) -> Document:
     relative = path.relative_to(root).parts
     is_log = relative[:2] == ("00_System", "02_Logs") or any(
         LOG_TYPE.fullmatch(line.rstrip("\r\n")) for line in lines[1:start - 1]
+    )
+    metadata = [line.rstrip("\r\n") for line in lines[1:start - 1]]
+    article_info_scope = any(ARTICLE_TYPE.fullmatch(line) for line in metadata) and (
+        relative[:1] == ("03_Articles",) or (
+            relative[:1] == ("90_Workspace",) and any(ARTICLE_TARGET.fullmatch(line) for line in metadata)
+        )
     )
     headings: list[Heading] = []
     visible: list[tuple[int, str]] = []
@@ -167,7 +178,7 @@ def parse(path: Path, text: str, root: Path) -> Document:
         issues.append(Issue(fence[2], "FENCE", "코드 블록이 닫히지 않았습니다. 뒤의 본문을 번호 대상에서 제외했습니다."))
     if comment or raw_tag:
         issues.append(Issue(len(lines), "HTML", "주석 또는 원시 HTML 블록이 닫히지 않았습니다."))
-    return Document(path, text, lines, headings, issues, visible, is_log, start)
+    return Document(path, text, lines, headings, issues, visible, is_log, start, article_info_scope)
 
 
 def numbered(doc: Document, mode: str, literal_lines: set[int] | None = None) -> tuple[str, list[Issue]]:
@@ -178,18 +189,28 @@ def numbered(doc: Document, mode: str, literal_lines: set[int] | None = None) ->
         return doc.text, issues
     lines = doc.lines.copy()
     counts = [0] * 5
-    for heading in doc.headings:
+    info_section = False
+    for index, heading in enumerate(doc.headings):
         level = heading.level
+        title = heading.text
+        if mode in {"numbered", "check"} and heading.line not in (literal_lines or set()):
+            existing = NUMBER.fullmatch(title)
+            if existing:
+                title = existing[2]
+        if level == 1:
+            info_section = doc.article_info_scope and index == 0 and title == "문서 정보"
+        if info_section:
+            if mode == "check":
+                if title != heading.text:
+                    issues.append(Issue(heading.line, "UNNUMBERED", "문서 정보 절과 하위 헤더는 번호 없이 표기해야 합니다."))
+            else:
+                lines[heading.line - 1] = heading.indent + "#" * level + " " + title + heading.suffix + heading.ending
+            continue
         counts[level - 1] += 1
         counts[level:] = [0] * (5 - level)
         prefix = ".".join(map(str, counts[:level])) if level <= 3 else (
             str(counts[3]) + ")" if level == 4 else "(" + str(counts[4]) + ")"
         )
-        title = heading.text
-        if mode == "numbered" and heading.line not in (literal_lines or set()):
-            existing = NUMBER.fullmatch(title)
-            if existing:
-                title = existing[2]
         desired = prefix + " " + title
         if mode == "check":
             existing = NUMBER.fullmatch(heading.text)

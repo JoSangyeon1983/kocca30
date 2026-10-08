@@ -1,0 +1,107 @@
+{
+  "browser": "chrome.exe",
+  "baseline": {
+    "time": 0.3638888888888881,
+    "input": {
+      "x": 0,
+      "tilt": 0,
+      "speed": 2.9
+    },
+    "hand": {
+      "x": 0,
+      "tilt": 0,
+      "speed": 2.9
+    },
+    "tip": [
+      0.005692438547839032,
+      1.1406511499113332,
+      -0.0027298883181606825
+    ],
+    "position": [
+      -0.00914258095299882,
+      1.1884609473559067,
+      0.0274463236285519
+    ],
+    "velocity": [
+      0.10203119653852329,
+      0.02884881084324635,
+      0.1978611592026713
+    ],
+    "q": [
+      0.005233166591947422,
+      -0.746565265940465,
+      -0.03910931335494478,
+      -0.6641410838576158
+    ],
+    "rpm": 207.59300755056466,
+    "tilt": 4.522714278731497,
+    "contact": true,
+    "normalForce": 2.8821895363399,
+    "contactRadius": 0.02979220585105102,
+    "grounded": false,
+    "contactFraction": 1,
+    "work": 0.023560473273233563,
+    "canThrow": true,
+    "throwElapsed": -1,
+    "throwCount": 0,
+    "catchCount": 0,
+    "throwAirborne": false,
+    "lastThrowAt": null,
+    "lastReleaseAt": null,
+    "lastCatchAt": null,
+    "paused": false,
+    "view": "perspective",
+    "samples": 6,
+    "held": 0,
+    "params": {
+      "mass": 0.32,
+      "radius": 0.235,
+      "rimHeight": 0.1,
+      "rimWidth": 0.01,
+      "leatherRadius": 0.075,
+      "rimMassFraction": 0.65,
+      "leatherMassFraction": 0.1,
+      "leatherFriction": 0.2,
+      "clothFriction": 0.2,
+      "airDrag": 0.016,
+      "tipDrag": 0.0009,
+      "length": 0.5,
+      "handHeight": 0.64,
+      "initialRpm": 210,
+      "initialTilt": 2.5,
+      "initialSpeed": 2.9,
+      "gestureScale": 1,
+      "step": 0.002777777777777778,
+      "throwLower": 0,
+      "throwLift": 0.12,
+      "throwPrepare": 0,
+      "throwPush": 0.16,
+      "throwReturn": 0.3,
+      "throwSpeed": 2.2
+    }
+  },
+  "checks": [
+    "portable-file",
+    "WS-hand-speed",
+    "AD-tilt",
+    "arrow-position",
+    "focused-slider-keys",
+    "pause",
+    "reset",
+    "blur-release",
+    "mouse-drag",
+    "shift-drag",
+    "held-button",
+    "space-throw",
+    "spinning-recatch",
+    "space-repeat-guard",
+    "space-no-scroll",
+    "throw-button",
+    "P-pause",
+    "touch-drag",
+    "csv-export",
+    "three-views",
+    "desktop-mobile-layout"
+  ],
+  "errors": []
+}
