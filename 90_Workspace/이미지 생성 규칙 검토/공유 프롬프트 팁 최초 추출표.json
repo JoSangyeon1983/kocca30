@@ -1,0 +1,460 @@
+{
+  "created": "2026-10-08",
+  "source": "사용자가 이 대화에서 전달한 타 팀원 공유 프롬프트 팁",
+  "analysis_scope": {
+    "start": "P1 제목",
+    "end": "P5 마지막 프롬프트 문장",
+    "excludes": "마지막 검토 요청 문장은 작업 지시로 구분함"
+  },
+  "segmentation": "제목, 비율 문장과 쉼표로 구분된 요구 구절을 원문 순서대로 추출함. 복합 구절은 원문 범위를 유지하며 후속 분할 시 이력을 기록함.",
+  "original_blocks": [
+    "<GPT 사진+깔끔한 3D조형물 조화 다이어그램>\n\n상기 내용 함축하여 6:4 비율로\n\n깨끗한 흰색 배경의 헤더나 제목(Title) 텍스트는 완전히 제외하고, 개념도 다이어그램, 핵심 내용을 풍부한 해당 표현에 맞는 포토리얼 이미지 또는 고품질 3D 개념 주제를 상징하는 세련된 조형물 이미지 이미지 포함한 짧은 대표 제목만, 작은 글씨 금지, 아이소메트릭 구도, 부드러운 스튜디오 조명, 사실적인 질감, 명확한 시각적 위계, 연결은 상호연관 흐름선, 프리미엄 에디토리얼 디자인의 테크 인포그래픽 고급 시각화 한글 텍스트 이미지생성해줘",
+    "<GPT 자유롭고 귀엽고 깔끔한 3D조형물 느낌 다이어그램>\n\n상기 내용 함축하여 6:4 비율로\n\n깨끗한 흰색 배경의 헤더나 제목(Title) 텍스트는 완전히 제외하고, 개념도 다이어그램, 핵심 내용을 풍부한 해당 표현에 맞는 포토리얼 이미지 또는 고퀄리티 3D 의미를 직관적으로 전달하는 독창적인 입체 조형물로 표현, 이미지 포함한 짧은 대표 제목만, 작은 글씨 금지, 은은한 그림자, 정돈된 구도, 복잡한 배경은 제외, C4D 렌더링, 연결은 상호연관 흐름선, 프리미엄 에디토리얼 디자인의 테크 인포그래픽 고급 시각화 한글 텍스트 이미지생성해줘",
+    "<GPT 잘배열된 깔끔한 3D모델링 느낌 다이어그램>\n\n상기 내용 함축하여 6:4 비율로\n\n깨끗한 흰색 배경의 헤더나 제목(Title) 텍스트는 완전히 제외하고, 개념도 다이어그램, 핵심 내용을 풍부한 해당 표현에 맞는 포토리얼 이미지 또는 미니멀한 3D 이미지 포함한 짧은 대표 제목만, 작은 글씨 금지, 무광, 아이소메트릭 뷰(등각 투영법) 조형물, 기하학적인 도형, 부드러운 스튜디오 조명, 깔끔한 배경, 8K 해상도, 옥테인 렌더, 하이엔드 상업 디자인, 연결은 상호연관 흐름선, 프리미엄 에디토리얼 디자인의 테크 인포그래픽 고급 시각화 한글 텍스트 이미지생성해줘",
+    "<GPT 사실적일러스트이미지 화려한 컬러 세부디테일밀도 다이어그램>\n\n상기 내용 함축하여 6:4 비율로\n\n깨끗한 흰색 배경의 헤더나 제목(Title) 텍스트는 완전히 제외하고, 개념도 다이어그램, 핵심 내용을 풍부한 해당 표현에 맞는 포토리얼 이미지 또는 초고해상도 3D 상징물 렌더링 포함한 짧은 대표 제목만, 작은 글씨 금지, 은은한 그라데이션 컬러, 디테일한 질감, 앰비언트 오클루전, 연결은 상호연관 흐름선, 프리미엄 에디토리얼 디자인의 테크 인포그래픽 고급 시각화 한글 텍스트 이미지생성해줘",
+    "<GPT 사실적일러스트이미지 세부디테일밀도 다이어그램>\n\n상기 내용 함축하여 6:4 비율로\n\n깨끗한 흰색 배경의 헤더나 제목(Title) 텍스트는 완전히 제외하고, 고급스러운 비즈니스인포그래픽 다이어그램, 핵심 내용을 풍부한 해당 표현에 맞는 포토리얼 이미지 또는 고급 3D 핵심 상징물 기하학적 구조, 언리얼 엔진 5 렌더링, 이미지 포함한 짧은 대표 제목만, 작은 글씨 금지, 초고화질, 연결은 상호연관 흐름선, 프리미엄 에디토리얼 디자인의 테크 인포그래픽 고급 시각화 한글 텍스트 이미지생성해줘."
+  ],
+  "rows": [
+    {
+      "id": "U001",
+      "source_block": "P1",
+      "start_offset": 0,
+      "end_offset": 27,
+      "quote": "<GPT 사진+깔끔한 3D조형물 조화 다이어그램>"
+    },
+    {
+      "id": "U002",
+      "source_block": "P1",
+      "start_offset": 29,
+      "end_offset": 47,
+      "quote": "상기 내용 함축하여 6:4 비율로"
+    },
+    {
+      "id": "U003",
+      "source_block": "P1",
+      "start_offset": 49,
+      "end_offset": 87,
+      "quote": "깨끗한 흰색 배경의 헤더나 제목(Title) 텍스트는 완전히 제외하고"
+    },
+    {
+      "id": "U004",
+      "source_block": "P1",
+      "start_offset": 89,
+      "end_offset": 98,
+      "quote": "개념도 다이어그램"
+    },
+    {
+      "id": "U005",
+      "source_block": "P1",
+      "start_offset": 100,
+      "end_offset": 181,
+      "quote": "핵심 내용을 풍부한 해당 표현에 맞는 포토리얼 이미지 또는 고품질 3D 개념 주제를 상징하는 세련된 조형물 이미지 이미지 포함한 짧은 대표 제목만"
+    },
+    {
+      "id": "U006",
+      "source_block": "P1",
+      "start_offset": 183,
+      "end_offset": 191,
+      "quote": "작은 글씨 금지"
+    },
+    {
+      "id": "U007",
+      "source_block": "P1",
+      "start_offset": 193,
+      "end_offset": 202,
+      "quote": "아이소메트릭 구도"
+    },
+    {
+      "id": "U008",
+      "source_block": "P1",
+      "start_offset": 204,
+      "end_offset": 216,
+      "quote": "부드러운 스튜디오 조명"
+    },
+    {
+      "id": "U009",
+      "source_block": "P1",
+      "start_offset": 218,
+      "end_offset": 225,
+      "quote": "사실적인 질감"
+    },
+    {
+      "id": "U010",
+      "source_block": "P1",
+      "start_offset": 227,
+      "end_offset": 237,
+      "quote": "명확한 시각적 위계"
+    },
+    {
+      "id": "U011",
+      "source_block": "P1",
+      "start_offset": 239,
+      "end_offset": 251,
+      "quote": "연결은 상호연관 흐름선"
+    },
+    {
+      "id": "U012",
+      "source_block": "P1",
+      "start_offset": 253,
+      "end_offset": 299,
+      "quote": "프리미엄 에디토리얼 디자인의 테크 인포그래픽 고급 시각화 한글 텍스트 이미지생성해줘"
+    },
+    {
+      "id": "U013",
+      "source_block": "P2",
+      "start_offset": 0,
+      "end_offset": 33,
+      "quote": "<GPT 자유롭고 귀엽고 깔끔한 3D조형물 느낌 다이어그램>"
+    },
+    {
+      "id": "U014",
+      "source_block": "P2",
+      "start_offset": 35,
+      "end_offset": 53,
+      "quote": "상기 내용 함축하여 6:4 비율로"
+    },
+    {
+      "id": "U015",
+      "source_block": "P2",
+      "start_offset": 55,
+      "end_offset": 93,
+      "quote": "깨끗한 흰색 배경의 헤더나 제목(Title) 텍스트는 완전히 제외하고"
+    },
+    {
+      "id": "U016",
+      "source_block": "P2",
+      "start_offset": 95,
+      "end_offset": 104,
+      "quote": "개념도 다이어그램"
+    },
+    {
+      "id": "U017",
+      "source_block": "P2",
+      "start_offset": 106,
+      "end_offset": 177,
+      "quote": "핵심 내용을 풍부한 해당 표현에 맞는 포토리얼 이미지 또는 고퀄리티 3D 의미를 직관적으로 전달하는 독창적인 입체 조형물로 표현"
+    },
+    {
+      "id": "U018",
+      "source_block": "P2",
+      "start_offset": 179,
+      "end_offset": 196,
+      "quote": "이미지 포함한 짧은 대표 제목만"
+    },
+    {
+      "id": "U019",
+      "source_block": "P2",
+      "start_offset": 198,
+      "end_offset": 206,
+      "quote": "작은 글씨 금지"
+    },
+    {
+      "id": "U020",
+      "source_block": "P2",
+      "start_offset": 208,
+      "end_offset": 215,
+      "quote": "은은한 그림자"
+    },
+    {
+      "id": "U021",
+      "source_block": "P2",
+      "start_offset": 217,
+      "end_offset": 223,
+      "quote": "정돈된 구도"
+    },
+    {
+      "id": "U022",
+      "source_block": "P2",
+      "start_offset": 225,
+      "end_offset": 235,
+      "quote": "복잡한 배경은 제외"
+    },
+    {
+      "id": "U023",
+      "source_block": "P2",
+      "start_offset": 237,
+      "end_offset": 244,
+      "quote": "C4D 렌더링"
+    },
+    {
+      "id": "U024",
+      "source_block": "P2",
+      "start_offset": 246,
+      "end_offset": 258,
+      "quote": "연결은 상호연관 흐름선"
+    },
+    {
+      "id": "U025",
+      "source_block": "P2",
+      "start_offset": 260,
+      "end_offset": 306,
+      "quote": "프리미엄 에디토리얼 디자인의 테크 인포그래픽 고급 시각화 한글 텍스트 이미지생성해줘"
+    },
+    {
+      "id": "U026",
+      "source_block": "P3",
+      "start_offset": 0,
+      "end_offset": 29,
+      "quote": "<GPT 잘배열된 깔끔한 3D모델링 느낌 다이어그램>"
+    },
+    {
+      "id": "U027",
+      "source_block": "P3",
+      "start_offset": 31,
+      "end_offset": 49,
+      "quote": "상기 내용 함축하여 6:4 비율로"
+    },
+    {
+      "id": "U028",
+      "source_block": "P3",
+      "start_offset": 51,
+      "end_offset": 89,
+      "quote": "깨끗한 흰색 배경의 헤더나 제목(Title) 텍스트는 완전히 제외하고"
+    },
+    {
+      "id": "U029",
+      "source_block": "P3",
+      "start_offset": 91,
+      "end_offset": 100,
+      "quote": "개념도 다이어그램"
+    },
+    {
+      "id": "U030",
+      "source_block": "P3",
+      "start_offset": 102,
+      "end_offset": 160,
+      "quote": "핵심 내용을 풍부한 해당 표현에 맞는 포토리얼 이미지 또는 미니멀한 3D 이미지 포함한 짧은 대표 제목만"
+    },
+    {
+      "id": "U031",
+      "source_block": "P3",
+      "start_offset": 162,
+      "end_offset": 170,
+      "quote": "작은 글씨 금지"
+    },
+    {
+      "id": "U032",
+      "source_block": "P3",
+      "start_offset": 172,
+      "end_offset": 174,
+      "quote": "무광"
+    },
+    {
+      "id": "U033",
+      "source_block": "P3",
+      "start_offset": 176,
+      "end_offset": 196,
+      "quote": "아이소메트릭 뷰(등각 투영법) 조형물"
+    },
+    {
+      "id": "U034",
+      "source_block": "P3",
+      "start_offset": 198,
+      "end_offset": 206,
+      "quote": "기하학적인 도형"
+    },
+    {
+      "id": "U035",
+      "source_block": "P3",
+      "start_offset": 208,
+      "end_offset": 220,
+      "quote": "부드러운 스튜디오 조명"
+    },
+    {
+      "id": "U036",
+      "source_block": "P3",
+      "start_offset": 222,
+      "end_offset": 228,
+      "quote": "깔끔한 배경"
+    },
+    {
+      "id": "U037",
+      "source_block": "P3",
+      "start_offset": 230,
+      "end_offset": 236,
+      "quote": "8K 해상도"
+    },
+    {
+      "id": "U038",
+      "source_block": "P3",
+      "start_offset": 238,
+      "end_offset": 244,
+      "quote": "옥테인 렌더"
+    },
+    {
+      "id": "U039",
+      "source_block": "P3",
+      "start_offset": 246,
+      "end_offset": 257,
+      "quote": "하이엔드 상업 디자인"
+    },
+    {
+      "id": "U040",
+      "source_block": "P3",
+      "start_offset": 259,
+      "end_offset": 271,
+      "quote": "연결은 상호연관 흐름선"
+    },
+    {
+      "id": "U041",
+      "source_block": "P3",
+      "start_offset": 273,
+      "end_offset": 319,
+      "quote": "프리미엄 에디토리얼 디자인의 테크 인포그래픽 고급 시각화 한글 텍스트 이미지생성해줘"
+    },
+    {
+      "id": "U042",
+      "source_block": "P4",
+      "start_offset": 0,
+      "end_offset": 37,
+      "quote": "<GPT 사실적일러스트이미지 화려한 컬러 세부디테일밀도 다이어그램>"
+    },
+    {
+      "id": "U043",
+      "source_block": "P4",
+      "start_offset": 39,
+      "end_offset": 57,
+      "quote": "상기 내용 함축하여 6:4 비율로"
+    },
+    {
+      "id": "U044",
+      "source_block": "P4",
+      "start_offset": 59,
+      "end_offset": 97,
+      "quote": "깨끗한 흰색 배경의 헤더나 제목(Title) 텍스트는 완전히 제외하고"
+    },
+    {
+      "id": "U045",
+      "source_block": "P4",
+      "start_offset": 99,
+      "end_offset": 108,
+      "quote": "개념도 다이어그램"
+    },
+    {
+      "id": "U046",
+      "source_block": "P4",
+      "start_offset": 110,
+      "end_offset": 173,
+      "quote": "핵심 내용을 풍부한 해당 표현에 맞는 포토리얼 이미지 또는 초고해상도 3D 상징물 렌더링 포함한 짧은 대표 제목만"
+    },
+    {
+      "id": "U047",
+      "source_block": "P4",
+      "start_offset": 175,
+      "end_offset": 183,
+      "quote": "작은 글씨 금지"
+    },
+    {
+      "id": "U048",
+      "source_block": "P4",
+      "start_offset": 185,
+      "end_offset": 197,
+      "quote": "은은한 그라데이션 컬러"
+    },
+    {
+      "id": "U049",
+      "source_block": "P4",
+      "start_offset": 199,
+      "end_offset": 206,
+      "quote": "디테일한 질감"
+    },
+    {
+      "id": "U050",
+      "source_block": "P4",
+      "start_offset": 208,
+      "end_offset": 217,
+      "quote": "앰비언트 오클루전"
+    },
+    {
+      "id": "U051",
+      "source_block": "P4",
+      "start_offset": 219,
+      "end_offset": 231,
+      "quote": "연결은 상호연관 흐름선"
+    },
+    {
+      "id": "U052",
+      "source_block": "P4",
+      "start_offset": 233,
+      "end_offset": 279,
+      "quote": "프리미엄 에디토리얼 디자인의 테크 인포그래픽 고급 시각화 한글 텍스트 이미지생성해줘"
+    },
+    {
+      "id": "U053",
+      "source_block": "P5",
+      "start_offset": 0,
+      "end_offset": 30,
+      "quote": "<GPT 사실적일러스트이미지 세부디테일밀도 다이어그램>"
+    },
+    {
+      "id": "U054",
+      "source_block": "P5",
+      "start_offset": 32,
+      "end_offset": 50,
+      "quote": "상기 내용 함축하여 6:4 비율로"
+    },
+    {
+      "id": "U055",
+      "source_block": "P5",
+      "start_offset": 52,
+      "end_offset": 90,
+      "quote": "깨끗한 흰색 배경의 헤더나 제목(Title) 텍스트는 완전히 제외하고"
+    },
+    {
+      "id": "U056",
+      "source_block": "P5",
+      "start_offset": 92,
+      "end_offset": 113,
+      "quote": "고급스러운 비즈니스인포그래픽 다이어그램"
+    },
+    {
+      "id": "U057",
+      "source_block": "P5",
+      "start_offset": 115,
+      "end_offset": 168,
+      "quote": "핵심 내용을 풍부한 해당 표현에 맞는 포토리얼 이미지 또는 고급 3D 핵심 상징물 기하학적 구조"
+    },
+    {
+      "id": "U058",
+      "source_block": "P5",
+      "start_offset": 170,
+      "end_offset": 182,
+      "quote": "언리얼 엔진 5 렌더링"
+    },
+    {
+      "id": "U059",
+      "source_block": "P5",
+      "start_offset": 184,
+      "end_offset": 201,
+      "quote": "이미지 포함한 짧은 대표 제목만"
+    },
+    {
+      "id": "U060",
+      "source_block": "P5",
+      "start_offset": 203,
+      "end_offset": 211,
+      "quote": "작은 글씨 금지"
+    },
+    {
+      "id": "U061",
+      "source_block": "P5",
+      "start_offset": 213,
+      "end_offset": 217,
+      "quote": "초고화질"
+    },
+    {
+      "id": "U062",
+      "source_block": "P5",
+      "start_offset": 219,
+      "end_offset": 231,
+      "quote": "연결은 상호연관 흐름선"
+    },
+    {
+      "id": "U063",
+      "source_block": "P5",
+      "start_offset": 233,
+      "end_offset": 280,
+      "quote": "프리미엄 에디토리얼 디자인의 테크 인포그래픽 고급 시각화 한글 텍스트 이미지생성해줘."
+    }
+  ]
+}

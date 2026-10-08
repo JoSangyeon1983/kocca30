@@ -1,0 +1,1324 @@
+{
+  "created": "2026-10-08",
+  "task": "공유된 다섯 프롬프트 팁의 적절성과 이미지 생성 규칙 3절 보완 여부 검토",
+  "scope": "검토 기록만 저장함. 이미지 생성과 본 규칙 문서 수정은 수행하지 않음.",
+  "initial_extraction": "공유 프롬프트 팁 최초 추출표.json",
+  "count_note": {
+    "source_units": 63,
+    "source_prompt_blocks": 5,
+    "review_groups": 12,
+    "note": "원문 단위 수, 프롬프트 수와 분석 묶음 수는 다른 값임. 아래 분류는 규칙 보완을 위한 한 가지 배열이며 유일한 구조로 단정하지 않음."
+  },
+  "grouping_history": [
+    {
+      "action": "분류",
+      "reason": "최초 추출표 저장 후 현재 규칙의 배치, 시각 요소, 프롬프트와 실행 설정에 따라 여러 원문 단위를 분석 묶음에 대응함. 하나의 복합 원문 단위는 여러 묶음에 대응 가능함. 원문 ID 변경과 분할 없음."
+    }
+  ],
+  "review_groups": [
+    {
+      "id": "G01",
+      "name": "전달 목적과 내용",
+      "units": [
+        "U004",
+        "U016",
+        "U029",
+        "U045",
+        "U056"
+      ],
+      "decision": "기존 규칙 유지",
+      "target": "1 목적과 기본 원칙, 2 내용 분석",
+      "reason": "개념도와 정보그래픽이라는 산출물 유형은 기존 범위에 해당함. 상기 내용은 실제 원자료와 확정 메시지로 구체화해야 함."
+    },
+    {
+      "id": "G02",
+      "name": "화면비",
+      "units": [
+        "U002",
+        "U014",
+        "U027",
+        "U043",
+        "U054"
+      ],
+      "decision": "선택 기준 보완",
+      "target": "3.1 레이아웃 선택, 5.1 생성 경로와 실행 설정",
+      "reason": "6:4는 3:2와 같은 비율임. 삽입 위치와 사용 크기에 맞춰 선택하고 기존 기본값 16:9를 공유 팁만으로 변경하지 않음."
+    },
+    {
+      "id": "G03",
+      "name": "전체 제목과 요소별 라벨",
+      "units": [
+        "U003",
+        "U005",
+        "U015",
+        "U018",
+        "U028",
+        "U030",
+        "U044",
+        "U046",
+        "U055",
+        "U059"
+      ],
+      "decision": "표현 명확화",
+      "target": "3.1 레이아웃 선택, 2.1 표시 정보 선택과 분류",
+      "reason": "전체 상단 제목 제외와 이미지별 짧은 대표 라벨 허용을 구분함. 제목용 메시지를 요구하는 2.1은 설계용 핵심 메시지와 실제 제목 표시를 구분할 필요 있음."
+    },
+    {
+      "id": "G04",
+      "name": "텍스트 가독성",
+      "units": [
+        "U005",
+        "U006",
+        "U018",
+        "U019",
+        "U030",
+        "U031",
+        "U046",
+        "U047",
+        "U059",
+        "U060"
+      ],
+      "decision": "기존 규칙 보완",
+      "target": "3.3 배치와 시각 요소, 2.2 렌더 문자열 확정, 5.2 검수 절차",
+      "reason": "짧은 글자 수만으로 크기와 가독성을 보장하지 못함. 실제 사용 크기에서 읽히도록 라벨 영역과 여백 확보하고 시각 디테일이 라벨을 압도하지 않는지 확인함."
+    },
+    {
+      "id": "G05",
+      "name": "실사와 3D의 의미 배정",
+      "units": [
+        "U001",
+        "U005",
+        "U017",
+        "U030",
+        "U046",
+        "U057"
+      ],
+      "decision": "시각 어휘 확장",
+      "target": "3.3 배치와 시각 요소",
+      "reason": "실사와 3D 조형물을 블록의 의미에 맞춰 선택하거나 혼합할 수 있음. 스타일명 자체를 모든 블록의 의무 양식으로 적용하지 않음."
+    },
+    {
+      "id": "G06",
+      "name": "스타일별 외형 선택",
+      "units": [
+        "U007",
+        "U009",
+        "U013",
+        "U026",
+        "U032",
+        "U033",
+        "U034",
+        "U042",
+        "U048",
+        "U049",
+        "U050",
+        "U053",
+        "U057"
+      ],
+      "decision": "선택 사항",
+      "target": "3.3 배치와 시각 요소 또는 별도 시각 스타일 선택 절",
+      "reason": "등각 구도, 귀여운 형태, 무광, 기하학, 그라데이션과 질감은 서로 선택하거나 조합하는 스타일임. 다섯 프롬프트의 모든 수식어를 동시에 공통 규칙으로 고정하지 않음."
+    },
+    {
+      "id": "G07",
+      "name": "배경과 조명",
+      "units": [
+        "U003",
+        "U008",
+        "U015",
+        "U020",
+        "U022",
+        "U028",
+        "U035",
+        "U036",
+        "U044",
+        "U055"
+      ],
+      "decision": "선택 사항과 조화 기준",
+      "target": "3.3 배치와 시각 요소",
+      "reason": "흰 배경, 스튜디오 조명과 은은한 그림자는 유용한 연출임. 혼합 시 광원, 색조, 그림자와 상대 크기의 일관성은 원문에서 구체화되지 않은 설계 추가임."
+    },
+    {
+      "id": "G08",
+      "name": "시각 위계와 정돈",
+      "units": [
+        "U010",
+        "U021"
+      ],
+      "decision": "기존 규칙 보완",
+      "target": "3.3 배치와 시각 요소",
+      "reason": "핵심 이미지, 보조 이미지와 라벨의 중요도와 크기 차이를 설계함. 복잡한 소재 디테일보다 의미와 관계 판독을 우선하는 기준은 설계 추가임."
+    },
+    {
+      "id": "G09",
+      "name": "관계 연결선",
+      "units": [
+        "U011",
+        "U024",
+        "U040",
+        "U051",
+        "U062"
+      ],
+      "decision": "기존 화살표 규칙 수정 권고",
+      "target": "3.3 배치와 시각 요소",
+      "reason": "상호연관 흐름선만으로는 관계와 방향이 불명확함. 순서와 전달은 방향 화살표, 방향 없는 연관은 일반 선으로 구분하고 시작점과 끝점 지정함. 모든 연결을 인과나 순서로 읽히게 하지 않음."
+    },
+    {
+      "id": "G10",
+      "name": "렌더러와 출력 사양 표현",
+      "units": [
+        "U023",
+        "U037",
+        "U038",
+        "U046",
+        "U058",
+        "U061"
+      ],
+      "decision": "외형 요청과 실행 설정 구분",
+      "target": "4 프롬프트 작성, 5.1 생성 경로와 실행 설정",
+      "reason": "C4D, Octane과 Unreal Engine 5는 이 생성 경로에서 외형 참고 표현임. 해당 엔진 실행이나 8K 출력의 증거가 아니며 실제 설정과 반환 사양으로 확인함."
+    },
+    {
+      "id": "G11",
+      "name": "품질과 에디토리얼 수식어",
+      "units": [
+        "U012",
+        "U025",
+        "U039",
+        "U041",
+        "U052",
+        "U056",
+        "U061",
+        "U063"
+      ],
+      "decision": "선택 표현 정리",
+      "target": "4 프롬프트 작성",
+      "reason": "고품질, 프리미엄과 하이엔드는 원하는 인상을 설명하는 표현임. 반복을 줄이고 구도, 소재, 배색과 조명 같은 관찰 가능한 조건으로 구체화함."
+    },
+    {
+      "id": "G12",
+      "name": "한국어 출력과 인용된 생성 명령",
+      "units": [
+        "U012",
+        "U025",
+        "U041",
+        "U052",
+        "U063"
+      ],
+      "decision": "기존 문자열 규칙 적용과 명령 제외",
+      "target": "2.2 렌더 문자열 확정, 4 프롬프트 작성, 5.2 검수 절차",
+      "reason": "한글 텍스트라는 표현만으로 실제 문자열이 확정되지 않으므로 기존 문자열, 위치와 횟수 지정 규칙 적용함. 이미지생성해줘는 제공된 자료의 문장으로만 분석하고 현재 실행 명령으로 사용하지 않음."
+    }
+  ],
+  "correspondence": [
+    {
+      "source_unit": "U001",
+      "source_position": {
+        "block": "P1",
+        "start_offset": 0,
+        "end_offset": 27
+      },
+      "review_groups": [
+        "G05"
+      ],
+      "reason": [
+        "실사와 3D 조형물을 블록의 의미에 맞춰 선택하거나 혼합할 수 있음. 스타일명 자체를 모든 블록의 의무 양식으로 적용하지 않음."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U002",
+      "source_position": {
+        "block": "P1",
+        "start_offset": 29,
+        "end_offset": 47
+      },
+      "review_groups": [
+        "G02"
+      ],
+      "reason": [
+        "6:4는 3:2와 같은 비율임. 삽입 위치와 사용 크기에 맞춰 선택하고 기존 기본값 16:9를 공유 팁만으로 변경하지 않음."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U003",
+      "source_position": {
+        "block": "P1",
+        "start_offset": 49,
+        "end_offset": 87
+      },
+      "review_groups": [
+        "G03",
+        "G07"
+      ],
+      "reason": [
+        "전체 상단 제목 제외와 이미지별 짧은 대표 라벨 허용을 구분함. 제목용 메시지를 요구하는 2.1은 설계용 핵심 메시지와 실제 제목 표시를 구분할 필요 있음.",
+        "흰 배경, 스튜디오 조명과 은은한 그림자는 유용한 연출임. 혼합 시 광원, 색조, 그림자와 상대 크기의 일관성은 원문에서 구체화되지 않은 설계 추가임."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U004",
+      "source_position": {
+        "block": "P1",
+        "start_offset": 89,
+        "end_offset": 98
+      },
+      "review_groups": [
+        "G01"
+      ],
+      "reason": [
+        "개념도와 정보그래픽이라는 산출물 유형은 기존 범위에 해당함. 상기 내용은 실제 원자료와 확정 메시지로 구체화해야 함."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U005",
+      "source_position": {
+        "block": "P1",
+        "start_offset": 100,
+        "end_offset": 181
+      },
+      "review_groups": [
+        "G03",
+        "G04",
+        "G05"
+      ],
+      "reason": [
+        "전체 상단 제목 제외와 이미지별 짧은 대표 라벨 허용을 구분함. 제목용 메시지를 요구하는 2.1은 설계용 핵심 메시지와 실제 제목 표시를 구분할 필요 있음.",
+        "짧은 글자 수만으로 크기와 가독성을 보장하지 못함. 실제 사용 크기에서 읽히도록 라벨 영역과 여백 확보하고 시각 디테일이 라벨을 압도하지 않는지 확인함.",
+        "실사와 3D 조형물을 블록의 의미에 맞춰 선택하거나 혼합할 수 있음. 스타일명 자체를 모든 블록의 의무 양식으로 적용하지 않음."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U006",
+      "source_position": {
+        "block": "P1",
+        "start_offset": 183,
+        "end_offset": 191
+      },
+      "review_groups": [
+        "G04"
+      ],
+      "reason": [
+        "짧은 글자 수만으로 크기와 가독성을 보장하지 못함. 실제 사용 크기에서 읽히도록 라벨 영역과 여백 확보하고 시각 디테일이 라벨을 압도하지 않는지 확인함."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U007",
+      "source_position": {
+        "block": "P1",
+        "start_offset": 193,
+        "end_offset": 202
+      },
+      "review_groups": [
+        "G06"
+      ],
+      "reason": [
+        "등각 구도, 귀여운 형태, 무광, 기하학, 그라데이션과 질감은 서로 선택하거나 조합하는 스타일임. 다섯 프롬프트의 모든 수식어를 동시에 공통 규칙으로 고정하지 않음."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U008",
+      "source_position": {
+        "block": "P1",
+        "start_offset": 204,
+        "end_offset": 216
+      },
+      "review_groups": [
+        "G07"
+      ],
+      "reason": [
+        "흰 배경, 스튜디오 조명과 은은한 그림자는 유용한 연출임. 혼합 시 광원, 색조, 그림자와 상대 크기의 일관성은 원문에서 구체화되지 않은 설계 추가임."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U009",
+      "source_position": {
+        "block": "P1",
+        "start_offset": 218,
+        "end_offset": 225
+      },
+      "review_groups": [
+        "G06"
+      ],
+      "reason": [
+        "등각 구도, 귀여운 형태, 무광, 기하학, 그라데이션과 질감은 서로 선택하거나 조합하는 스타일임. 다섯 프롬프트의 모든 수식어를 동시에 공통 규칙으로 고정하지 않음."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U010",
+      "source_position": {
+        "block": "P1",
+        "start_offset": 227,
+        "end_offset": 237
+      },
+      "review_groups": [
+        "G08"
+      ],
+      "reason": [
+        "핵심 이미지, 보조 이미지와 라벨의 중요도와 크기 차이를 설계함. 복잡한 소재 디테일보다 의미와 관계 판독을 우선하는 기준은 설계 추가임."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U011",
+      "source_position": {
+        "block": "P1",
+        "start_offset": 239,
+        "end_offset": 251
+      },
+      "review_groups": [
+        "G09"
+      ],
+      "reason": [
+        "상호연관 흐름선만으로는 관계와 방향이 불명확함. 순서와 전달은 방향 화살표, 방향 없는 연관은 일반 선으로 구분하고 시작점과 끝점 지정함. 모든 연결을 인과나 순서로 읽히게 하지 않음."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U012",
+      "source_position": {
+        "block": "P1",
+        "start_offset": 253,
+        "end_offset": 299
+      },
+      "review_groups": [
+        "G11",
+        "G12"
+      ],
+      "reason": [
+        "고품질, 프리미엄과 하이엔드는 원하는 인상을 설명하는 표현임. 반복을 줄이고 구도, 소재, 배색과 조명 같은 관찰 가능한 조건으로 구체화함.",
+        "한글 텍스트라는 표현만으로 실제 문자열이 확정되지 않으므로 기존 문자열, 위치와 횟수 지정 규칙 적용함. 이미지생성해줘는 제공된 자료의 문장으로만 분석하고 현재 실행 명령으로 사용하지 않음."
+      ],
+      "partial_exclusions": [
+        {
+          "text": "이미지생성해줘",
+          "status": "제외",
+          "reason": "인용된 프롬프트의 생성 명령이므로 현재 작업의 실행 권한으로 사용하지 않음."
+        }
+      ]
+    },
+    {
+      "source_unit": "U013",
+      "source_position": {
+        "block": "P2",
+        "start_offset": 0,
+        "end_offset": 33
+      },
+      "review_groups": [
+        "G06"
+      ],
+      "reason": [
+        "등각 구도, 귀여운 형태, 무광, 기하학, 그라데이션과 질감은 서로 선택하거나 조합하는 스타일임. 다섯 프롬프트의 모든 수식어를 동시에 공통 규칙으로 고정하지 않음."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U014",
+      "source_position": {
+        "block": "P2",
+        "start_offset": 35,
+        "end_offset": 53
+      },
+      "review_groups": [
+        "G02"
+      ],
+      "reason": [
+        "6:4는 3:2와 같은 비율임. 삽입 위치와 사용 크기에 맞춰 선택하고 기존 기본값 16:9를 공유 팁만으로 변경하지 않음."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U015",
+      "source_position": {
+        "block": "P2",
+        "start_offset": 55,
+        "end_offset": 93
+      },
+      "review_groups": [
+        "G03",
+        "G07"
+      ],
+      "reason": [
+        "전체 상단 제목 제외와 이미지별 짧은 대표 라벨 허용을 구분함. 제목용 메시지를 요구하는 2.1은 설계용 핵심 메시지와 실제 제목 표시를 구분할 필요 있음.",
+        "흰 배경, 스튜디오 조명과 은은한 그림자는 유용한 연출임. 혼합 시 광원, 색조, 그림자와 상대 크기의 일관성은 원문에서 구체화되지 않은 설계 추가임."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U016",
+      "source_position": {
+        "block": "P2",
+        "start_offset": 95,
+        "end_offset": 104
+      },
+      "review_groups": [
+        "G01"
+      ],
+      "reason": [
+        "개념도와 정보그래픽이라는 산출물 유형은 기존 범위에 해당함. 상기 내용은 실제 원자료와 확정 메시지로 구체화해야 함."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U017",
+      "source_position": {
+        "block": "P2",
+        "start_offset": 106,
+        "end_offset": 177
+      },
+      "review_groups": [
+        "G05"
+      ],
+      "reason": [
+        "실사와 3D 조형물을 블록의 의미에 맞춰 선택하거나 혼합할 수 있음. 스타일명 자체를 모든 블록의 의무 양식으로 적용하지 않음."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U018",
+      "source_position": {
+        "block": "P2",
+        "start_offset": 179,
+        "end_offset": 196
+      },
+      "review_groups": [
+        "G03",
+        "G04"
+      ],
+      "reason": [
+        "전체 상단 제목 제외와 이미지별 짧은 대표 라벨 허용을 구분함. 제목용 메시지를 요구하는 2.1은 설계용 핵심 메시지와 실제 제목 표시를 구분할 필요 있음.",
+        "짧은 글자 수만으로 크기와 가독성을 보장하지 못함. 실제 사용 크기에서 읽히도록 라벨 영역과 여백 확보하고 시각 디테일이 라벨을 압도하지 않는지 확인함."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U019",
+      "source_position": {
+        "block": "P2",
+        "start_offset": 198,
+        "end_offset": 206
+      },
+      "review_groups": [
+        "G04"
+      ],
+      "reason": [
+        "짧은 글자 수만으로 크기와 가독성을 보장하지 못함. 실제 사용 크기에서 읽히도록 라벨 영역과 여백 확보하고 시각 디테일이 라벨을 압도하지 않는지 확인함."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U020",
+      "source_position": {
+        "block": "P2",
+        "start_offset": 208,
+        "end_offset": 215
+      },
+      "review_groups": [
+        "G07"
+      ],
+      "reason": [
+        "흰 배경, 스튜디오 조명과 은은한 그림자는 유용한 연출임. 혼합 시 광원, 색조, 그림자와 상대 크기의 일관성은 원문에서 구체화되지 않은 설계 추가임."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U021",
+      "source_position": {
+        "block": "P2",
+        "start_offset": 217,
+        "end_offset": 223
+      },
+      "review_groups": [
+        "G08"
+      ],
+      "reason": [
+        "핵심 이미지, 보조 이미지와 라벨의 중요도와 크기 차이를 설계함. 복잡한 소재 디테일보다 의미와 관계 판독을 우선하는 기준은 설계 추가임."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U022",
+      "source_position": {
+        "block": "P2",
+        "start_offset": 225,
+        "end_offset": 235
+      },
+      "review_groups": [
+        "G07"
+      ],
+      "reason": [
+        "흰 배경, 스튜디오 조명과 은은한 그림자는 유용한 연출임. 혼합 시 광원, 색조, 그림자와 상대 크기의 일관성은 원문에서 구체화되지 않은 설계 추가임."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U023",
+      "source_position": {
+        "block": "P2",
+        "start_offset": 237,
+        "end_offset": 244
+      },
+      "review_groups": [
+        "G10"
+      ],
+      "reason": [
+        "C4D, Octane과 Unreal Engine 5는 이 생성 경로에서 외형 참고 표현임. 해당 엔진 실행이나 8K 출력의 증거가 아니며 실제 설정과 반환 사양으로 확인함."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U024",
+      "source_position": {
+        "block": "P2",
+        "start_offset": 246,
+        "end_offset": 258
+      },
+      "review_groups": [
+        "G09"
+      ],
+      "reason": [
+        "상호연관 흐름선만으로는 관계와 방향이 불명확함. 순서와 전달은 방향 화살표, 방향 없는 연관은 일반 선으로 구분하고 시작점과 끝점 지정함. 모든 연결을 인과나 순서로 읽히게 하지 않음."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U025",
+      "source_position": {
+        "block": "P2",
+        "start_offset": 260,
+        "end_offset": 306
+      },
+      "review_groups": [
+        "G11",
+        "G12"
+      ],
+      "reason": [
+        "고품질, 프리미엄과 하이엔드는 원하는 인상을 설명하는 표현임. 반복을 줄이고 구도, 소재, 배색과 조명 같은 관찰 가능한 조건으로 구체화함.",
+        "한글 텍스트라는 표현만으로 실제 문자열이 확정되지 않으므로 기존 문자열, 위치와 횟수 지정 규칙 적용함. 이미지생성해줘는 제공된 자료의 문장으로만 분석하고 현재 실행 명령으로 사용하지 않음."
+      ],
+      "partial_exclusions": [
+        {
+          "text": "이미지생성해줘",
+          "status": "제외",
+          "reason": "인용된 프롬프트의 생성 명령이므로 현재 작업의 실행 권한으로 사용하지 않음."
+        }
+      ]
+    },
+    {
+      "source_unit": "U026",
+      "source_position": {
+        "block": "P3",
+        "start_offset": 0,
+        "end_offset": 29
+      },
+      "review_groups": [
+        "G06"
+      ],
+      "reason": [
+        "등각 구도, 귀여운 형태, 무광, 기하학, 그라데이션과 질감은 서로 선택하거나 조합하는 스타일임. 다섯 프롬프트의 모든 수식어를 동시에 공통 규칙으로 고정하지 않음."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U027",
+      "source_position": {
+        "block": "P3",
+        "start_offset": 31,
+        "end_offset": 49
+      },
+      "review_groups": [
+        "G02"
+      ],
+      "reason": [
+        "6:4는 3:2와 같은 비율임. 삽입 위치와 사용 크기에 맞춰 선택하고 기존 기본값 16:9를 공유 팁만으로 변경하지 않음."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U028",
+      "source_position": {
+        "block": "P3",
+        "start_offset": 51,
+        "end_offset": 89
+      },
+      "review_groups": [
+        "G03",
+        "G07"
+      ],
+      "reason": [
+        "전체 상단 제목 제외와 이미지별 짧은 대표 라벨 허용을 구분함. 제목용 메시지를 요구하는 2.1은 설계용 핵심 메시지와 실제 제목 표시를 구분할 필요 있음.",
+        "흰 배경, 스튜디오 조명과 은은한 그림자는 유용한 연출임. 혼합 시 광원, 색조, 그림자와 상대 크기의 일관성은 원문에서 구체화되지 않은 설계 추가임."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U029",
+      "source_position": {
+        "block": "P3",
+        "start_offset": 91,
+        "end_offset": 100
+      },
+      "review_groups": [
+        "G01"
+      ],
+      "reason": [
+        "개념도와 정보그래픽이라는 산출물 유형은 기존 범위에 해당함. 상기 내용은 실제 원자료와 확정 메시지로 구체화해야 함."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U030",
+      "source_position": {
+        "block": "P3",
+        "start_offset": 102,
+        "end_offset": 160
+      },
+      "review_groups": [
+        "G03",
+        "G04",
+        "G05"
+      ],
+      "reason": [
+        "전체 상단 제목 제외와 이미지별 짧은 대표 라벨 허용을 구분함. 제목용 메시지를 요구하는 2.1은 설계용 핵심 메시지와 실제 제목 표시를 구분할 필요 있음.",
+        "짧은 글자 수만으로 크기와 가독성을 보장하지 못함. 실제 사용 크기에서 읽히도록 라벨 영역과 여백 확보하고 시각 디테일이 라벨을 압도하지 않는지 확인함.",
+        "실사와 3D 조형물을 블록의 의미에 맞춰 선택하거나 혼합할 수 있음. 스타일명 자체를 모든 블록의 의무 양식으로 적용하지 않음."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U031",
+      "source_position": {
+        "block": "P3",
+        "start_offset": 162,
+        "end_offset": 170
+      },
+      "review_groups": [
+        "G04"
+      ],
+      "reason": [
+        "짧은 글자 수만으로 크기와 가독성을 보장하지 못함. 실제 사용 크기에서 읽히도록 라벨 영역과 여백 확보하고 시각 디테일이 라벨을 압도하지 않는지 확인함."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U032",
+      "source_position": {
+        "block": "P3",
+        "start_offset": 172,
+        "end_offset": 174
+      },
+      "review_groups": [
+        "G06"
+      ],
+      "reason": [
+        "등각 구도, 귀여운 형태, 무광, 기하학, 그라데이션과 질감은 서로 선택하거나 조합하는 스타일임. 다섯 프롬프트의 모든 수식어를 동시에 공통 규칙으로 고정하지 않음."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U033",
+      "source_position": {
+        "block": "P3",
+        "start_offset": 176,
+        "end_offset": 196
+      },
+      "review_groups": [
+        "G06"
+      ],
+      "reason": [
+        "등각 구도, 귀여운 형태, 무광, 기하학, 그라데이션과 질감은 서로 선택하거나 조합하는 스타일임. 다섯 프롬프트의 모든 수식어를 동시에 공통 규칙으로 고정하지 않음."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U034",
+      "source_position": {
+        "block": "P3",
+        "start_offset": 198,
+        "end_offset": 206
+      },
+      "review_groups": [
+        "G06"
+      ],
+      "reason": [
+        "등각 구도, 귀여운 형태, 무광, 기하학, 그라데이션과 질감은 서로 선택하거나 조합하는 스타일임. 다섯 프롬프트의 모든 수식어를 동시에 공통 규칙으로 고정하지 않음."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U035",
+      "source_position": {
+        "block": "P3",
+        "start_offset": 208,
+        "end_offset": 220
+      },
+      "review_groups": [
+        "G07"
+      ],
+      "reason": [
+        "흰 배경, 스튜디오 조명과 은은한 그림자는 유용한 연출임. 혼합 시 광원, 색조, 그림자와 상대 크기의 일관성은 원문에서 구체화되지 않은 설계 추가임."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U036",
+      "source_position": {
+        "block": "P3",
+        "start_offset": 222,
+        "end_offset": 228
+      },
+      "review_groups": [
+        "G07"
+      ],
+      "reason": [
+        "흰 배경, 스튜디오 조명과 은은한 그림자는 유용한 연출임. 혼합 시 광원, 색조, 그림자와 상대 크기의 일관성은 원문에서 구체화되지 않은 설계 추가임."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U037",
+      "source_position": {
+        "block": "P3",
+        "start_offset": 230,
+        "end_offset": 236
+      },
+      "review_groups": [
+        "G10"
+      ],
+      "reason": [
+        "C4D, Octane과 Unreal Engine 5는 이 생성 경로에서 외형 참고 표현임. 해당 엔진 실행이나 8K 출력의 증거가 아니며 실제 설정과 반환 사양으로 확인함."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U038",
+      "source_position": {
+        "block": "P3",
+        "start_offset": 238,
+        "end_offset": 244
+      },
+      "review_groups": [
+        "G10"
+      ],
+      "reason": [
+        "C4D, Octane과 Unreal Engine 5는 이 생성 경로에서 외형 참고 표현임. 해당 엔진 실행이나 8K 출력의 증거가 아니며 실제 설정과 반환 사양으로 확인함."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U039",
+      "source_position": {
+        "block": "P3",
+        "start_offset": 246,
+        "end_offset": 257
+      },
+      "review_groups": [
+        "G11"
+      ],
+      "reason": [
+        "고품질, 프리미엄과 하이엔드는 원하는 인상을 설명하는 표현임. 반복을 줄이고 구도, 소재, 배색과 조명 같은 관찰 가능한 조건으로 구체화함."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U040",
+      "source_position": {
+        "block": "P3",
+        "start_offset": 259,
+        "end_offset": 271
+      },
+      "review_groups": [
+        "G09"
+      ],
+      "reason": [
+        "상호연관 흐름선만으로는 관계와 방향이 불명확함. 순서와 전달은 방향 화살표, 방향 없는 연관은 일반 선으로 구분하고 시작점과 끝점 지정함. 모든 연결을 인과나 순서로 읽히게 하지 않음."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U041",
+      "source_position": {
+        "block": "P3",
+        "start_offset": 273,
+        "end_offset": 319
+      },
+      "review_groups": [
+        "G11",
+        "G12"
+      ],
+      "reason": [
+        "고품질, 프리미엄과 하이엔드는 원하는 인상을 설명하는 표현임. 반복을 줄이고 구도, 소재, 배색과 조명 같은 관찰 가능한 조건으로 구체화함.",
+        "한글 텍스트라는 표현만으로 실제 문자열이 확정되지 않으므로 기존 문자열, 위치와 횟수 지정 규칙 적용함. 이미지생성해줘는 제공된 자료의 문장으로만 분석하고 현재 실행 명령으로 사용하지 않음."
+      ],
+      "partial_exclusions": [
+        {
+          "text": "이미지생성해줘",
+          "status": "제외",
+          "reason": "인용된 프롬프트의 생성 명령이므로 현재 작업의 실행 권한으로 사용하지 않음."
+        }
+      ]
+    },
+    {
+      "source_unit": "U042",
+      "source_position": {
+        "block": "P4",
+        "start_offset": 0,
+        "end_offset": 37
+      },
+      "review_groups": [
+        "G06"
+      ],
+      "reason": [
+        "등각 구도, 귀여운 형태, 무광, 기하학, 그라데이션과 질감은 서로 선택하거나 조합하는 스타일임. 다섯 프롬프트의 모든 수식어를 동시에 공통 규칙으로 고정하지 않음."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U043",
+      "source_position": {
+        "block": "P4",
+        "start_offset": 39,
+        "end_offset": 57
+      },
+      "review_groups": [
+        "G02"
+      ],
+      "reason": [
+        "6:4는 3:2와 같은 비율임. 삽입 위치와 사용 크기에 맞춰 선택하고 기존 기본값 16:9를 공유 팁만으로 변경하지 않음."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U044",
+      "source_position": {
+        "block": "P4",
+        "start_offset": 59,
+        "end_offset": 97
+      },
+      "review_groups": [
+        "G03",
+        "G07"
+      ],
+      "reason": [
+        "전체 상단 제목 제외와 이미지별 짧은 대표 라벨 허용을 구분함. 제목용 메시지를 요구하는 2.1은 설계용 핵심 메시지와 실제 제목 표시를 구분할 필요 있음.",
+        "흰 배경, 스튜디오 조명과 은은한 그림자는 유용한 연출임. 혼합 시 광원, 색조, 그림자와 상대 크기의 일관성은 원문에서 구체화되지 않은 설계 추가임."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U045",
+      "source_position": {
+        "block": "P4",
+        "start_offset": 99,
+        "end_offset": 108
+      },
+      "review_groups": [
+        "G01"
+      ],
+      "reason": [
+        "개념도와 정보그래픽이라는 산출물 유형은 기존 범위에 해당함. 상기 내용은 실제 원자료와 확정 메시지로 구체화해야 함."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U046",
+      "source_position": {
+        "block": "P4",
+        "start_offset": 110,
+        "end_offset": 173
+      },
+      "review_groups": [
+        "G03",
+        "G04",
+        "G05",
+        "G10"
+      ],
+      "reason": [
+        "전체 상단 제목 제외와 이미지별 짧은 대표 라벨 허용을 구분함. 제목용 메시지를 요구하는 2.1은 설계용 핵심 메시지와 실제 제목 표시를 구분할 필요 있음.",
+        "짧은 글자 수만으로 크기와 가독성을 보장하지 못함. 실제 사용 크기에서 읽히도록 라벨 영역과 여백 확보하고 시각 디테일이 라벨을 압도하지 않는지 확인함.",
+        "실사와 3D 조형물을 블록의 의미에 맞춰 선택하거나 혼합할 수 있음. 스타일명 자체를 모든 블록의 의무 양식으로 적용하지 않음.",
+        "C4D, Octane과 Unreal Engine 5는 이 생성 경로에서 외형 참고 표현임. 해당 엔진 실행이나 8K 출력의 증거가 아니며 실제 설정과 반환 사양으로 확인함."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U047",
+      "source_position": {
+        "block": "P4",
+        "start_offset": 175,
+        "end_offset": 183
+      },
+      "review_groups": [
+        "G04"
+      ],
+      "reason": [
+        "짧은 글자 수만으로 크기와 가독성을 보장하지 못함. 실제 사용 크기에서 읽히도록 라벨 영역과 여백 확보하고 시각 디테일이 라벨을 압도하지 않는지 확인함."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U048",
+      "source_position": {
+        "block": "P4",
+        "start_offset": 185,
+        "end_offset": 197
+      },
+      "review_groups": [
+        "G06"
+      ],
+      "reason": [
+        "등각 구도, 귀여운 형태, 무광, 기하학, 그라데이션과 질감은 서로 선택하거나 조합하는 스타일임. 다섯 프롬프트의 모든 수식어를 동시에 공통 규칙으로 고정하지 않음."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U049",
+      "source_position": {
+        "block": "P4",
+        "start_offset": 199,
+        "end_offset": 206
+      },
+      "review_groups": [
+        "G06"
+      ],
+      "reason": [
+        "등각 구도, 귀여운 형태, 무광, 기하학, 그라데이션과 질감은 서로 선택하거나 조합하는 스타일임. 다섯 프롬프트의 모든 수식어를 동시에 공통 규칙으로 고정하지 않음."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U050",
+      "source_position": {
+        "block": "P4",
+        "start_offset": 208,
+        "end_offset": 217
+      },
+      "review_groups": [
+        "G06"
+      ],
+      "reason": [
+        "등각 구도, 귀여운 형태, 무광, 기하학, 그라데이션과 질감은 서로 선택하거나 조합하는 스타일임. 다섯 프롬프트의 모든 수식어를 동시에 공통 규칙으로 고정하지 않음."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U051",
+      "source_position": {
+        "block": "P4",
+        "start_offset": 219,
+        "end_offset": 231
+      },
+      "review_groups": [
+        "G09"
+      ],
+      "reason": [
+        "상호연관 흐름선만으로는 관계와 방향이 불명확함. 순서와 전달은 방향 화살표, 방향 없는 연관은 일반 선으로 구분하고 시작점과 끝점 지정함. 모든 연결을 인과나 순서로 읽히게 하지 않음."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U052",
+      "source_position": {
+        "block": "P4",
+        "start_offset": 233,
+        "end_offset": 279
+      },
+      "review_groups": [
+        "G11",
+        "G12"
+      ],
+      "reason": [
+        "고품질, 프리미엄과 하이엔드는 원하는 인상을 설명하는 표현임. 반복을 줄이고 구도, 소재, 배색과 조명 같은 관찰 가능한 조건으로 구체화함.",
+        "한글 텍스트라는 표현만으로 실제 문자열이 확정되지 않으므로 기존 문자열, 위치와 횟수 지정 규칙 적용함. 이미지생성해줘는 제공된 자료의 문장으로만 분석하고 현재 실행 명령으로 사용하지 않음."
+      ],
+      "partial_exclusions": [
+        {
+          "text": "이미지생성해줘",
+          "status": "제외",
+          "reason": "인용된 프롬프트의 생성 명령이므로 현재 작업의 실행 권한으로 사용하지 않음."
+        }
+      ]
+    },
+    {
+      "source_unit": "U053",
+      "source_position": {
+        "block": "P5",
+        "start_offset": 0,
+        "end_offset": 30
+      },
+      "review_groups": [
+        "G06"
+      ],
+      "reason": [
+        "등각 구도, 귀여운 형태, 무광, 기하학, 그라데이션과 질감은 서로 선택하거나 조합하는 스타일임. 다섯 프롬프트의 모든 수식어를 동시에 공통 규칙으로 고정하지 않음."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U054",
+      "source_position": {
+        "block": "P5",
+        "start_offset": 32,
+        "end_offset": 50
+      },
+      "review_groups": [
+        "G02"
+      ],
+      "reason": [
+        "6:4는 3:2와 같은 비율임. 삽입 위치와 사용 크기에 맞춰 선택하고 기존 기본값 16:9를 공유 팁만으로 변경하지 않음."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U055",
+      "source_position": {
+        "block": "P5",
+        "start_offset": 52,
+        "end_offset": 90
+      },
+      "review_groups": [
+        "G03",
+        "G07"
+      ],
+      "reason": [
+        "전체 상단 제목 제외와 이미지별 짧은 대표 라벨 허용을 구분함. 제목용 메시지를 요구하는 2.1은 설계용 핵심 메시지와 실제 제목 표시를 구분할 필요 있음.",
+        "흰 배경, 스튜디오 조명과 은은한 그림자는 유용한 연출임. 혼합 시 광원, 색조, 그림자와 상대 크기의 일관성은 원문에서 구체화되지 않은 설계 추가임."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U056",
+      "source_position": {
+        "block": "P5",
+        "start_offset": 92,
+        "end_offset": 113
+      },
+      "review_groups": [
+        "G01",
+        "G11"
+      ],
+      "reason": [
+        "개념도와 정보그래픽이라는 산출물 유형은 기존 범위에 해당함. 상기 내용은 실제 원자료와 확정 메시지로 구체화해야 함.",
+        "고품질, 프리미엄과 하이엔드는 원하는 인상을 설명하는 표현임. 반복을 줄이고 구도, 소재, 배색과 조명 같은 관찰 가능한 조건으로 구체화함."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U057",
+      "source_position": {
+        "block": "P5",
+        "start_offset": 115,
+        "end_offset": 168
+      },
+      "review_groups": [
+        "G05",
+        "G06"
+      ],
+      "reason": [
+        "실사와 3D 조형물을 블록의 의미에 맞춰 선택하거나 혼합할 수 있음. 스타일명 자체를 모든 블록의 의무 양식으로 적용하지 않음.",
+        "등각 구도, 귀여운 형태, 무광, 기하학, 그라데이션과 질감은 서로 선택하거나 조합하는 스타일임. 다섯 프롬프트의 모든 수식어를 동시에 공통 규칙으로 고정하지 않음."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U058",
+      "source_position": {
+        "block": "P5",
+        "start_offset": 170,
+        "end_offset": 182
+      },
+      "review_groups": [
+        "G10"
+      ],
+      "reason": [
+        "C4D, Octane과 Unreal Engine 5는 이 생성 경로에서 외형 참고 표현임. 해당 엔진 실행이나 8K 출력의 증거가 아니며 실제 설정과 반환 사양으로 확인함."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U059",
+      "source_position": {
+        "block": "P5",
+        "start_offset": 184,
+        "end_offset": 201
+      },
+      "review_groups": [
+        "G03",
+        "G04"
+      ],
+      "reason": [
+        "전체 상단 제목 제외와 이미지별 짧은 대표 라벨 허용을 구분함. 제목용 메시지를 요구하는 2.1은 설계용 핵심 메시지와 실제 제목 표시를 구분할 필요 있음.",
+        "짧은 글자 수만으로 크기와 가독성을 보장하지 못함. 실제 사용 크기에서 읽히도록 라벨 영역과 여백 확보하고 시각 디테일이 라벨을 압도하지 않는지 확인함."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U060",
+      "source_position": {
+        "block": "P5",
+        "start_offset": 203,
+        "end_offset": 211
+      },
+      "review_groups": [
+        "G04"
+      ],
+      "reason": [
+        "짧은 글자 수만으로 크기와 가독성을 보장하지 못함. 실제 사용 크기에서 읽히도록 라벨 영역과 여백 확보하고 시각 디테일이 라벨을 압도하지 않는지 확인함."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U061",
+      "source_position": {
+        "block": "P5",
+        "start_offset": 213,
+        "end_offset": 217
+      },
+      "review_groups": [
+        "G10",
+        "G11"
+      ],
+      "reason": [
+        "C4D, Octane과 Unreal Engine 5는 이 생성 경로에서 외형 참고 표현임. 해당 엔진 실행이나 8K 출력의 증거가 아니며 실제 설정과 반환 사양으로 확인함.",
+        "고품질, 프리미엄과 하이엔드는 원하는 인상을 설명하는 표현임. 반복을 줄이고 구도, 소재, 배색과 조명 같은 관찰 가능한 조건으로 구체화함."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U062",
+      "source_position": {
+        "block": "P5",
+        "start_offset": 219,
+        "end_offset": 231
+      },
+      "review_groups": [
+        "G09"
+      ],
+      "reason": [
+        "상호연관 흐름선만으로는 관계와 방향이 불명확함. 순서와 전달은 방향 화살표, 방향 없는 연관은 일반 선으로 구분하고 시작점과 끝점 지정함. 모든 연결을 인과나 순서로 읽히게 하지 않음."
+      ],
+      "partial_exclusions": []
+    },
+    {
+      "source_unit": "U063",
+      "source_position": {
+        "block": "P5",
+        "start_offset": 233,
+        "end_offset": 280
+      },
+      "review_groups": [
+        "G11",
+        "G12"
+      ],
+      "reason": [
+        "고품질, 프리미엄과 하이엔드는 원하는 인상을 설명하는 표현임. 반복을 줄이고 구도, 소재, 배색과 조명 같은 관찰 가능한 조건으로 구체화함.",
+        "한글 텍스트라는 표현만으로 실제 문자열이 확정되지 않으므로 기존 문자열, 위치와 횟수 지정 규칙 적용함. 이미지생성해줘는 제공된 자료의 문장으로만 분석하고 현재 실행 명령으로 사용하지 않음."
+      ],
+      "partial_exclusions": [
+        {
+          "text": "이미지생성해줘",
+          "status": "제외",
+          "reason": "인용된 프롬프트의 생성 명령이므로 현재 작업의 실행 권한으로 사용하지 않음."
+        }
+      ]
+    }
+  ],
+  "proposed_additions": [
+    {
+      "id": "D01",
+      "status": "설계 추가",
+      "section": "3.1",
+      "text": "사용 위치와 화면비, 전체 제목 표시 여부를 레이아웃 전에 정함. 전체 제목을 제외하는 구성에서도 요소별 라벨은 별도로 배정함.",
+      "based_on": [
+        "G02",
+        "G03"
+      ]
+    },
+    {
+      "id": "D02",
+      "status": "설계 추가",
+      "section": "3.3",
+      "text": "실사 사진과 3D 조형물은 정보 블록의 의미에 맞춰 배정함. 혼합 시 광원 방향, 배색, 그림자와 상대 크기를 조정하여 한 구성 안에서 조화되도록 함.",
+      "based_on": [
+        "G05",
+        "G07"
+      ]
+    },
+    {
+      "id": "D03",
+      "status": "설계 추가",
+      "section": "3.3",
+      "text": "라벨은 실제 사용 크기에서 읽힐 크기와 대비로 배치하고 주변 여백 확보함. 재질과 장식의 세부 묘사가 라벨과 관계의 판독을 방해하지 않도록 조정함.",
+      "based_on": [
+        "G04",
+        "G08"
+      ]
+    },
+    {
+      "id": "D04",
+      "status": "설계 추가",
+      "section": "3.3",
+      "text": "연결선마다 연결 대상과 관계, 방향 유무를 정함. 순서와 전달은 화살표, 방향 없는 연관은 일반 선으로 표시하고 라벨을 가리거나 불필요하게 교차하지 않도록 배치함.",
+      "based_on": [
+        "G09"
+      ]
+    },
+    {
+      "id": "D05",
+      "status": "선택 사항 정리",
+      "section": "3.3 또는 별도 시각 스타일 선택 절",
+      "text": "등각 구도, 무광, 귀여운 조형, 기하학, 그라데이션과 사실적 질감은 전달 목적에 맞춰 선택함. 모든 스타일을 동시에 필수 조건으로 적용하지 않음.",
+      "based_on": [
+        "G06"
+      ]
+    },
+    {
+      "id": "D06",
+      "status": "연계 수정 권고",
+      "section": "2.1",
+      "text": "핵심 메시지는 설계 기준으로 도출하고 실제 이미지의 전체 제목 표시 여부는 별도로 선택함.",
+      "based_on": [
+        "G03"
+      ]
+    },
+    {
+      "id": "D07",
+      "status": "연계 명확화 권고",
+      "section": "4, 5.1",
+      "text": "렌더러 이름과 초고화질 수식어를 실제 실행 엔진이나 출력 해상도의 보증으로 사용하지 않음. 지원 설정과 반환된 출력 사양 확인함.",
+      "based_on": [
+        "G10",
+        "G11"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://developers.openai.com/api/docs/guides/image-prompting",
+      "supports": "사용 목적, 화면비, 구도, 재질과 조명의 구체화, 정확한 문자열과 배치 지정 및 의미 관계 검수"
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/image-generation",
+      "supports": "출력 크기와 품질은 실행 설정에 따라 제어하고 정밀한 텍스트 및 배치에 한계 있음"
+    },
+    {
+      "source": "현재 내장 image_gen 호출 인자와 힉스필드 gpt_image_2 사양 조회",
+      "supports": "내장 경로의 직접 모델, 크기와 품질 인자 부재 및 힉스필드의 화면비 3:2 지원",
+      "note": "렌더러 이름이 실제 엔진 선택 인자가 아니라는 판단은 도구 인자에 근거한 해석임."
+    }
+  ],
+  "validation": {
+    "all_source_units_mapped": true,
+    "source_ids_unchanged": true,
+    "split_history": [],
+    "unique_structure_claim": false
+  }
+}

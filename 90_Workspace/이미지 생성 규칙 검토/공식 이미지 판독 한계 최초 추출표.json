@@ -1,0 +1,68 @@
+{
+  "created": "2026-10-08",
+  "source": "https://developers.openai.com/api/docs/guides/images-vision#limitations",
+  "scope": {
+    "start": "Limitations 헤더 및 도입 문장",
+    "end": "CAPTCHAs 항목 끝",
+    "segmentation": "원문에서 이미 구분된 각 한계 항목을 하나의 근거 단위로 기록함. Metadata and resizing은 원문대로 복합 단위 유지함.",
+    "read_complete": true
+  },
+  "rows": [
+    {
+      "id": "V001",
+      "position": "Limitations / Medical images / 웹 추출 3484행",
+      "meaning": "CT 등 전문 의료 이미지 해석에 적합하지 않으며 의료 조언에 사용하지 않아야 한다는 내용"
+    },
+    {
+      "id": "V002",
+      "position": "Limitations / Non-English / 웹 추출 3485행",
+      "meaning": "한국어와 일본어 등 비라틴 문자 이미지의 처리 성능이 최적이 아닐 수 있다는 내용"
+    },
+    {
+      "id": "V003",
+      "position": "Limitations / Small text / 웹 추출 3486행",
+      "meaning": "작은 글자는 확대하여 가독성을 높이고 지원 시 detail: original이 성능에 도움이 될 수 있다는 내용"
+    },
+    {
+      "id": "V004",
+      "position": "Limitations / Rotation / 웹 추출 3487행",
+      "meaning": "회전하거나 거꾸로 된 글자와 이미지의 오해 가능성"
+    },
+    {
+      "id": "V005",
+      "position": "Limitations / Visual elements / 웹 추출 3488행",
+      "meaning": "색상과 실선, 파선, 점선 등 스타일 차이가 있는 그래프와 텍스트의 이해 한계"
+    },
+    {
+      "id": "V006",
+      "position": "Limitations / Spatial reasoning / 웹 추출 3489행",
+      "meaning": "체스 배치 식별 등 정밀한 공간 위치 판단의 어려움"
+    },
+    {
+      "id": "V007",
+      "position": "Limitations / Accuracy / 웹 추출 3490행",
+      "meaning": "특정 상황에서 잘못된 설명이나 캡션을 생성할 수 있다는 내용"
+    },
+    {
+      "id": "V008",
+      "position": "Limitations / Image shape / 웹 추출 3491행",
+      "meaning": "파노라마와 어안 이미지의 이해 한계"
+    },
+    {
+      "id": "V009",
+      "position": "Limitations / Metadata and resizing / 웹 추출 3492행",
+      "meaning": "원본 파일명과 메타데이터를 처리하지 않으며 original 설정에서도 분석 전 크기 조정 가능성 및 모델별 크기 처리 규정 참조"
+    },
+    {
+      "id": "V010",
+      "position": "Limitations / Counting / 웹 추출 3493행",
+      "meaning": "이미지 속 객체의 개수를 근사값으로 제시할 수 있다는 내용"
+    },
+    {
+      "id": "V011",
+      "position": "Limitations / CAPTCHAs / 웹 추출 3494행",
+      "meaning": "안전상의 이유로 CAPTCHA 제출을 차단한다는 내용"
+    }
+  ],
+  "note": "원문 항목의 의미와 위치를 기록한 최초 추출표임. 문서 내 배열은 이 표를 저장한 뒤 설계함."
+}
