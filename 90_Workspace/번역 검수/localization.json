@@ -1,0 +1,450 @@
+{
+  "1_1_start": {
+    "ko": "시작하기",
+    "en": "START"
+  },
+  "1_1_next": {
+    "ko": "다음으로",
+    "en": "NEXT"
+  },
+  "1_1_restart": {
+    "ko": "처음으로",
+    "en": "BACK TO START"
+  },
+  "1_1_agree_and_start": {
+    "ko": "동의하고 시작하기",
+    "en": "AGREE AND START"
+  },
+  "1_1_quit": {
+    "ko": "그만두기",
+    "en": "QUIT"
+  },
+  "1_1_done": {
+    "ko": "마침",
+    "en": "DONE"
+  },
+  "1_1_confirm": {
+    "ko": "확인",
+    "en": "CONFIRM"
+  },
+  "1_1_cancel": {
+    "ko": "취소",
+    "en": "CANCEL"
+  },
+  "1_1_random": {
+    "ko": "랜덤 입력",
+    "en": "RANDOM INPUT"
+  },
+  "1_2_percentage": {
+    "ko": "{0} %",
+    "en": "{0} %"
+  },
+  "1_2_inactivity_timeout_title": {
+    "ko": "입력이 없습니다.",
+    "en": "No Input Detected."
+  },
+  "1_2_inactivity_timeout_desc": {
+    "ko": "계속 이용하려면 화면을 터치해주세요. 입력이 없으면 종료됩니다.",
+    "en": "Please Touch The Screen To Continue.  This Session Will End If There Is No Input."
+  },
+  "1_2_screen_timeout_desc": {
+    "ko": "{0}초 후 다음 단계로 이동합니다.",
+    "en": "The Next Step Will Begin In {0} Seconds."
+  },
+  "1_2_min_max": {
+    "ko": "{0} / {1}",
+    "en": "{0} / {1}"
+  },
+  "1_2_timeout_quit": {
+    "ko": "{0}초 후 자동 종료합니다.",
+    "en": "This Session Will End Automatically In {0} Seconds."
+  },
+  "1_2_countdown": {
+    "ko": "{0}",
+    "en": "{0}"
+  },
+  "3_1_subtitle": {
+    "ko": "AI 덜미 스토리 생성",
+    "en": "AI Deolmi Story Generation"
+  },
+  "3_1_desc": {
+    "ko": "박첨지와 함께 나만의 이야기를 만들고 전자책으로 완성해보세요.",
+    "en": "Create Your Own Story With Park Cheomji And Turn It Into An E-Book."
+  },
+  "3_2_title": {
+    "ko": "이용 안내",
+    "en": "User Guide"
+  },
+  "3_2_dialogue": {
+    "ko": "이용 방법을 알려주겠소.",
+    "en": "Let Me Show You How To Use It."
+  },
+  "3_2_guide_0": {
+    "ko": "이야기 마당 유형을  선택하세요.",
+    "en": "Select A Story Episode Type."
+  },
+  "3_2_guide_1": {
+    "ko": "질문에 답하면서  유람기를 꾸며보세요.",
+    "en": "Answer Park Cheomji’s Questions To Create Your Story."
+  },
+  "3_2_guide_2": {
+    "ko": "유람기가 만들어질 때까지  기다려주세요.",
+    "en": "Your Own E-Book Will Be Created In A Moment."
+  },
+  "3_2_guide_3": {
+    "ko": "QR 코드를 통해 유람기를  다운받을 수 있어요",
+    "en": "Scan The QR Code To Download Your E-Book."
+  },
+  "3_3_title": {
+    "ko": "이용 동의",
+    "en": "User Agreement"
+  },
+  "3_3_dialogue": {
+    "ko": "동의가 필요하오.",
+    "en": "Your Consent Is Required."
+  },
+  "3_3_terms": {
+    "ko": "약관 내용 (입력 예정)",
+    "en": "Terms And Conditions (To Be Added)"
+  },
+  "3_4_title": {
+    "ko": "이야기 마당 선택",
+    "en": "Select a Story Episode"
+  },
+  "3_4_plot_0": {
+    "ko": "위협 - 구원",
+    "en": "Threat And Rescue"
+  },
+  "3_4_plot_1": {
+    "ko": "권력 풍자",
+    "en": "Satire Of Power"
+  },
+  "3_4_plot_2": {
+    "ko": "위선 폭로",
+    "en": "Exposing Hypocrisy"
+  },
+  "3_4_plot_3": {
+    "ko": "욕심과 다툼",
+    "en": "Greed And Conflict"
+  },
+  "3_5_title": {
+    "ko": "주인공 선택",
+    "en": "Character Selection"
+  },
+  "3_5_card_0": {
+    "ko": "어린이",
+    "en": "Children"
+  },
+  "3_5_card_1": {
+    "ko": "청소년",
+    "en": "Teenagers"
+  },
+  "3_5_card_2": {
+    "ko": "어른",
+    "en": "Adults"
+  },
+  "3_6_title": {
+    "ko": "주인공 이름 입력",
+    "en": "Enter The Main Character’s Name"
+  },
+  "3_6_dialogue": {
+    "ko": "나와 같이 여행을 떠날 당신은 누구신가요?",
+    "en": "Who Will Travel With Me?"
+  },
+  "3_6_placehold": {
+    "ko": "주인공의 이름을 입력해주세요",
+    "en": "Enter The Character’s Name"
+  },
+  "3_7_title": {
+    "ko": "박첨지와 대화하기",
+    "en": "Talk With Park Cheomji"
+  },
+  "3_7_phase_0": {
+    "ko": "도입",
+    "en": "Opening"
+  },
+  "3_7_phase_1": {
+    "ko": "전개",
+    "en": "Development"
+  },
+  "3_7_phase_2": {
+    "ko": "절정",
+    "en": "Climax"
+  },
+  "3_7_phase_3": {
+    "ko": "마무리",
+    "en": "Resolution"
+  },
+  "3_7_placehold": {
+    "ko": "박첨지의 질문에 답하세요.",
+    "en": "Answer Park Cheomji’s Question."
+  },
+  "3_8_title": {
+    "ko": "나만의 유람기 생성 중",
+    "en": "Creating Your Own Travelogue"
+  },
+  "3_8_dialogue": {
+    "ko": "멋진 이야기가 만들어지고 있다네.",
+    "en": "A Wonderful Story Is Being Created."
+  },
+  "3_10_title": {
+    "ko": "이야기 완성",
+    "en": "Story Completed"
+  },
+  "3_10_dialogue": {
+    "ko": "고맙소. 또 만납시다.",
+    "en": "Thank You. Let's Meet Again."
+  },
+  "3_10_desc": {
+    "ko": "QR 코드를 스캔하면  전자책을 다운로드할 수 있습니다.",
+    "en": "Scan The QR Code  To Download Your E-Book."
+  },
+  "5_0_role_0_name": {
+    "ko": "꺽쇠",
+    "en": "Kkeoksoe"
+  },
+  "5_0_role_0_desc": {
+    "ko": "꽹과리를 울려 놀이판을 여는 흥의 대장입니다.  걸쭉한 입담과 신명나는 장단으로 판을 이끕니다.",
+    "en": "He Is The Leader Of Excitement Who Opens The Performance By Striking The Kkwaenggwari.  He Leads The Stage With His Boisterous Banter And Exhilarating Rhythms."
+  },
+  "5_0_role_1_name": {
+    "ko": "샌님",
+    "en": "Saennim"
+  },
+  "5_0_role_1_desc": {
+    "ko": "팔도 유람에 나선 거드름 가득한 양반입니다.  하인 말뚝이에게 번번이 골탕을 먹는 풍자의 주인공입니다.",
+    "en": "He Is A Haughty Nobleman Who Has Set Out To Tour The Eight Provinces.  He Is The Star Of The Satire Who Is Repeatedly Tricked By His Servant, Malttugi."
+  },
+  "5_0_role_2_name": {
+    "ko": "취발이",
+    "en": "Chwibari"
+  },
+  "5_0_role_2_desc": {
+    "ko": "힘꼴 좋고 흥이 넘치는 한량입니다.  판을 어지럽히는 먹중을 힘찬 춤 대결로 쫓아냅니다.",
+    "en": "He Is A Carefree Man Of Leisure With Great Strength And Overflowing Enthusiasm.  He Drives Away The Troublemaker Monk With A Vigorous Dance Duel."
+  },
+  "5_0_grade_0": {
+    "ko": "X",
+    "en": "X"
+  },
+  "5_0_grade_1": {
+    "ko": "OK",
+    "en": "OK"
+  },
+  "5_0_grade_2": {
+    "ko": "GOOD",
+    "en": "GOOD"
+  },
+  "5_0_grade_3": {
+    "ko": "PERFECT",
+    "en": "PERFECT"
+  },
+  "5_1_subtitle": {
+    "ko": "덧뵈기 체험하기",
+    "en": "Experiencing The Deotboegi"
+  },
+  "5_1_desc": {
+    "ko": "말뚝이와 함께 신명나는 춤을 추고 기념 사진도 촬영하세요",
+    "en": "Dance An Exciting Dance With Malttugi And Take A Commemorative Photo."
+  },
+  "5_2_title": {
+    "ko": "이용 안내",
+    "en": "User Guide"
+  },
+  "5_2_dialogue": {
+    "ko": "이용 방법을 알려주겠소.",
+    "en": "I Will Tell You How To Use It."
+  },
+  "5_2_guide_0": {
+    "ko": "따라 출 배역의 탈을 골라주세요",
+    "en": "Select The Mask For The Role You Will Play."
+  },
+  "5_2_guide_1": {
+    "ko": "화면이 안내하는 동작을 장단에 맞춰 따라 추세요",
+    "en": "Follow The Movements Guided By The Screen To The Rhythm."
+  },
+  "5_2_guide_2": {
+    "ko": "동작이 정확할수록 높은 판정을 받습니다",
+    "en": "The More Accurate Your Movements, The Higher Your Score Will Be."
+  },
+  "5_2_guide_3": {
+    "ko": "최종 점수와 말뚝이의 한마디를 확인하세요",
+    "en": "Check The Final Score And Malttugi's Comment."
+  },
+  "5_3_title": {
+    "ko": "이용 동의",
+    "en": "User Agreement"
+  },
+  "5_3_dialogue": {
+    "ko": "동의가 필요하오.",
+    "en": "Your Consent Is Required."
+  },
+  "5_3_terms": {
+    "ko": "약관 내용 (입력 예정)",
+    "en": "Terms And Conditions (To Be Added)"
+  },
+  "5_4_title": {
+    "ko": "배역 선택",
+    "en": "Role Selection"
+  },
+  "5_4_dialogue": {
+    "ko": "누가 되어보고 싶은가?",
+    "en": "Who Would You Like To Be?"
+  },
+  "5_6_title": {
+    "ko": "나의 탈춤 점수",
+    "en": "My Mask Dance Score"
+  },
+  "5_6_dialogue_0": {
+    "ko": "한바탕 웃었으면 그게 바로 신명이지!",
+    "en": "If You've Had A Good Laugh, That's True Exhilaration!"
+  },
+  "5_6_dialogue_1": {
+    "ko": "괜찮네, 탈춤은 놀다 보면 느는 법이지!",
+    "en": "That's Alright. You Get Better At Mask Dance The More You Play!"
+  },
+  "5_6_dialogue_2": {
+    "ko": "흥은 넘치는데 몸이 반 박자 늦는구먼!",
+    "en": "You're Overflowing With Excitement, But Your Body Is Half A Beat Behind!"
+  },
+  "5_6_dialogue_3": {
+    "ko": "덩실덩실, 제법이야 제법!",
+    "en": "Deongsil-Deongsil! Not Bad At All, Not Bad!"
+  },
+  "5_6_dialogue_4": {
+    "ko": "얼쑤! 오늘 마당의 주인공은 자네일세!",
+    "en": "Eolssu! You Are The Star Of The Show Today!"
+  },
+  "5_6_finalScore": {
+    "ko": "최종 점수",
+    "en": "FINAL SCORE"
+  },
+  "13_1_title": {
+    "ko": "그만하시겠어요?",
+    "en": "Would You Like To Quit?"
+  },
+  "13_1_desc": {
+    "ko": "지금 그만두면 체험이 종료돼요.",
+    "en": "If You Quit Now, The Experience Will End."
+  },
+  "13_2_title": {
+    "ko": "감상을 종료하시겠습니까?",
+    "en": "Would You Like To Finish Viewing?"
+  },
+  "13_2_desc": {
+    "ko": "다음 페이지에서 전자책을 다운로드할 수 있는  QR 코드를 안내드립니다.",
+    "en": "A QR Code To Download The E-Book  Will Be Shown On The Next Page."
+  },
+  "14_1_title": {
+    "ko": "사용할 수 없는 말이 있습니다",
+    "en": "Some Words Cannot Be Used"
+  },
+  "14_1_desc": {
+    "ko": "비속어가 확인되었습니다. 표현을 바꿔 다시 입력해 주세요. 비속어 {0}회 입력 시 종료됩니다.",
+    "en": "Profanity Was Detected.  Please Rephrase And Try Again.  The Session Will End After {0} Profanity Attempts."
+  },
+  "14_2_title": {
+    "ko": "이 내용은 사용할 수 없습니다",
+    "en": "This Content Cannot Be Used"
+  },
+  "14_2_desc": {
+    "ko": "다른 내용으로 다시 입력해 주세요. 규정 위반 내용 {0}회 입력 시 종료됩니다.",
+    "en": "Please Enter Different Content.  The Session Will End After {0} Policy Violation Attempts."
+  },
+  "14_3_title": {
+    "ko": "지금은 확인이 어렵습니다",
+    "en": "Unable To Verify At This Time"
+  },
+  "14_3_desc": {
+    "ko": "다시 입력해주세요.",
+    "en": "Please Enter It Again."
+  },
+  "14_4_title": {
+    "ko": "음성을 확인하지 못하였습니다",
+    "en": "Voice Not Recognized"
+  },
+  "14_4_desc": {
+    "ko": "다시 말씀해주시거나,  키보드로 입력해주세요.",
+    "en": "Please Try Speaking Again,  Or Use The Keyboard."
+  },
+  "14_7_title": {
+    "ko": "지금은 시작할 수 없습니다",
+    "en": "Unable To Start Now"
+  },
+  "14_7_desc": {
+    "ko": "잠시 후 다시 시도해 주세요.",
+    "en": "Please Try Again In A Moment."
+  },
+  "14_8_title": {
+    "ko": "준비된 내용을 불러오지 못하였습니다",
+    "en": "Failed To Load Prepared Content"
+  },
+  "14_8_desc": {
+    "ko": "불편을 드려 죄송합니다. 체험을 여기서 마칩니다. 다시 시작해 주세요.",
+    "en": "We’re Sorry For The Inconvenience.  This Experience Will End Here.  Please Start Again."
+  },
+  "14_9_title": {
+    "ko": "내용을 만들지 못하였습니다",
+    "en": "Unable To Create The Content"
+  },
+  "14_9_desc": {
+    "ko": "불편을 드려 죄송합니다. 체험을 여기서 마칩니다. 다시 시작해 주세요.",
+    "en": "We’re Sorry For The Inconvenience.  This Experience Will End Here.  Please Start Again."
+  },
+  "14_10_title": {
+    "ko": "이미지를 만들지 못하였습니다",
+    "en": "Unable To Create The Image"
+  },
+  "14_10_desc": {
+    "ko": "불편을 드려 죄송합니다. 체험을 여기서 마칩니다. 다시 시작해 주세요.",
+    "en": "We’re Sorry For The Inconvenience.  This Experience Will End Here.  Please Start Again."
+  },
+  "14_11_title": {
+    "ko": "결과물이 검사를 통과하지 못하였습니다",
+    "en": "The Result Did Not Pass Review"
+  },
+  "14_11_desc": {
+    "ko": "불편을 드려 죄송합니다. 체험을 여기서 마칩니다. 다시 시작해 주세요.",
+    "en": "We’re Sorry For The Inconvenience.  This Experience Will End Here.  Please Start Again."
+  },
+  "14_12_title": {
+    "ko": "결과물을 확인하지 못하였습니다",
+    "en": "Unable To Verify The Result"
+  },
+  "14_12_desc": {
+    "ko": "불편을 드려 죄송합니다. 체험을 여기서 마칩니다. 다시 시작해 주세요.",
+    "en": "We’re Sorry For The Inconvenience.  This Experience Will End Here.  Please Start Again."
+  },
+  "14_13_title": {
+    "ko": "결과물을 완성하지 못하였습니다",
+    "en": "Unable To Complete The Result"
+  },
+  "14_13_desc": {
+    "ko": "불편을 드려 죄송합니다. 체험을 여기서 마칩니다. 다시 시작해 주세요.",
+    "en": "We’re Sorry For The Inconvenience.  This Experience Will End Here.  Please Start Again."
+  },
+  "14_14_title": {
+    "ko": "결과물을 올리지 못하였습니다",
+    "en": "Unable To Upload The Result"
+  },
+  "14_14_desc": {
+    "ko": "불편을 드려 죄송합니다. 체험을 여기서 마칩니다. 다시 시작해 주세요.",
+    "en": "We’re Sorry For The Inconvenience.  This Experience Will End Here.  Please Start Again."
+  },
+  "14_15_title": {
+    "ko": "준비된 내용을 불러오지 못하였습니다",
+    "en": "Failed To Load Prepared Content"
+  },
+  "14_15_desc": {
+    "ko": "불편을 드려 죄송합니다. 체험을 여기서 마칩니다. 다시 시작해 주세요.",
+    "en": "We’re Sorry For The Inconvenience.  This Experience Will End Here.  Please Start Again."
+  },
+  "14_16_title": {
+    "ko": "탈을 만들지 못하였습니다",
+    "en": "Unable To Create The Mask"
+  },
+  "14_16_desc": {
+    "ko": "불편을 드려 죄송합니다. 체험을 여기서 마칩니다. 다시 시작해 주세요.",
+    "en": "We’re Sorry For The Inconvenience.  This Experience Will End Here.  Please Start Again."
+  }
+}
