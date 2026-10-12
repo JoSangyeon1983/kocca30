@@ -93,6 +93,8 @@ def validate(record_path, root, include_archive=False):
     refs += re.findall(r'<img\b[^>]*\bsrc="([^"]+)"', visible)
     checked_links = 0
     for ref in refs:
+        if ref.startswith("<") and ref.endswith(">"):
+            ref = ref[1:-1]
         if re.match(r"^[a-z]+://", ref):
             continue
         part = unquote(ref.split("#", 1)[0])
