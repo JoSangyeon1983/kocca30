@@ -1,0 +1,17 @@
+{
+  "browser": "Edg/155.0.4283.45",
+  "protocol": "1.3",
+  "urlMode": "file",
+  "checks": [
+    "file URL loads all three JSON objects",
+    "A and S keyboard tilt controls",
+    "increase and hold visible in browser",
+    "Space launches and restores in air",
+    "left threshold triggers fall and automatic restart",
+    "object selection and setting validation",
+    "390px viewport has no horizontal overflow",
+    "no JavaScript runtime exceptions"
+  ],
+  "errors": [],
+  "screenshot": "검증 화면.png"
+}

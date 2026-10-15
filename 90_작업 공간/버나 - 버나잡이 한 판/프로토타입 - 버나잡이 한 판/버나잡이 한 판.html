@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>버나잡이 한 판 | 균형 시험</title>
+  <style>
+    :root{color-scheme:light;--ink:#243b36;--muted:#6b7770;--paper:#f4f1e9;--green:#236653;--line:#dcded3}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Malgun Gothic",sans-serif;font-size:14px}
+    main{max-width:1320px;margin:auto;padding:30px}header{display:flex;justify-content:space-between;align-items:end;margin-bottom:24px;gap:16px}
+    h1{font-size:32px;letter-spacing:-1.5px;margin:6px 0 0}h2{font-size:17px;margin:0 0 18px}.eyebrow{font-size:11px;letter-spacing:2px;color:var(--green);font-weight:700}
+    p{line-height:1.65;margin:8px 0;color:var(--muted)}.layout{display:grid;grid-template-columns:minmax(0,1fr) 296px;gap:20px}.card{background:#fffdf8;border:1px solid var(--line);border-radius:20px;overflow:hidden}
+    .stage-head{display:flex;align-items:center;justify-content:space-between;padding:20px 24px 0}.badge{padding:7px 12px;border-radius:20px;background:#e2eee6;color:var(--green);font-weight:bold}
+    #scene{display:block;width:100%;height:auto;aspect-ratio:900/530}.readouts{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}.readouts>div{padding:16px 22px}.readouts>div+div{border-left:1px solid var(--line)}.readouts small{display:block;color:var(--muted);margin-bottom:6px}.readouts strong{font-size:23px;font-variant-numeric:tabular-nums}
+    aside{padding:24px}label{display:block;font-size:12px;color:var(--muted);margin:14px 0 7px}select,input,button{font:inherit}select,input[type=number]{width:100%;border:1px solid var(--line);border-radius:9px;background:#fff;padding:10px;color:var(--ink)}button{border:1px solid var(--line);background:#fffdf8;color:var(--ink);padding:10px 13px;border-radius:9px;cursor:pointer;touch-action:none}button:hover{background:#eaf0e8}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #8bb8a0;outline-offset:2px}button:active,.held{background:#d6e6d9!important}.primary{background:var(--green);color:white;border-color:var(--green);width:100%;margin-top:16px}.primary:hover{background:#194e3f}
+    .fields{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}.note{font-size:12px}.rules{border-top:1px solid var(--line);margin-top:20px;padding-top:12px;line-height:1.9;font-size:12px}.rules span{color:var(--muted)}.controls{display:flex;gap:9px;flex-wrap:wrap;padding:18px 22px;border-top:1px solid var(--line)}.controls button{flex:1;white-space:nowrap}.help{padding:0 24px 18px;font-size:12px}.error{color:#a63d36;min-height:18px;font-size:12px;margin-top:10px}details{margin-top:18px;border-top:1px solid var(--line);padding-top:16px}summary{cursor:pointer;font-size:12px}input[type=range]{width:100%;accent-color:var(--green)}footer{font-size:12px;margin-top:18px;color:var(--muted)}kbd{font:inherit;font-weight:bold}
+    @media(max-width:900px){main{padding:18px}.layout{grid-template-columns:1fr}aside{display:grid;grid-template-columns:1fr 1fr;gap:0 24px}aside h2{grid-column:1/-1}.settings{grid-column:1}.rules,details{grid-column:2;grid-row:auto}header p{display:none}}
+    @media(max-width:520px){h1{font-size:26px}aside{display:block}.readouts>div{padding:12px}.readouts strong{font-size:19px}.controls button{flex-basis:28%}.stage-head{padding:16px 16px 0}}
+  </style>
+</head>
+<body>
+<main>
+  <header><div><div class="eyebrow">BEONA / BALANCE STUDY</div><h1>버나잡이 한 판</h1></div><p>막대를 기울여 버나의 변화를 확인하세요.</p></header>
+  <div class="layout">
+    <section class="card" aria-label="버나 균형 시험 화면">
+      <div class="stage-head"><strong id="object-name">버나</strong><span id="mode" class="badge">복원</span></div>
+      <canvas id="scene" width="900" height="530" aria-label="막대와 버나의 기울기 및 회전 표시"></canvas>
+      <div class="readouts"><div><small>막대 기울기</small><strong id="rod-angle">0.0°</strong></div><div><small>버나 기울기</small><strong id="beona-angle">0.0°</strong></div><div><small>접촉 상태</small><strong id="contact">접촉 중</strong></div></div>
+      <div class="controls">
+        <button data-hold="KeyA" aria-label="A 왼쪽 기울임"><kbd>A</kbd> 기울임 ←</button><button data-hold="KeyS" aria-label="S 오른쪽 기울임"><kbd>S</kbd> 기울임 →</button>
+        <button data-hold="ArrowLeft" aria-label="왼쪽 이동">← 이동</button><button data-hold="ArrowRight" aria-label="오른쪽 이동">이동 →</button><button id="launch">Space 띄우기</button>
+      </div>
+      <p class="help">키 또는 화면 버튼을 누르는 동안 조작합니다. 손을 떼면 막대 각도가 유지됩니다. <kbd>R</kbd> 다시 시작</p>
+    </section>
+    <aside class="card">
+      <h2>시험 설정</h2>
+      <div class="settings">
+        <label for="object-select">물체 선택</label><select id="object-select" aria-label="물체 선택"></select>
+        <form id="settings-form">
+          <label for="speed">기울기 변화 속도 (°/초)</label><input id="speed" type="number" min="0.1" step="any" required>
+          <div class="fields"><div><label for="restore">복원값 (°)</label><input id="restore" type="number" min="0.1" step="any" required></div><div><label for="hold">유지값 (°)</label><input id="hold" type="number" min="0.1" step="any" required></div></div>
+          <label for="limit">한계값 (°)</label><input id="limit" type="number" min="0.1" max="45" step="any" required>
+          <button class="primary" type="submit">값 적용 후 다시 시작</button><div id="error" class="error" role="status"></div>
+        </form>
+        <p class="note">복원과 증가에 같은 속도를 적용합니다.<br>값 변경은 현재 실행에만 적용됩니다.</p>
+      </div>
+      <div class="rules" id="rules"></div>
+      <details><summary>각도 직접 시험</summary><label for="rod-test">막대 각도 지정</label><input id="rod-test" type="range" min="-45" max="45" step="0.1" value="0"><button id="neutral" type="button">막대 0°</button><button id="reset" type="button">다시 시작</button></details>
+    </aside>
+  </div>
+  <footer>좌우에 같은 판정 기준 적용, 공중에서 버나 복원, 일정한 시계 반대방향 회전</footer>
+</main>
+<script src="data.js"></script><script src="balance.js"></script><script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+'use strict';
+const fs = require('node:fs');
+const path = require('node:path');
+const { validate } = require('./balance.js');
+const data = JSON.parse(fs.readFileSync(path.join(__dirname, '버나 데이터.json'), 'utf8').replace(/^\uFEFF/, ''));
+if (!Array.isArray(data) || !data.length) throw new Error('물체 데이터가 필요합니다.');
+data.forEach(validate);
+if (new Set(data.map(p => p.beonaId)).size !== data.length) throw new Error('물체 아이디가 중복됩니다.');
+fs.writeFileSync(path.join(__dirname, 'data.js'), '// Generated from 버나 데이터.json by build.cjs.\nwindow.BEONA_DATA = ' + JSON.stringify(data, null, 2) + ';\n', 'utf8');
+console.log('Built data.js from 버나 데이터.json (' + data.length + ' objects).');

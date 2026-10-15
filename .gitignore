@@ -7,3 +7,6 @@ __pycache__/
 
 # Local archive
 /99_보관소/
+
+# Temporary working files
+/tmp/

@@ -1,0 +1,304 @@
+{
+  "passed": true,
+  "verification_date": "2026-10-15",
+  "verification_scope": "현재 교정본의 원문 추출 대응과 편집 이력 정합성 검사. 음성 및 외부 사실 검증 제외.",
+  "source_sha256": "84a9353e1f5fd959c63db7077f0e169b2696408c34e603edf96dcad2ec5555b4",
+  "source_preserved": true,
+  "source_lines": 1275,
+  "speech_units": 381,
+  "mapped_units": 381,
+  "unprocessed_speech_units": 0,
+  "audio_checked": false,
+  "handwritten_available": false,
+  "source_check": "partial",
+  "transcript_sha256": "952359da9f45c6a867c6a5df32e778db3ca889d92df0725fc0a3876ed5e1c128",
+  "source_line_coverage_complete": true,
+  "speaker_and_timestamp_headers_checked": 381,
+  "timestamp_order_preserved": true,
+  "source_speaker_label_changes": [
+    {
+      "id": "T0086",
+      "location": "C0086, 18:27, TXT 307~309행",
+      "before": "참석자 8",
+      "after": "안진용(아트)"
+    },
+    {
+      "id": "T0142",
+      "location": "C0142, 26:12, TXT 498~499행",
+      "before": "참석자 13",
+      "after": "김승현(총괄)"
+    },
+    {
+      "id": "T0161",
+      "location": "C0161, 28:14, TXT 564~565행",
+      "before": "오승철(아트)",
+      "after": "김승현(총괄)"
+    }
+  ],
+  "changed_units_from_initial": 95,
+  "changed_unit_ids": [
+    "T0004",
+    "T0005",
+    "T0006",
+    "T0007",
+    "T0011",
+    "T0012",
+    "T0013",
+    "T0014",
+    "T0015",
+    "T0019",
+    "T0021",
+    "T0022",
+    "T0024",
+    "T0031",
+    "T0042",
+    "T0044",
+    "T0048",
+    "T0057",
+    "T0059",
+    "T0066",
+    "T0085",
+    "T0086",
+    "T0088",
+    "T0104",
+    "T0106",
+    "T0112",
+    "T0119",
+    "T0128",
+    "T0129",
+    "T0133",
+    "T0134",
+    "T0136",
+    "T0137",
+    "T0142",
+    "T0151",
+    "T0154",
+    "T0155",
+    "T0157",
+    "T0158",
+    "T0160",
+    "T0161",
+    "T0162",
+    "T0167",
+    "T0169",
+    "T0171",
+    "T0173",
+    "T0181",
+    "T0182",
+    "T0190",
+    "T0196",
+    "T0197",
+    "T0199",
+    "T0201",
+    "T0202",
+    "T0207",
+    "T0209",
+    "T0211",
+    "T0214",
+    "T0222",
+    "T0223",
+    "T0226",
+    "T0231",
+    "T0232",
+    "T0233",
+    "T0235",
+    "T0241",
+    "T0243",
+    "T0245",
+    "T0256",
+    "T0264",
+    "T0265",
+    "T0267",
+    "T0268",
+    "T0275",
+    "T0277",
+    "T0280",
+    "T0283",
+    "T0288",
+    "T0296",
+    "T0298",
+    "T0300",
+    "T0304",
+    "T0311",
+    "T0314",
+    "T0317",
+    "T0319",
+    "T0322",
+    "T0324",
+    "T0332",
+    "T0335",
+    "T0342",
+    "T0365",
+    "T0370",
+    "T0375",
+    "T0377"
+  ],
+  "duplicate_character_corrections": [
+    {
+      "id": "T0031",
+      "before": "들려서서",
+      "after": "들려서"
+    },
+    {
+      "id": "T0044",
+      "before": "우스꽝스러운운",
+      "after": "우스꽝스러운"
+    },
+    {
+      "id": "T0088",
+      "before": "있으면면",
+      "after": "있으면"
+    },
+    {
+      "id": "T0106",
+      "before": "세워가지고고",
+      "after": "세워가지고"
+    },
+    {
+      "id": "T0112",
+      "before": "않음음",
+      "after": "않음"
+    },
+    {
+      "id": "T0133",
+      "before": "있게게",
+      "after": "있게"
+    },
+    {
+      "id": "T0155",
+      "before": "입니다다",
+      "after": "입니다"
+    },
+    {
+      "id": "T0173",
+      "before": "옴탈탈",
+      "after": "옴탈"
+    },
+    {
+      "id": "T0296",
+      "before": "근데데",
+      "after": "근데"
+    }
+  ],
+  "current_uncertainty_marker_count": 0,
+  "numeric_token_differences_from_source": [
+    {
+      "id": "T0007",
+      "original": [
+        "3"
+      ],
+      "current": [],
+      "treatment": "현재 입력에서 3명 있네 구절 제외. 참석 인원으로 채택하지 않음."
+    },
+    {
+      "id": "T0014",
+      "original": [
+        "3"
+      ],
+      "current": [],
+      "treatment": "인디qa 3를 인디케이터로 정리한 최초 STT 교정. 수량으로 채택하지 않음."
+    },
+    {
+      "id": "T0024",
+      "original": [],
+      "current": [
+        "2"
+      ],
+      "treatment": "현재 입력에서 트리 스파이어를 2D 스파인으로 복원함. 원음으로 확인한 차원 구분이 아님."
+    },
+    {
+      "id": "T0119",
+      "original": [
+        "3",
+        "3"
+      ],
+      "current": [
+        "2",
+        "3"
+      ],
+      "treatment": "현재 입력에서 3D 배경 반복 표현의 앞부분을 2D 배경으로 교정함. 양쪽 원문과 현재 입력은 대조표에서 추적함."
+    },
+    {
+      "id": "T0275",
+      "original": [
+        "5"
+      ],
+      "current": [],
+      "treatment": "현재 입력에서 대사 말미의 5분 걸리고 구절 제외. 체험 시간으로 채택하지 않음."
+    }
+  ],
+  "explicit_exclusion_ids": [
+    "T0086",
+    "T0112",
+    "T0167",
+    "T0197",
+    "T0241",
+    "T0365"
+  ],
+  "initial_validation": {
+    "passed": true,
+    "source_sha256": "84A9353E1F5FD959C63DB7077F0E169B2696408C34E603EDF96DCAD2EC5555B4",
+    "source_preserved": true,
+    "source_lines": 1275,
+    "speech_units": 381,
+    "mapped_units": 381,
+    "speech_content_lines": 506,
+    "unprocessed_speech_units": 0,
+    "changed_units": 157,
+    "applied_edit_records": 260,
+    "contextual_edit_records": 16,
+    "unresolved_edit_records": 108,
+    "source_time_range": [
+      "00:00",
+      "50:47"
+    ],
+    "audio_checked": false,
+    "handwritten_available": false,
+    "source_check": "partial",
+    "planning_sha256": "CFFB01F5137435C1372841B71D582EA34F36C952CBAF5E13A2C6CB098AE794FE",
+    "speaker_order_preserved": true,
+    "timestamp_order_preserved": true,
+    "written_transcript_independently_checked": true,
+    "source_line_coverage_complete": true,
+    "speaker_and_timestamp_headers_checked": 381,
+    "written_speech_lines_checked": 506,
+    "written_correction_records_checked": 260,
+    "source_numeric_values_preserved_except_named_stt_token": true,
+    "numeric_token_exceptions": [
+      {
+        "line": 69,
+        "reason": "인디qa 3를 인디케이터로 문맥 교정. 숫자 3을 수량으로 채택하지 않음."
+      }
+    ],
+    "negation_tokens_checked": [
+      "아니",
+      "없",
+      "못",
+      "안",
+      "않"
+    ],
+    "planning_document_unchanged": true
+  },
+  "minutes_validation": {
+    "date": "2026-10-15",
+    "minutes_file": "01_프로젝트/회의 및 검토/2026-10-14 탈놀음 한바탕 개발 리뷰 회의록.md",
+    "minutes_sha256": "5f446971f7653478bc718d2d8d7e764bab6a934ce071b008962edf7e6cafd5bb",
+    "all_source_units_accounted_for": 381,
+    "minutes_included_units": 373,
+    "minutes_excluded_units": 8,
+    "minutes_evidence_references_checked": 53,
+    "source_locations_match": true,
+    "unprocessed_nonblank_source_lines": 0,
+    "original_txt_and_extraction_preserved": true,
+    "only_additional_body_changes": "중복 끝 글자 9곳. 현재 수정본의 나머지 발언, 화자와 시각은 유지함.",
+    "headings_and_header_links_checked": true,
+    "later_edits": [
+      {
+        "date": "2026-10-15",
+        "scope": "주제별 논의의 사람 이름을 현재 참석자 표의 기록상 역할로 변경함. 해당 절 밖의 내용 및 근거 위치 보존 확인.",
+        "previous_recorded_sha256": "2d62f5ebe10f482bc180c251c97f0efbf4863ac2cd90cbf8da09f5a2daf23603",
+        "minutes_sha256": "5f446971f7653478bc718d2d8d7e764bab6a934ce071b008962edf7e6cafd5bb"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>인형 3D 미리보기</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#eeece8;color:#26313c;font:15px 'Malgun Gothic',sans-serif}header{position:absolute;top:24px;left:28px;z-index:2}h1{font-size:22px;margin:0 0 8px}p{margin:0;color:#67717b;font-size:13px}canvas{display:block;width:100vw;height:100vh;touch-action:none}nav{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;gap:8px;flex-wrap:wrap;justify-content:center;width:min(94vw,600px)}button,a{border:1px solid #d4d7db;border-radius:10px;background:#ffffffeb;color:#303b49;padding:12px 17px;font:inherit;text-decoration:none;cursor:pointer;box-shadow:0 3px 14px #25334508}button:hover,a:hover{background:#fff;border-color:#859aaf}aside{position:absolute;right:24px;top:27px;font-size:12px;line-height:1.8;text-align:right;color:#7b6b53}.error{padding:30px;color:#922}
+</style>
+<header><h1>인형 3D 미리보기</h1><p>드래그로 회전, 휠로 확대</p></header>
+<aside>원본 이미지로 만든 기초 입체 모델<br>깊이와 뒷면은 추정 형태</aside>
+<canvas id="view"></canvas>
+<nav><button data-angle="0">정면</button><button data-angle="45">45도</button><button data-angle="90">측면</button><button data-angle="180">뒷면</button><button id="auto">자동 회전</button><a id="download" download="인형 기초 모델.glb">GLB 저장</a></nav>
+<script>
+'use strict';
+const encoded='__GLB__';
+const raw=Uint8Array.from(atob(encoded),c=>c.charCodeAt(0));
+document.getElementById('download').href=URL.createObjectURL(new Blob([raw],{type:'model/gltf-binary'}));
+const dv=new DataView(raw.buffer),jlen=dv.getUint32(12,true);
+const doc=JSON.parse(new TextDecoder().decode(raw.slice(20,20+jlen))),bin=raw.slice(28+jlen);
+const canvas=document.getElementById('view'),gl=canvas.getContext('webgl2',{antialias:true,alpha:true});
+if(!gl)throw new Error('이 미리보기에는 WebGL 2를 지원하는 브라우저가 필요합니다.');
+function accessor(i){const a=doc.accessors[i],v=doc.bufferViews[a.bufferView],count=a.count*({SCALAR:1,VEC2:2,VEC3:3}[a.type]);return new ({5126:Float32Array,5125:Uint32Array}[a.componentType])(bin.buffer,bin.byteOffset+(v.byteOffset||0)+(a.byteOffset||0),count);}
+function shader(type,src){const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(s));return s;}
+const program=gl.createProgram();
+gl.attachShader(program,shader(gl.VERTEX_SHADER,`#version 300 es
+in vec3 position;in vec3 normal;in vec2 uv;uniform mat4 vp;out vec3 n;out vec2 t;
+void main(){gl_Position=vp*vec4(position,1.);n=normal;t=uv;}`));
+gl.attachShader(program,shader(gl.FRAGMENT_SHADER,`#version 300 es
+precision highp float;in vec3 n;in vec2 t;uniform sampler2D image;out vec4 frag;
+void main(){vec3 light=normalize(vec3(-.35,.6,.72));float shade=.66+.34*max(dot(normalize(n),light),0.);frag=vec4(texture(image,t).rgb*shade,1.);}`));
+gl.linkProgram(program);if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw new Error(gl.getProgramInfoLog(program));gl.useProgram(program);
+for(const [name,index,size] of [['position',0,3],['normal',1,3],['uv',2,2]]){const buffer=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buffer);gl.bufferData(gl.ARRAY_BUFFER,accessor(index),gl.STATIC_DRAW);const loc=gl.getAttribLocation(program,name);gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,size,gl.FLOAT,false,0,0);}
+const primitives=doc.meshes[0].primitives.map(p=>{const data=accessor(p.indices),buffer=gl.createBuffer();gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,buffer);gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,data,gl.STATIC_DRAW);return {buffer,count:data.length,material:p.material};});
+const textures=[];
+Promise.all(doc.images.map(async(im,i)=>{const v=doc.bufferViews[im.bufferView],blob=new Blob([bin.slice(v.byteOffset,v.byteOffset+v.byteLength)],{type:im.mimeType});const bmp=await createImageBitmap(blob);const texture=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,texture);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,bmp);gl.generateMipmap(gl.TEXTURE_2D);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);textures[i]=texture;})).then(()=>requestAnimationFrame(draw));
+function mul(a,b){const r=new Float32Array(16);for(let c=0;c<4;c++)for(let rr=0;rr<4;rr++)for(let k=0;k<4;k++)r[c*4+rr]+=a[k*4+rr]*b[c*4+k];return r;}
+function normalize(v){const l=Math.hypot(...v);return v.map(x=>x/l);}
+function cross(a,b){return [a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];}
+function dot(a,b){return a.reduce((s,x,i)=>s+x*b[i],0);}
+function look(eye,target){const z=normalize(eye.map((x,i)=>x-target[i])),x=normalize(cross([0,1,0],z)),y=cross(z,x);return new Float32Array([x[0],y[0],z[0],0,x[1],y[1],z[1],0,x[2],y[2],z[2],0,-dot(x,eye),-dot(y,eye),-dot(z,eye),1]);}
+function perspective(fov,aspect,near,far){const f=1/Math.tan(fov/2),q=1/(near-far);return new Float32Array([f/aspect,0,0,0,0,f,0,0,0,0,(far+near)*q,-1,0,0,2*far*near*q,0]);}
+let yaw=0,pitch=.015,distance=2.6,auto=false,last=0,drag=null;
+const center=doc.accessors[0].max[1]/2,vpLoc=gl.getUniformLocation(program,'vp');
+gl.enable(gl.DEPTH_TEST);gl.enable(gl.CULL_FACE);gl.clearColor(0,0,0,0);
+function draw(time){const dpr=Math.min(devicePixelRatio,2),w=Math.round(canvas.clientWidth*dpr),h=Math.round(canvas.clientHeight*dpr);if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;}gl.viewport(0,0,w,h);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);if(auto&&last)yaw+=(time-last)*.00022;last=time;const eye=[Math.sin(yaw)*Math.cos(pitch)*distance,center+Math.sin(pitch)*distance,Math.cos(yaw)*Math.cos(pitch)*distance];const view=look(eye,[0,center,0]),projection=perspective(.72,w/h,.01,50);gl.uniformMatrix4fv(vpLoc,false,mul(projection,view));for(const p of primitives){gl.bindTexture(gl.TEXTURE_2D,textures[p.material]);gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,p.buffer);gl.drawElements(gl.TRIANGLES,p.count,gl.UNSIGNED_INT,0);}requestAnimationFrame(draw);}
+canvas.addEventListener('pointerdown',e=>{drag=[e.clientX,e.clientY];canvas.setPointerCapture(e.pointerId);auto=false;});
+canvas.addEventListener('pointermove',e=>{if(drag){yaw-=(e.clientX-drag[0])*.008;pitch=Math.max(-1.2,Math.min(1.2,pitch+(e.clientY-drag[1])*.007));drag=[e.clientX,e.clientY];}});
+canvas.addEventListener('pointerup',()=>drag=null);canvas.addEventListener('pointercancel',()=>drag=null);
+canvas.addEventListener('wheel',e=>{e.preventDefault();distance=Math.max(.8,Math.min(7,distance*Math.exp(e.deltaY*.001)));},{passive:false});
+document.querySelectorAll('[data-angle]').forEach(b=>b.onclick=()=>{yaw=Number(b.dataset.angle)*Math.PI/180;pitch=.015;auto=false;});
+document.getElementById('auto').onclick=()=>auto=!auto;
+</script></html>
