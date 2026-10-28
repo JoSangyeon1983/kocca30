@@ -1,0 +1,30 @@
+{
+  "verifiedAt": "2026-10-22T02:48:16.990Z",
+  "browser": "Edg/155.0.4283.62",
+  "mode": "file",
+  "sourceSha256": "ec0a03db91b88f9f8e53ffe85e5fab656f78ad9c31776d06ed179422f6acd26f",
+  "speeches": 35,
+  "events": 65,
+  "assets": 12,
+  "checks": [
+    "source hash, all 35 exact speeches, source lines and all 12 original image hashes",
+    "file URL loads six chapters and local images",
+    "time-based typing, complete speech and previous controls",
+    "all six chapter jumps restore full stage state",
+    "each edge peeks once using the full uncut original image, fully hides before the other side and never moves the main actor across the stage",
+    "stage countdown runs while dialogue waits for input",
+    "chase keeps Kkeoksoe centered, completely hides Omtal between appearances and snaps left/right without crossing the center at any sampled transition",
+    "hat cue, SD replacement, animated shaking and falling coins; previous restores normal form",
+    "three inspection images switch with arrows and hand gesture",
+    "six mask origins, curved movement and hit effect",
+    "long text scrolls during typing, stays complete and permits reading earlier lines",
+    "automatic dialogue advance",
+    "all 35 speeches and 30 staging events reach the ending without omissions",
+    "empty dialogue frame remains visible before play, during silent staging and after ending",
+    "390px mobile layout, separate dialogue, scroll and no horizontal overflow",
+    "left and right upper-body peeks stay at their respective edges on mobile",
+    "mobile chase keeps Kkeoksoe centered with Omtal appearing at either side",
+    "no JavaScript runtime exceptions"
+  ],
+  "errors": []
+}

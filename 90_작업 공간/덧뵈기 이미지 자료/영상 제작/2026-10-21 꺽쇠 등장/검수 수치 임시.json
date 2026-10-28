@@ -1,0 +1,77 @@
+{
+  "video": {
+    "path": "08_산출물\\덧뵈기\\등장 애니메이션\\꺽쇠\\꺽쇠 등장 크로마키.mp4",
+    "fps": 24.0,
+    "frames": 217,
+    "duration": 9.041666666666666,
+    "width": 1916,
+    "height": 1080,
+    "sha256": "dc292249caa0195b43b2c2c26720c59fa709c1f57adda735d4390ebe45761528"
+  },
+  "checks": {
+    "decoded": 217,
+    "total": 217,
+    "clipped_frames": [],
+    "center_x_range": [
+      951.7373365234637,
+      1005.0239080632441
+    ],
+    "corner_green_bgr_range": [
+      [
+        7.4,
+        9.29
+      ],
+      [
+        237.18,
+        239.9
+      ],
+      [
+        8.87,
+        11.86
+      ]
+    ],
+    "min_green_fraction": 0.9277294517899946,
+    "first": {
+      "frame": 0,
+      "box": [
+        804,
+        206,
+        296,
+        734
+      ],
+      "center": [
+        957.5564194014006,
+        583.7489059791201
+      ],
+      "background_bgr": [
+        7.54,
+        239.2,
+        8.87
+      ],
+      "green_ratio": 0.9367219515966906,
+      "clipped": false
+    },
+    "last": {
+      "frame": 216,
+      "box": [
+        804,
+        206,
+        296,
+        734
+      ],
+      "center": [
+        957.6530900377002,
+        583.6984446784804
+      ],
+      "background_bgr": [
+        7.51,
+        239.9,
+        9.95
+      ],
+      "green_ratio": 0.9366765251681745,
+      "clipped": false
+    },
+    "first_last_silhouette_iou": 0.9978951382268827,
+    "first_last_mean_abs_rgb_diff_on_union": 3.858132824912615
+  }
+}

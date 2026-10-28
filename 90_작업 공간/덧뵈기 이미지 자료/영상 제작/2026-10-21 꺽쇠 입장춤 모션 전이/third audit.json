@@ -1,0 +1,79 @@
+{
+  "file": "90_작업 공간\\덧뵈기 이미지 자료\\영상 제작\\2026-10-21 꺽쇠 입장춤 모션 전이\\본춤 생성 3차.mp4",
+  "width": 1440,
+  "height": 1440,
+  "fps": 30.0,
+  "frames": 510,
+  "duration": 17.0,
+  "decoded": 510,
+  "bytes": 30247992,
+  "sha256": "5337b19c6e507070427ac7457f83c50a84544b1712da557db83e91ff5cd41da4",
+  "square": true,
+  "clipped_frames": [],
+  "first": {
+    "frame": 0,
+    "box": [
+      566,
+      261,
+      295,
+      899
+    ],
+    "center": [
+      716.24,
+      732.85
+    ],
+    "touches_border": false
+  },
+  "last": {
+    "frame": 509,
+    "box": [
+      600,
+      295,
+      272,
+      813
+    ],
+    "center": [
+      733.27,
+      710.37
+    ],
+    "touches_border": false
+  },
+  "box_height_range": [
+    755,
+    972
+  ],
+  "center_x_range": [
+    578.95,
+    801.06
+  ],
+  "corner_bgr_mean_min": [
+    2.35,
+    234.53,
+    5.28
+  ],
+  "corner_bgr_mean_max": [
+    7.19,
+    239.24,
+    7.88
+  ],
+  "first_last_iou": 0.6460653970535394,
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1440,
+        "height": 1440,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "30/1",
+        "nb_frames": "510"
+      }
+    ],
+    "format": {
+      "duration": "17.000000",
+      "size": "30247992"
+    }
+  }
+}

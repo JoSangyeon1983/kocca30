@@ -1,0 +1,95 @@
+{
+  "model": {
+    "model": "hf_mult_motion_control",
+    "resolution": "1080p",
+    "aspect_ratio": "1:1",
+    "duration": 17,
+    "count": 1,
+    "medias": [
+      {
+        "role": "image",
+        "value": "a42ebe5c-2df0-4ea1-bff7-39af5ad352d8"
+      },
+      {
+        "role": "video",
+        "value": "4f8372a5-2747-4115-8c1f-e096f59c952a"
+      }
+    ],
+    "prompt": "Transfer the body motion of the single masked performer in the driving video to the illustrated masked character in the reference image. Follow the entire 17-second sequence once, preserving every action in order and its exact timing. Do not add, repeat or loop any action. The driving video has already been reframed to remove its original camera zoom and tracking; ignore the moving rectangular video boundaries and gray fill. Use the reference image for character identity, costume, full-body square composition and uniform bright chroma green background. Keep a stationary frontal camera, constant character scale, and the entire hat, arms and shoes within the square at all times. No camera movement, zoom, pan, tilt or cut. The scene is only the illustrated character on solid green, without any scenery from the video. Preserve the original face mask, black hat with red brim and white ornament, black drape, ivory sleeves, red waist sash and panels, straw shoes and illustrated style. No red ribbons at the wrists, no added props, no text, shadows or floor. Do not compress the dance to add an ending. Neutral stance transitions will be attached separately."
+  },
+  "estimate": {
+    "cost": {
+      "credits": 340,
+      "credits_exact": 340
+    },
+    "adjustments": {
+      "medias[0].role": {
+        "requested": "image",
+        "used": "image_references",
+        "reason": "Genjutsu backend expects schema-key media roles"
+      },
+      "medias[1].role": {
+        "requested": "video",
+        "used": "video_references",
+        "reason": "Genjutsu backend expects schema-key media roles"
+      }
+    },
+    "input_check": {
+      "required_media_present": true,
+      "image_count": 1,
+      "video_count": 1,
+      "missing_roles": [],
+      "generation_validated": false
+    },
+    "prepared_params": {
+      "model": "hf_mult_motion_control",
+      "prompt": "Transfer the body motion of the single masked performer in the driving video to the illustrated masked character in the reference image. Follow the entire 17-second sequence once, preserving every action in order and its exact timing. Do not add, repeat or loop any action. The driving video has already been reframed to remove its original camera zoom and tracking; ignore the moving rectangular video boundaries and gray fill. Use the reference image for character identity, costume, full-body square composition and uniform bright chroma green background. Keep a stationary frontal camera, constant character scale, and the entire hat, arms and shoes within the square at all times. No camera movement, zoom, pan, tilt or cut. The scene is only the illustrated character on solid green, without any scenery from the video. Preserve the original face mask, black hat with red brim and white ornament, black drape, ivory sleeves, red waist sash and panels, straw shoes and illustrated style. No red ribbons at the wrists, no added props, no text, shadows or floor. Do not compress the dance to add an ending. Neutral stance transitions will be attached separately.",
+      "count": 1,
+      "aspect_ratio": "1:1",
+      "medias": [
+        {
+          "role": "image_references",
+          "value": "a42ebe5c-2df0-4ea1-bff7-39af5ad352d8"
+        },
+        {
+          "role": "video_references",
+          "value": "4f8372a5-2747-4115-8c1f-e096f59c952a"
+        }
+      ],
+      "duration": 17,
+      "resolution": "1080p"
+    }
+  },
+  "generation": {
+    "results": [
+      {
+        "id": "c515ac28-9da9-4e29-957e-76b3e0f5faa2",
+        "type": "video",
+        "status": "pending",
+        "model": "hf_mult_motion_control",
+        "params": {
+          "prompt": "Transfer the body motion of the single masked performer in the driving video to the illustrated masked character in the reference image. Follow the entire 17-second sequence once, preserving every action in order and its exact timing. Do not add, repeat or loop any action. The driving video has already been reframed to remove its original camera zoom and tracking; ignore the moving rectangular video boundaries and gray fill. Use the reference image for character identity, costume, full-body square composition and uniform bright chroma green background. Keep a stationary frontal camera, constant character scale, and the entire hat, arms and shoes within the square at all times. No camera movement, zoom, pan, tilt or cut. The scene is only the illustrated character on solid green, without any scenery from the video. Preserve the original face mask, black hat with red brim and white ornament, black drape, ivory sleeves, red waist sash and panels, straw shoes and illustrated style. No red ribbons at the wrists, no added props, no text, shadows or floor. Do not compress the dance to add an ending. Neutral stance transitions will be attached separately.",
+          "aspect_ratio": "1:1",
+          "duration": 17,
+          "reference_images": [
+            "a42ebe5c-2df0-4ea1-bff7-39af5ad352d8",
+            "4f8372a5-2747-4115-8c1f-e096f59c952a"
+          ],
+          "resolution": "1080p"
+        }
+      }
+    ],
+    "adjustments": {
+      "medias[0].role": {
+        "requested": "image",
+        "used": "image_references",
+        "reason": "Genjutsu backend expects schema-key media roles"
+      },
+      "medias[1].role": {
+        "requested": "video",
+        "used": "video_references",
+        "reason": "Genjutsu backend expects schema-key media roles"
+      }
+    }
+  }
+}

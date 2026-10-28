@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>탈놀음 한바탕: 옴탈잡이 극 진행 보기</title>
+  <link rel="stylesheet" href="극 진행.css">
+  <script src="극 진행 데이터.js" defer></script>
+  <script src="극 진행.js" defer></script>
+</head>
+<body>
+  <main class="player">
+    <header class="page-header">
+      <div><p class="eyebrow">덧뵈기　옴탈잡이</p><h1>탈놀음 한바탕</h1></div>
+      <p class="edition">극 진행 보기<span>첫 만남에서 옴탈 퇴장까지</span></p>
+    </header>
+    <section class="theatre" aria-label="옴탈잡이 무대">
+      <div class="stage" id="stage">
+        <img class="scenery" src="이미지/마당 배경 인물 비례 보정.png" alt="산과 한옥이 둘러싼 넓은 마당" draggable="false">
+        <div class="cast" id="cast">
+          <div class="actor" id="kkeok" aria-hidden="true"><div class="actor-motion"><img src="이미지/꺽쇠 서 있는 자세.png" alt="꺽쇠" draggable="false"></div></div>
+          <div class="actor" id="omtal" aria-hidden="true"><div class="actor-motion"><img src="이미지/옴탈 서 있는 자세.png" alt="옴탈" draggable="false"><span class="hat-target" id="hat-target" hidden></span></div></div>
+        </div>
+        <div id="peek-layer" class="peek-layer" aria-hidden="true" hidden>
+          <div id="peek-left" class="peek-actor left" hidden><img src="이미지/옴탈 서 있는 자세.png" alt="" draggable="false"><span class="peek-face"></span></div>
+          <div id="peek-right" class="peek-actor right" hidden><img src="이미지/옴탈 서 있는 자세.png" alt="" draggable="false"><span class="peek-face"></span></div>
+        </div>
+        <div class="inspection" id="inspection" aria-hidden="true" hidden>
+          <img id="inspection-image" src="이미지/채검_기본.png" alt="옴탈의 채검 표정" draggable="false">
+          <span class="gesture-arrow left" aria-hidden="true">→</span><span class="gesture-arrow right" aria-hidden="true">←</span>
+        </div>
+        <div class="effects" aria-hidden="true"><div id="coins" hidden></div><div id="masks" hidden></div><span id="hit" hidden></span></div>
+        <div id="hand" class="hand" hidden aria-hidden="true">
+          <svg viewBox="0 0 80 100" fill="none"><path d="M21 51V27c0-9 11-9 11 0v18-29c0-9 11-9 11 0v28-24c0-9 11-9 11 0v27-17c0-8 11-8 11 0v32c0 18-7 24-10 29H28c-4-8-9-13-15-24L6 55c-4-8 4-12 10-7l9 9" fill="#63b8b4cc" stroke="#123b40" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="stage-meta"><span id="chapter-label">옴탈잡이</span><span id="scene-label">막이 오르기 전</span></div>
+        <div class="action-hud" id="action-hud" hidden>
+          <ol id="steps" aria-label="체험 단계"><li>쫓아내기</li><li>잡아채기</li><li>채검하기</li><li>몰아내기</li></ol>
+          <div class="clock" id="clock"><svg viewBox="0 0 48 48" aria-hidden="true"><circle class="clock-track" cx="24" cy="24" r="20"/><circle id="clock-ring" cx="24" cy="24" r="20"/></svg><span id="clock-value">Ⅱ</span><small id="clock-label">대사</small></div>
+        </div>
+        <div class="direction" id="direction" role="status"></div>
+        <div class="curtain closed" id="curtain"></div>
+        <div class="opening" id="opening">
+          <p class="eyebrow">한바탕 놀아 보세</p><h2>옴탈잡이</h2>
+          <p>꺽쇠와 옴탈의 익살스러운 한바탕</p>
+          <button type="button" id="start" class="start-button">막 올리기 <span aria-hidden="true">▷</span></button>
+        </div>
+      </div>
+      <section class="dialogue is-hidden" id="dialogue" aria-label="대사창">
+        <div class="portrait-frame"><img id="portrait" alt="" draggable="false"></div>
+        <div class="speech">
+          <div class="speech-heading"><h2 id="speaker"></h2><span id="speech-state" aria-live="polite"></span></div>
+          <div class="text-scroll" id="text-scroll" tabindex="0" aria-label="대사 내용. 위아래로 스크롤할 수 있습니다."><p id="speech-text"></p><span id="caret" aria-hidden="true"></span></div>
+          <div class="speech-footer"><button type="button" id="follow" hidden>이어지는 대사 보기 ↓</button><span id="speech-count"></span></div>
+        </div>
+      </section>
+    </section>
+    <section class="controls" aria-label="재생 조작">
+      <div class="transport"><button id="previous" type="button" disabled aria-label="이전 대사">← 이전</button><button id="next" type="button" class="primary" disabled>다음 →</button><button id="auto" type="button" aria-pressed="false">자동 진행</button></div>
+      <div class="settings"><label>장면 <select id="chapter-select" aria-label="장면 선택"></select></label><label>글자 속도 <select id="speed"><option value="60">느리게</option><option value="38" selected>보통</option><option value="20">빠르게</option></select></label><button id="restart" type="button">처음부터</button><button id="fullscreen" type="button">전체 화면</button></div>
+    </section>
+    <div class="progress-track" role="progressbar" id="progress" aria-label="극 진행" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="progress-fill"></span></div>
+    <footer class="page-footer"><p>Space 또는 Enter로 대사를 넘깁니다. 손 동작은 자동으로 시연됩니다.</p><span id="position">준비</span></footer>
+    <p class="load-error" id="load-error" role="alert" hidden></p>
+    <noscript>이 극 진행 보기에는 JavaScript가 필요합니다.</noscript>
+  </main>
+</body>
+</html>

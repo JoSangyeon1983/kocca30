@@ -1,0 +1,29 @@
+{
+  "verifiedAt": "2026-10-22T11:53:40.3731172+09:00",
+  "success": true,
+  "windowTitle": "\uD0C8\uB180\uC74C \uD55C\uBC14\uD0D5 - \uC634\uD0C8\uC7A1\uC774",
+  "browserVersion": "155.0.4283.62",
+  "browserPath": "D:\\Sangyeon\\02_Task\\2026\\03_KOCCA\\30_\uBB34\uD615\uBB38\uD654\uC720\uC0B0\\01_Wiki\\tmp\\\uC634\uD0C8\uC7A1\uC774 \uC2E4\uD589 \uD30C\uC77C\\\uB2E8\uB3C5 \uC2E4\uD589 5b0d8588635944f18072e03c08754350\\\uC571 \uCE90\uC2DC\\18dbcf4b4a4ab8be\\runtime\\msedgewebview2.exe",
+  "bundleFolder": "D:\\Sangyeon\\02_Task\\2026\\03_KOCCA\\30_\uBB34\uD615\uBB38\uD654\uC720\uC0B0\\01_Wiki\\tmp\\\uC634\uD0C8\uC7A1\uC774 \uC2E4\uD589 \uD30C\uC77C\\\uB2E8\uB3C5 \uC2E4\uD589 5b0d8588635944f18072e03c08754350\\\uC571 \uCE90\uC2DC\\18dbcf4b4a4ab8be",
+  "extracted": true,
+  "payloadSha256": "18dbcf4b4a4ab8bed0060268ee6d2c16486bbe53b45393fd5aecc23da255978b",
+  "sourceSha256": "ec0a03db91b88f9f8e53ffe85e5fab656f78ad9c31776d06ed179422f6acd26f",
+  "webFiles": 16,
+  "speeches": 35,
+  "events": 65,
+  "checks": [
+    "published single EXE startup",
+    "bundled Fixed Runtime used",
+    "embedded web files hash match",
+    "image loading",
+    "live typewriter and scrolling",
+    "previous, six chapter jumps and auto mode",
+    "empty dialogue frame remains visible before play, during silent staging and after ending",
+    "full uncut original image for left/right peeks",
+    "Kkeoksoe centered; Omtal snaps left/right with hidden gaps and no center crossing",
+    "all 35 speeches and 65 events reach ending",
+    "no JavaScript exceptions"
+  ],
+  "scriptErrors": [],
+  "blockedRequests": []
+}

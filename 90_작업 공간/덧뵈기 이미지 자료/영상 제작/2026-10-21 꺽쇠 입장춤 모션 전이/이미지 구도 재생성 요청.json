@@ -1,0 +1,58 @@
+{
+  "params": {
+    "model": "kling3_0_motion_control",
+    "mode": "pro",
+    "background_source": "input_image",
+    "aspect_ratio": "1:1",
+    "count": 1,
+    "medias": [
+      {
+        "role": "image",
+        "value": "a42ebe5c-2df0-4ea1-bff7-39af5ad352d8"
+      },
+      {
+        "role": "video",
+        "value": "4f8372a5-2747-4115-8c1f-e096f59c952a"
+      }
+    ],
+    "prompt": "Use the supplied video as the sole body-motion reference for the full 17 seconds, once, in its original order and timing. Transfer only the performer's body and limb motion to the illustrated character in the reference image. Do not invent or repeat dance actions, loop segments, change the choreography or add any other action. The reference image supplies ONLY character identity, costume, the square framing, figure scale and solid chroma green background. Keep the exact same illustrated mask, hat, white ornament, black head and shoulder drape, plain ivory sleeves, red WAIST sash and panels and straw shoes. No red wrist streamers or new accessories. Locked-off frontal camera with fixed position, angle and focal length: do NOT transfer the source video's zoom, camera pan, tilt, tracking or camera shake. Keep the reference image's framing and scale, with the complete hat, hands and shoes always visible inside the square green canvas. Preserve the solid uniform green background from the image, no scene from the video, no floor, shadows, scenery, spectators, text, logo or transitions. Preserve the dance video's exact sequence and tempo; beginning and ending neutral-pose transitions will be added separately, so do not replace any of the 17-second dance with a new action or pose hold.",
+    "duration": 17,
+    "character_orientation": "image",
+    "keep_original_sound": "no"
+  },
+  "generation": {
+    "results": [
+      {
+        "id": "8e99ea17-f0e0-4ad6-abdb-218733e53f9d",
+        "type": "video",
+        "status": "pending",
+        "model": "kling3_0_motion_control",
+        "params": {
+          "prompt": "Use the supplied video as the sole body-motion reference for the full 17 seconds, once, in its original order and timing. Transfer only the performer's body and limb motion to the illustrated character in the reference image. Do not invent or repeat dance actions, loop segments, change the choreography or add any other action. The reference image supplies ONLY character identity, costume, the square framing, figure scale and solid chroma green background. Keep the exact same illustrated mask, hat, white ornament, black head and shoulder drape, plain ivory sleeves, red WAIST sash and panels and straw shoes. No red wrist streamers or new accessories. Locked-off frontal camera with fixed position, angle and focal length: do NOT transfer the source video's zoom, camera pan, tilt, tracking or camera shake. Keep the reference image's framing and scale, with the complete hat, hands and shoes always visible inside the square green canvas. Preserve the solid uniform green background from the image, no scene from the video, no floor, shadows, scenery, spectators, text, logo or transitions. Preserve the dance video's exact sequence and tempo; beginning and ending neutral-pose transitions will be added separately, so do not replace any of the 17-second dance with a new action or pose hold.",
+          "aspect_ratio": "1:1",
+          "duration": 17,
+          "reference_images": [
+            "a42ebe5c-2df0-4ea1-bff7-39af5ad352d8",
+            "4f8372a5-2747-4115-8c1f-e096f59c952a"
+          ],
+          "mode": "pro",
+          "background_source": "input_image",
+          "character_orientation": "image",
+          "keep_original_sound": "no"
+        }
+      }
+    ],
+    "adjustments": {
+      "medias[0].role": {
+        "requested": "image",
+        "used": "image_references",
+        "reason": "Kling 3.0 Motion Control backend expects schema-key media roles"
+      },
+      "medias[1].role": {
+        "requested": "video",
+        "used": "video_references",
+        "reason": "Kling 3.0 Motion Control backend expects schema-key media roles"
+      }
+    }
+  }
+}

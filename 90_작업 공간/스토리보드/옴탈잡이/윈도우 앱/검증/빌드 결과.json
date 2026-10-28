@@ -1,0 +1,30 @@
+{
+  "runtimeVersion": "155.0.4283.62",
+  "runtimeUrl": "https://msedge.sf.dl.delivery.mp.microsoft.com/filestreamingservice/files/232cf50b-3980-4531-afbb-779f446d7de1/Microsoft.WebView2.FixedVersionRuntime.155.0.4283.62.x64.cab",
+  "runtimeCabSha256": "cf54aa717a0ebd05b40e87620724583cb6eb0a5b8b64764cc11e42822f68bf6c",
+  "payloadSha256": "18dbcf4b4a4ab8bed0060268ee6d2c16486bbe53b45393fd5aecc23da255978b",
+  "sourceSha256": "ec0a03db91b88f9f8e53ffe85e5fab656f78ad9c31776d06ed179422f6acd26f",
+  "webFiles": {
+    "극 진행 보기.html": "5be552ef436970741dbd36c3aca20213328fece00a8d338ac78fb38af5817914",
+    "극 진행.css": "b6e8166a470791436a1e3500e6f129784a2a9381864b904af92cc85bb8ea534c",
+    "극 진행.js": "84aba39c22b4f40abf438b07b7f74c37e99d911c0d829faed5939aae26c721eb",
+    "극 진행 데이터.js": "15e232456e144cc901d780c5c274a1b2609e411b3047561a24717795f3367fe8",
+    "이미지/꺽쇠 서 있는 자세.png": "caf38c3063aceb09dab23c68d20ea1da1b9c818223b98c9bc61c9090d0af4daf",
+    "이미지/꺽쇠 얼굴.png": "82eb31de7cc05db58d4fd1959af8e064ac27b4602dbe4e3f0704ad1d845ba602",
+    "이미지/마당 배경 인물 비례 보정.png": "07d0d5da031adeaa2d46f74f0423a112bb1a7e127db9d5c4fe883a221d3d57dd",
+    "이미지/엽전.png": "9b2dd90e729da15e2ad810199e7f989ad39b808356ec28faefab167eb9049225",
+    "이미지/옴탈 서 있는 자세.png": "fde877fa1d337ff30eeb1569d5fbf493e568ab2bbc606398061278b77d9a8ec8",
+    "이미지/옴탈 얼굴.png": "9932ca1d020b728ae299e08cd1f571819631aff04e9ad8033804f13cb8151305",
+    "이미지/옴탈_SD.png": "94f873ea6aba5b63b2d20abcfb4701fe3db3dc20e61028d5e498b9135f9d6f69",
+    "이미지/장쇠 서 있는 자세.png": "b7e5a88eae7a8c6c8c188486282b3362fad15ce326081e80f12468afb7914c52",
+    "이미지/장쇠 얼굴.png": "e48e8fc84ddb3d1d19c31b8730339367f7695489018422b37c2a4a2f2d727457",
+    "이미지/채검_기본.png": "54bfc9f7a56eaa9f4b0d632a7b128d90aa22715dc0a1b9027b9213ccfde545c0",
+    "이미지/채검_우.png": "3e9837b4a6ee6f234e7da5ad0b3b1a0777857e94e7c958b6ab9e1e72fa78c6c8",
+    "이미지/채검_좌.png": "28dfe323d88d8d0e13a985546fb56e9caed93f1b4b6db4972c41d48764631a3b"
+  },
+  "exe": "08_산출물\\덧뵈기\\옴탈잡이\\옴탈잡이.exe",
+  "exeSha256": "20dc4544647503db2830b56b259ba2a5f42217dcd1b434ffd2f54fc041bda481",
+  "bytes": 376475607,
+  "payloadFiles": 272,
+  "sdk": "10.0.301"
+}

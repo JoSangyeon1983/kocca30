@@ -10,3 +10,7 @@ __pycache__/
 
 # Temporary working files
 /tmp/
+
+# Local distribution executables exceeding GitHub's file size limit
+/08_산출물/덜미/꼭두각시거리/꼭두각시거리 1.0.0.exe
+/08_산출물/덧뵈기/옴탈잡이/옴탈잡이.exe

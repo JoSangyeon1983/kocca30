@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>나만의 꼭두각시: 극 진행 보기</title>
+  <link rel="stylesheet" href="극 진행.css">
+  <script src="극 진행 데이터.js" defer></script>
+  <script src="극 진행.js" defer></script>
+</head>
+<body>
+  <main class="player">
+    <header class="page-header">
+      <div><p class="eyebrow">덜미　꼭두각시거리</p><h1>나만의 꼭두각시</h1></div>
+      <p class="edition">극 진행 보기<span>재회에서 마지막 울음까지</span></p>
+    </header>
+    <section class="theatre" aria-label="꼭두각시 무대">
+      <div class="stage" id="stage">
+        <img class="scenery far" src="이미지/나만의꼭두각시_배경_원경.png" alt="한옥 마당을 그린 무대 배경" draggable="false">
+        <img class="scenery middle" src="이미지/나만의꼭두각시_배경_중경.png" alt="" draggable="false">
+        <div class="cast" id="cast">
+          <div class="actor" id="park" aria-hidden="true"><img src="이미지/박첨지_전신.png" alt="박첨지" draggable="false"></div>
+          <div class="actor" id="kkok" aria-hidden="true"><img src="이미지/꼭두각시_전신.png" alt="꼭두각시" draggable="false"></div>
+          <div class="actor" id="deol" aria-hidden="true"><img src="이미지/덜머리집_전신.png" alt="덜머리집" draggable="false"></div>
+        </div>
+        <img class="scenery near" src="이미지/나만의꼭두각시_배경_근경.png" alt="" draggable="false">
+        <div class="stage-meta"><span id="chapter-label">꼭두각시거리</span><span id="scene-label">막이 오르기 전</span></div>
+        <div class="direction" id="direction" role="status"></div>
+        <div class="curtain closed" id="curtain"></div>
+        <div class="opening" id="opening">
+          <p class="eyebrow">한바탕 놀아 보세</p><h2>꼭두각시거리</h2>
+          <p>박첨지, 꼭두각시, 덜머리집의 한바탕 소동</p>
+          <button type="button" id="start" class="start-button">막 올리기 <span aria-hidden="true">▷</span></button>
+        </div>
+      </div>
+      <section class="dialogue is-hidden" id="dialogue" aria-label="대사창">
+        <div class="portrait-frame"><img id="portrait" alt="" draggable="false"></div>
+        <div class="speech">
+          <div class="speech-heading"><h2 id="speaker"></h2><span id="speech-state" aria-live="polite"></span></div>
+          <div class="text-scroll" id="text-scroll" tabindex="0" aria-label="대사 내용. 위아래로 스크롤할 수 있습니다."><p id="speech-text"></p><span id="caret" aria-hidden="true"></span></div>
+          <div class="speech-footer"><button type="button" id="follow" hidden>이어지는 대사 보기 ↓</button><span id="speech-count"></span></div>
+        </div>
+      </section>
+    </section>
+    <section class="controls" aria-label="재생 조작">
+      <div class="transport"><button id="previous" type="button" disabled aria-label="이전 대사">← 이전</button><button id="next" type="button" class="primary" disabled>다음 →</button><button id="auto" type="button" aria-pressed="false">자동 진행</button></div>
+      <div class="settings"><label>장면 <select id="chapter-select" aria-label="장면 선택"></select></label><label>글자 속도 <select id="speed"><option value="60">느리게</option><option value="38" selected>보통</option><option value="20">빠르게</option></select></label><button id="restart" type="button" aria-label="처음부터 다시 보기">처음부터</button><button id="fullscreen" type="button">전체 화면</button></div>
+    </section>
+    <div class="progress-track" role="progressbar" id="progress" aria-label="극 진행" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="progress-fill"></span></div>
+    <footer class="page-footer"><p>Space 또는 Enter로 대사를 넘깁니다. 긴 대사는 아래로 이어집니다.</p><span id="position">준비</span></footer>
+    <p class="load-error" id="load-error" role="alert" hidden></p>
+    <noscript>이 극 진행 보기에는 JavaScript가 필요합니다.</noscript>
+  </main>
+</body>
+</html>

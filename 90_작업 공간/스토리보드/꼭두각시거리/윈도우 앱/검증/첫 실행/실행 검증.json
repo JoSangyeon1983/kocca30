@@ -1,0 +1,28 @@
+{
+  "verifiedAt": "2026-10-22T10:38:11.9727467+09:00",
+  "success": true,
+  "version": "1.0.0",
+  "windowTitle": "\uB098\uB9CC\uC758 \uAF2D\uB450\uAC01\uC2DC - \uADF9 \uC9C4\uD589 | \uBC84\uC804 1.0.0",
+  "nativeVersionLabel": "\uBC84\uC804 1.0.0",
+  "browserVersion": "155.0.4283.62",
+  "browserPath": "D:\\Sangyeon\\02_Task\\2026\\03_KOCCA\\30_\uBB34\uD615\uBB38\uD654\uC720\uC0B0\\01_Wiki\\tmp\\\uAF2D\uB450\uAC01\uC2DC\uAC70\uB9AC \uC2E4\uD589 \uD30C\uC77C\\\uB2E8\uB3C5 \uC2E4\uD589 0a760d31cd104fa7a05466c8fc474e6e\\\uC571 \uCE90\uC2DC\\1.0.0\\db1014b7e15b039e\\runtime\\msedgewebview2.exe",
+  "bundleFolder": "D:\\Sangyeon\\02_Task\\2026\\03_KOCCA\\30_\uBB34\uD615\uBB38\uD654\uC720\uC0B0\\01_Wiki\\tmp\\\uAF2D\uB450\uAC01\uC2DC\uAC70\uB9AC \uC2E4\uD589 \uD30C\uC77C\\\uB2E8\uB3C5 \uC2E4\uD589 0a760d31cd104fa7a05466c8fc474e6e\\\uC571 \uCE90\uC2DC\\1.0.0\\db1014b7e15b039e",
+  "extracted": true,
+  "payloadSha256": "db1014b7e15b039e14276a0b57d5a1840895ad05744bee188a2017a55501bf29",
+  "sourceSha256": "9de855fee7ebecf9f899d374aabcd0360af0e276413eba2ffe48f5e9be9ab8a7",
+  "webFiles": 14,
+  "speeches": 90,
+  "checks": [
+    "published single EXE startup",
+    "bundled Fixed Runtime used",
+    "native title and version label 1.0.0",
+    "embedded web files hash match",
+    "image loading",
+    "live typewriter and scrolling",
+    "previous, chapter navigation and auto mode",
+    "all 90 speeches and ending",
+    "no JavaScript exceptions"
+  ],
+  "scriptErrors": [],
+  "blockedRequests": []
+}

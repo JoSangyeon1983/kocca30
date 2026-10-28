@@ -1,0 +1,19 @@
+{
+  "verifiedAt": "2026-10-22T01:00:40.522Z",
+  "browser": "Edg/155.0.4283.62",
+  "mode": "file",
+  "sourceSha256": "9de855fee7ebecf9f899d374aabcd0360af0e276413eba2ffe48f5e9be9ab8a7",
+  "speeches": 90,
+  "events": 103,
+  "checks": [
+    "file URL loads five chapters and all supplied images without audio",
+    "speech reveals characters progressively over elapsed time",
+    "complete-current-speech, advance and previous controls",
+    "long speech remains complete in a scrolling panel; upward scroll and return-to-latest work",
+    "chapter changes and automatic progression",
+    "all 90 source speeches in order, complete staging transitions and ending",
+    "390px mobile layout, full dialogue, scroll and no horizontal overflow",
+    "no JavaScript runtime exceptions"
+  ],
+  "errors": []
+}

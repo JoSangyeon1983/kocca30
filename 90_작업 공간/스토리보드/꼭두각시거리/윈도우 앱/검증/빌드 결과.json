@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "runtimeVersion": "155.0.4283.62",
+  "runtimeUrl": "https://msedge.sf.dl.delivery.mp.microsoft.com/filestreamingservice/files/232cf50b-3980-4531-afbb-779f446d7de1/Microsoft.WebView2.FixedVersionRuntime.155.0.4283.62.x64.cab",
+  "runtimeCabSha256": "cf54aa717a0ebd05b40e87620724583cb6eb0a5b8b64764cc11e42822f68bf6c",
+  "payloadSha256": "db1014b7e15b039e14276a0b57d5a1840895ad05744bee188a2017a55501bf29",
+  "sourceSha256": "9de855fee7ebecf9f899d374aabcd0360af0e276413eba2ffe48f5e9be9ab8a7",
+  "webFiles": {
+    "극 진행 보기.html": "29e7e5852c800188d139026647f5e6f853f1b41a790fdb5dfafde7b276bd29d0",
+    "극 진행.css": "0eb835e6c9135fae6d94b9d7a3386ba04cb61111b48589768e0845e7001ef9bf",
+    "극 진행.js": "86cec24f49f37e4b4f09c85afa8ee5b9c6342d2c9cca1ded8aaec3afa50eefc5",
+    "극 진행 데이터.js": "f80bc05d903f7157cda88d5194627794463b1326444a5209c4a4a0c0b0a5a1c7",
+    "이미지/꼭두각시_얼굴.png": "cfa9935652985caa4bb2940a90351500044d3eb7abcb5ee42f6fe067f8b7d1be",
+    "이미지/꼭두각시_전신.png": "ad029883375c0df31948eb75aad3b557b7602c05f432554957e44a326d6fc02e",
+    "이미지/나만의꼭두각시_배경_근경.png": "2250c24159c1f1bee89ca39107dfe1f04fcb1db8f21b4c614c3e534e0d9d8851",
+    "이미지/나만의꼭두각시_배경_원경.png": "ba31b08812f8fb4040601859a0584dd5ef1ca0d6a454c3b3c0c87dd415294362",
+    "이미지/나만의꼭두각시_배경_중경.png": "00958977caf1603746c13b1281d5aa7f44b71d0fa17b93da3d58141d94b30c67",
+    "이미지/덜머리집_얼굴.png": "0e67d500a052ac66b967dc4bab500370cf396fbec542fe5ce36a878e60d73c4c",
+    "이미지/덜머리집_전신.png": "3545fc2d28baab2a27daaf5067dddb53072b1082564e13134c5e358c375edac4",
+    "이미지/박첨지_얼굴.png": "f77e9a676c811ef9f665154ba60f8f98ee1ffc7630a358202f47fb837898169d",
+    "이미지/박첨지_전신.png": "6f354928bca4a87e0d7fdc0a01539a62a053d11cfd95453037396e226deb9a2f",
+    "이미지/산받이_얼굴.png": "62875ef72843fc6800bc272b069a6fd14c556ee6279c2da93b0dbed2d6e1103d"
+  },
+  "exe": "08_산출물\\덜미\\꼭두각시거리\\꼭두각시거리 1.0.0.exe",
+  "exeSha256": "2a69331e1184e0e600b4d9c97e530dff725d13fda19136142bfb63ac998a5df4",
+  "bytes": 373196765,
+  "payloadFiles": 270,
+  "sdk": "10.0.301"
+}
