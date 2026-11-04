@@ -1,0 +1,110 @@
+{
+  "verifiedAt": "2026-11-04T05:04:23.745Z",
+  "browser": "Edg/156.0.4314.58",
+  "mode": "file URL in a separate directory, browser offline",
+  "checks": [
+    "one copied HTML loads offline with one original background, one masked arm correction and automatic playback",
+    "giving hand supports the prop and moves horizontally with exactly the same displacement to the left target; no instructions under title",
+    "throwing raises a held prop, swings the arm down, opens the hand and releases a separately flying prop",
+    "giving and throwing automatically alternate after two 3-second loops, then return to giving with stable geometry",
+    "portrait and landscape viewport scaling keeps full screenshot and gap beside dialogue with no overflow",
+    "no JavaScript exceptions or network requests"
+  ],
+  "desktop": {
+    "screen": {
+      "x": 0.90625,
+      "y": 0,
+      "right": 1599.09375,
+      "bottom": 899.984375,
+      "width": 1598.1875,
+      "height": 899.984375
+    },
+    "dialogue": {
+      "x": 218.97926330566406,
+      "y": 650.3606567382812,
+      "right": 1293.030776977539,
+      "bottom": 867.4663696289062,
+      "width": 1074.051513671875,
+      "height": 217.105712890625
+    },
+    "hint": {
+      "x": 1308.9072265625,
+      "y": 650.9344482421875,
+      "right": 1558.5308837890625,
+      "bottom": 866.6055297851562,
+      "width": 249.6236572265625,
+      "height": 215.67108154296875
+    },
+    "overflow": false,
+    "viewport": [
+      1600,
+      900
+    ]
+  },
+  "smallViewports": [
+    {
+      "screen": {
+        "x": 0,
+        "y": 312.1875,
+        "right": 390,
+        "bottom": 531.796875,
+        "width": 390,
+        "height": 219.609375
+      },
+      "dialogue": {
+        "x": 53.22242736816406,
+        "y": 470.885009765625,
+        "right": 315.3067169189453,
+        "bottom": 523.8619995117188,
+        "width": 262.08428955078125,
+        "height": 52.97698974609375
+      },
+      "hint": {
+        "x": 319.1808166503906,
+        "y": 471.0250549316406,
+        "right": 380.0926513671875,
+        "bottom": 523.6519775390625,
+        "width": 60.911834716796875,
+        "height": 52.626922607421875
+      },
+      "overflow": false,
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "screen": {
+        "x": 75.71875,
+        "y": 0,
+        "right": 768.265625,
+        "bottom": 389.984375,
+        "width": 692.546875,
+        "height": 389.984375
+      },
+      "dialogue": {
+        "x": 170.22225952148438,
+        "y": 281.8165588378906,
+        "right": 635.6339721679688,
+        "bottom": 375.8935546875,
+        "width": 465.4117126464844,
+        "height": 94.07699584960938
+      },
+      "hint": {
+        "x": 642.5136108398438,
+        "y": 282.0652160644531,
+        "right": 750.6814575195312,
+        "bottom": 375.5205383300781,
+        "width": 108.1678466796875,
+        "height": 93.455322265625
+      },
+      "overflow": false,
+      "viewport": [
+        844,
+        390
+      ]
+    }
+  ],
+  "errors": [],
+  "externalRequests": []
+}

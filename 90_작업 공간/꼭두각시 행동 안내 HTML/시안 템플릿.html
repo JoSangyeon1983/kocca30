@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>나만의 꼭두각시 - 행동 안내 시안</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+    body { display: grid; place-items: center; background: #080605; }
+    .screen { position: relative; width: min(100vw, calc(100vh * 1671 / 941)); aspect-ratio: 1671 / 941; }
+    .screen > img { display: block; width: 100%; height: 100%; }
+    .overlay { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .instruction-title { font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; font-size: 29px; font-weight: 700; fill: #fff3dc; text-anchor: middle; }
+    .frame { fill: url(#plaque); stroke: #dfa343; stroke-width: 3.2; }
+    .caption-rule { stroke: #efc97e; stroke-width: 1.5; stroke-linecap: round; }
+    .wood-line { fill: none; stroke: #a75e26; stroke-width: 1.2; opacity: .65; }
+    .water-line { fill: none; stroke: #e4f5fa; stroke-width: 1.2; opacity: .8; }
+    .arm-edge { stroke: #263b60; stroke-width: 1.4; stroke-linejoin: round; }
+    #load-error { position: fixed; color: #fff1d8; font-family: sans-serif; }
+    #load-error[hidden] { display: none; }
+  </style>
+</head>
+<body>
+  <main id="screen" class="screen" aria-label="나만의 꼭두각시 행동 안내 시안" data-mode="give">
+    <img id="backdrop" src="__SCREEN_IMAGE__" alt="전경 중앙의 유저 인형, 후경의 세 인물, 우측 상단 구조 인형과 하단 대사창이 있는 체험 화면">
+    <svg class="overlay" viewBox="0 0 1671 941" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="guide-accessible-title">
+      <title id="guide-accessible-title">건네기: 손이 소품을 받치고 왼쪽 이펙트로 수평 이동하는 시범</title>
+      <defs>
+        <linearGradient id="plaque" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#360907"/><stop offset=".55" stop-color="#4b100c"/><stop offset="1" stop-color="#330704"/>
+        </linearGradient>
+        <radialGradient id="bowl-wood"><stop stop-color="#dfac58"/><stop offset=".7" stop-color="#b5752d"/><stop offset="1" stop-color="#814311"/></radialGradient>
+        <linearGradient id="bowl-water" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#c3e5ef"/><stop offset="1" stop-color="#73b4d0"/></linearGradient>
+        <linearGradient id="sleeve-shade" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#667794"/><stop offset=".52" stop-color="#455b7e"/><stop offset="1" stop-color="#2f4266"/></linearGradient>
+        <linearGradient id="hand-wood" x1="0" y1="0" x2=".3" y2="1"><stop stop-color="#f1c777"/><stop offset="1" stop-color="#ba7c36"/></linearGradient>
+        <pattern id="sleeve-weave" width="12" height="12" patternUnits="userSpaceOnUse">
+          <rect width="12" height="12" fill="url(#sleeve-shade)"/>
+          <path d="M0 3H12M0 9H12M3 0V12M9 0V12" stroke="#b39c75" stroke-width=".55" opacity=".48"/>
+          <path d="M0 0H12M0 0V12" stroke="#8998b0" stroke-width=".65" opacity=".7"/>
+        </pattern>
+        <filter id="cyan-glow" x="-120%" y="-120%" width="340%" height="340%"><feGaussianBlur stdDeviation="4"/></filter>
+        <filter id="prop-shadow" x="-60%" y="-60%" width="220%" height="220%"><feDropShadow dx="0" dy="3" stdDeviation="2.5" flood-color="#090303" flood-opacity=".45"/></filter>
+        <clipPath id="hint-clip"><rect x="8" y="57" width="245" height="159" rx="14"/></clipPath>
+        <symbol id="bowl" viewBox="-28 -19 56 41">
+          <path d="M-25-5C-24 10-18 19 0 20C18 19 24 10 25-5Z" fill="url(#bowl-wood)" stroke="#e2b46b" stroke-width="1.4"/>
+          <path class="wood-line" d="M-15 0C-14 9-13 13-10 17M-3 1L-1 19M10 0C11 8 10 12 8 17M19 0L17 11"/>
+          <ellipse cy="-5" rx="25" ry="10" fill="#cf9b4c" stroke="#edc47b" stroke-width="1.6"/>
+          <ellipse cy="-5" rx="20.8" ry="7.2" fill="url(#bowl-water)"/>
+          <path class="water-line" d="M-15-7Q-5-11 7-8M-6-3Q4-1 14-5"/>
+        </symbol>
+        <g id="sleeve">
+          <path d="M0-18L43-19L80-12L83 12L44 19L0 16Z" fill="url(#sleeve-weave)" class="arm-edge"/>
+          <path d="M72-13L83-12L86 12L75 14Z" fill="#e5d6b4" stroke="#b8ac91" stroke-width="1"/>
+          <path d="M28-17L33 16M48-16L53 16" fill="none" stroke="#243959" stroke-opacity=".35" stroke-width="1.4"/>
+        </g>
+        <g id="hand-open-shape">
+          <path d="M84-9L96-8L107-15Q111-16 111-13L104-7L121-6Q125-5 123-3L108-2L125 0Q128 2 124 3L107 3L122 6Q125 8 121 9L105 7L117 12Q119 15 115 15L99 10L85 8Z" fill="url(#hand-wood)" stroke="#9e622b" stroke-width="1"/>
+          <path d="M96-4Q102 0 99 6" fill="none" stroke="#b47b37" stroke-width="1"/>
+        </g>
+        <g id="hand-hold-shape">
+          <path d="M84-9L95-10L106-15Q110-15 109-11L104-7L116-8Q120-8 119-4L115 1L120 4Q121 7 117 8L100 10L85 8Z" fill="url(#hand-wood)" stroke="#9e622b" stroke-width="1"/>
+          <path d="M99-5L112-4M99-1L113 0M100 3L113 4" fill="none" stroke="#b47b37" stroke-width="1"/>
+        </g>
+        <mask id="avatar-correction-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1671" height="941">
+          <path d="M858 432H1044V410H1167V560H1005V610H858Z" fill="white"/>
+          <rect x="1480" y="140" width="125" height="95" fill="white"/>
+          <ellipse cx="1486" cy="117" rx="36" ry="43" fill="black"/>
+        </mask>
+      </defs>
+      <image id="avatar-correction" href="__AVATAR_CORRECTION__" x="0" y="0" width="1671" height="941" preserveAspectRatio="none" mask="url(#avatar-correction-mask)"/>
+      <rect id="dialogue-protected" x="228" y="680" width="1123" height="227" fill="none" opacity="0" pointer-events="none"/>
+      <g id="hint" transform="translate(1366 679)">
+        <rect id="hint-frame" class="frame" x="1.6" y="1.6" width="261" height="225.5" rx="27"/>
+        <path class="caption-rule" d="M27 29H67M197 29H237"/>
+        <text id="hint-title" class="instruction-title" x="132" y="40">건네기</text>
+        <g clip-path="url(#hint-clip)">
+          <g id="give-scene">
+            <g id="give-target" transform="translate(40 139)">
+              <circle id="target-halo" r="20" fill="none" stroke="#39f1f1" stroke-width="8" filter="url(#cyan-glow)" opacity=".62"/>
+              <circle id="target-ring" r="17" fill="none" stroke="#35f1ed" stroke-width="3.1"/>
+              <circle r="13.5" fill="none" stroke="#e5ffff" stroke-width="1.5"/>
+              <circle id="arrival-ring" r="18" fill="none" stroke="#9dffff" stroke-width="2" opacity="0"/>
+            </g>
+            <g id="give-carry">
+              <g id="give-hand">
+                <path d="M28 12L107 9L107 39L28 34Z" fill="url(#sleeve-weave)" class="arm-edge"/>
+                <path d="M22 13L34 13L34 34L22 32Z" fill="#e5d6b4" stroke="#b8ac91" stroke-width="1"/>
+                <path d="M24 16L12 14L1 16L-18 18Q-23 18-22 21Q-22 24-17 24L0 25L-16 25Q-20 25-18 28L-1 30L12 29L24 31Z" fill="url(#hand-wood)" stroke="#9e622b" stroke-width="1.1"/>
+                <path d="M11 16Q8 8 3 9L-3 15L-1 19L7 20" fill="url(#hand-wood)" stroke="#9e622b" stroke-width="1.1"/>
+                <path d="M-13 21L3 22M-11 25L4 26M13 20Q17 23 14 27" fill="none" stroke="#b47b37" stroke-width="1"/>
+              </g>
+              <g id="give-prop" filter="url(#prop-shadow)"><use href="#bowl" x="-28" y="-19" width="56" height="41"/></g>
+            </g>
+          </g>
+          <g id="throw-scene" opacity="0" style="display:none">
+            <path id="swing-trail" d="M102 76Q174 95 171 155" fill="none" stroke="#f2c879" stroke-width="3.3" stroke-linecap="round" opacity="0"/>
+            <path id="swing-tip" d="M163 143L171 157L179 145" fill="none" stroke="#f2c879" stroke-width="3.3" stroke-linejoin="round" opacity="0"/>
+            <g id="throw-arm">
+              <use href="#sleeve"/>
+              <g id="closed-hand"><use href="#hand-hold-shape"/></g>
+              <g id="open-hand" opacity="0"><use href="#hand-open-shape"/></g>
+            </g>
+            <g id="held-prop" filter="url(#prop-shadow)"><use href="#bowl" x="-25" y="-17" width="50" height="37"/></g>
+            <g id="flight-trail" fill="none" stroke="#e9c282" stroke-linecap="round" opacity="0"><path d="M-37-5H-12M-42 1H-10M-33 7H-13" stroke-width="2"/></g>
+            <g id="flying-prop" opacity="0" filter="url(#prop-shadow)"><use href="#bowl" x="-25" y="-17" width="50" height="37"/></g>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </main>
+  <p id="load-error" hidden>화면을 불러오지 못했습니다.</p>
+  <script>
+  (() => {
+    'use strict';
+    const ids = ['screen','backdrop','hint-title','guide-accessible-title','give-scene','give-target','target-halo','target-ring','arrival-ring','give-carry','give-prop','throw-scene','throw-arm','closed-hand','open-hand','held-prop','flying-prop','flight-trail','swing-trail','swing-tip'];
+    const el = Object.fromEntries(ids.map(id => [id, document.getElementById(id)]));
+    const cycleMs = 3000;
+    const repeatsPerAction = 2;
+    const actionMs = cycleMs * repeatsPerAction;
+    const clamp = v => Math.max(0, Math.min(1, v));
+    const smooth = v => { const t = clamp(v); return t * t * (3 - 2 * t); };
+    const lerp = (a,b,t) => a + (b-a) * t;
+    const opacity = (node,v) => node.setAttribute('opacity', Math.max(0,Math.min(1,v)).toFixed(3));
+    const position = (node,x,y,rotation=0) => node.setAttribute('transform', `translate(${x.toFixed(2)} ${y.toFixed(2)}) rotate(${rotation.toFixed(2)})`);
+    const armAngle = p => p < .12 ? 10 : p < .34 ? lerp(10,-65,smooth((p-.12)/.22)) : p < .43 ? -65 : p < .57 ? lerp(-65,10,(p-.43)/.14) : 10;
+    const handPosition = angle => {
+      const r = angle * Math.PI / 180;
+      return {x:44 + 108 * Math.cos(r), y:180 + 108 * Math.sin(r) - 16};
+    };
+    let start = 0;
+    let active = '';
+    let frame;
+    function setMode(mode) {
+      if (active === mode) return;
+      active = mode;
+      const giving = mode === 'give';
+      el['give-scene'].style.display = giving ? '' : 'none';
+      el['throw-scene'].style.display = giving ? 'none' : '';
+      opacity(el['throw-scene'],1);
+      el['hint-title'].textContent = giving ? '건네기' : '던지기';
+      el['guide-accessible-title'].textContent = giving ? '건네기: 손이 소품을 받치고 왼쪽 이펙트로 수평 이동하는 시범' : '던지기: 팔을 올렸다가 아래로 휘둘러 소품을 날리는 시범';
+      el.screen.dataset.mode = mode;
+    }
+    function giving(p) {
+      const travel = smooth((p-.14)/.5);
+      const x = lerp(207,40,travel);
+      const fade = p < .68 ? 1 : 1-smooth((p-.68)/.11);
+      const reset = smooth((p-.9)/.1);
+      const resetting = p >= .8;
+      position(el['give-carry'],resetting ? 207 : x,139);
+      opacity(el['give-carry'],resetting ? reset : fade);
+      const pulse = .5 + .16*Math.sin(p*Math.PI*4);
+      opacity(el['target-halo'],pulse);
+      const arrival = smooth((p-.62)/.1);
+      el['arrival-ring'].setAttribute('r',(18+arrival*16).toFixed(2));
+      opacity(el['arrival-ring'],p>.62 && p<.83 ? (1-arrival)*.9 : 0);
+      el['target-ring'].setAttribute('stroke-width',(3.1+(p>.62&&p<.77?1.3*Math.sin((p-.62)/.15*Math.PI):0)).toFixed(2));
+    }
+    function throwing(p) {
+      const released = p >= .525 && p < .94;
+      const angle = armAngle(p);
+      position(el['throw-arm'],44,180,angle);
+      opacity(el['closed-hand'],released ? 0 : 1);
+      opacity(el['open-hand'],released ? 1 : 0);
+      const hand = handPosition(angle);
+      position(el['held-prop'],hand.x,hand.y);
+      opacity(el['held-prop'],p < .525 ? 1 : p >= .94 ? smooth((p-.94)/.06) : 0);
+      const flight = clamp((p-.525)/.29);
+      const release = handPosition(armAngle(.525));
+      const fx = lerp(release.x,225,1-Math.pow(1-flight,1.2));
+      const fy = lerp(release.y,177,flight) - Math.sin(flight*Math.PI)*12;
+      position(el['flying-prop'],fx,fy,flight*12);
+      const flightOpacity = p>=.525 && p<.86 ? 1-smooth((p-.78)/.08) : 0;
+      opacity(el['flying-prop'],flightOpacity);
+      position(el['flight-trail'],fx-5,fy);
+      opacity(el['flight-trail'],flightOpacity * Math.sin(flight*Math.PI) * .7);
+      const swing = p>=.43 && p<.64 ? Math.sin(clamp((p-.43)/.21)*Math.PI)*.8 : 0;
+      opacity(el['swing-trail'],swing);
+      opacity(el['swing-tip'],swing);
+    }
+    function render(now) {
+      const elapsed = Math.max(0,now-start);
+      const mode = Math.floor(elapsed/actionMs)%2 === 0 ? 'give' : 'throw';
+      const p = (elapsed%cycleMs)/cycleMs;
+      setMode(mode);
+      el.screen.dataset.phase = p.toFixed(3);
+      el.screen.dataset.elapsed = Math.floor(elapsed);
+      if (mode === 'give') giving(p); else throwing(p);
+      frame = requestAnimationFrame(render);
+    }
+    async function begin() {
+      try {
+        await el.backdrop.decode();
+        start = performance.now();
+        frame = requestAnimationFrame(render);
+        el.screen.dataset.ready = 'true';
+      } catch {
+        document.getElementById('load-error').hidden = false;
+      }
+    }
+    window.addEventListener('pagehide',() => cancelAnimationFrame(frame));
+    begin();
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+'use strict';
+const fs = require('node:fs');
+const path = require('node:path');
+const crypto = require('node:crypto');
+const root = path.resolve(__dirname,'../..');
+const source = path.join(root,'08_산출물/덜미/스토리보드/행동 안내 예시/소품 건네기 안내 대사창 유지.png');
+const correction = path.join(root,'08_산출물/덜미/행동 안내 HTML 시안/유저 인형 팔 보정.png');
+const output = path.join(root,'08_산출물/덜미/행동 안내 HTML 시안/행동 안내 시안.html');
+const template = fs.readFileSync(path.join(__dirname,'시안 템플릿.html'),'utf8');
+const image = fs.readFileSync(source);
+const correctionImage = fs.readFileSync(correction);
+if ((template.match(/__SCREEN_IMAGE__/g)||[]).length !== 1) throw new Error('배경 이미지 삽입 지점이 1개가 아님');
+if ((template.match(/__AVATAR_CORRECTION__/g)||[]).length !== 1) throw new Error('팔 보정 이미지 삽입 지점이 1개가 아님');
+const html = template.replace('__SCREEN_IMAGE__','data:image/png;base64,'+image.toString('base64')).replace('__AVATAR_CORRECTION__','data:image/png;base64,'+correctionImage.toString('base64'));
+fs.mkdirSync(path.dirname(output),{recursive:true});
+fs.writeFileSync(output,html,'utf8');
+const digest = data => crypto.createHash('sha256').update(data).digest('hex').toUpperCase();
+console.log(JSON.stringify({output:path.relative(root,output),bytes:Buffer.byteLength(html),sha256:digest(Buffer.from(html)),image:path.relative(root,source),imageBytes:image.length,imageSha256:digest(image),correction:path.relative(root,correction),correctionBytes:correctionImage.length,correctionSha256:digest(correctionImage),backgroundImages:1,clippedCorrectionImages:1},null,2));
