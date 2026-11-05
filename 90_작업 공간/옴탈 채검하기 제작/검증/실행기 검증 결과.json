@@ -1,0 +1,10 @@
+{
+  "launcher": "실행.cmd",
+  "alreadyRunning": false,
+  "checks": [
+    "CMD path containing Korean and spaces starts the hidden Python server",
+    "Launched server reads the adjacent settings JSON",
+    "Repeated launcher invocation reuses the existing server",
+    "Shutdown endpoint terminates the launcher server"
+  ]
+}

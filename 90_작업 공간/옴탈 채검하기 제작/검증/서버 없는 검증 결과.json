@@ -1,0 +1,42 @@
+{
+  "browser": "Edg/156.0.4314.58",
+  "protocol": "file:",
+  "checks": [
+    "Only HTML, settings JSON and resources are present; direct file URL starts with all assets loaded and no server or module dependency",
+    "Browser settings automatically persist across a reload without a file connection",
+    "Actual adjacent JSON loads through the file input and saves as a real JSON download",
+    "Connected-file autosave logic verified with a test handle; native OS file selection and persistent real handles are not covered by this headless run",
+    "Direct-open HTML accepts Numpad 1-4 and reveals success immediately for early and late responses",
+    "Wrong input, timeouts, held keys, fixed hold ends and next onsets work; result JSON downloads without a server",
+    "Desktop and narrow layouts have no horizontal overflow",
+    "No HTTP or WebSocket requests, no runtime errors and no modification of the original settings JSON"
+  ],
+  "features": {
+    "secure": true,
+    "openPicker": true,
+    "savePicker": true,
+    "opfs": true,
+    "opfsError": "SecurityError: It was determined that certain files are unsafe for access within a Web application, or that too many calls are being made on file resources.",
+    "nativePickerProbe": "AbortError: Failed to execute 'showOpenFilePicker' on 'Window': Intercepted by Page.setInterceptFileChooserDialog()."
+  },
+  "linkedFileVerified": false,
+  "layouts": [
+    {
+      "width": 1920,
+      "documentWidth": 1905,
+      "startBottom": 490
+    },
+    {
+      "width": 1365,
+      "documentWidth": 1350,
+      "startBottom": 484
+    },
+    {
+      "width": 390,
+      "documentWidth": 375,
+      "startBottom": 438
+    }
+  ],
+  "errors": [],
+  "httpRequests": []
+}

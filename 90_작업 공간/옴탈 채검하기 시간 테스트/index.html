@@ -1,0 +1,753 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>옴탈 채검하기 | 시간 설정 테스트</title>
+  <link rel="icon" href="data:,">
+  <style>
+:root { color-scheme: light; --ink: #293b35; --muted: #748078; --green: #244e42; --line: #dddcd3; --paper: #f7f6f0; }
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: #efefe8; color: var(--ink); font-family: "Malgun Gothic", "Segoe UI", sans-serif; font-size: 14px; display: grid; grid-template-columns: 292px minmax(0, 1fr); min-height: 100vh; }
+button, input { font: inherit; }
+button { cursor: pointer; border: 1px solid #d0d5cc; background: white; color: var(--ink); border-radius: 8px; padding: 10px 12px; font-weight: 700; transition: background .15s; }
+button:hover:not(:disabled) { background: #e8eee6; }
+button:disabled { opacity: .42; cursor: default; }
+button:focus-visible, input:focus-visible { outline: 3px solid #aa944e; outline-offset: 3px; }
+.settings-panel { padding: 20px 22px 16px; background: var(--paper); border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: 0; position: sticky; top: 0; align-self: start; max-height: 100vh; overflow-y: auto; }
+.eyebrow { color: #7b806e; font-size: 11px; letter-spacing: .14em; font-weight: 700; margin-bottom: 7px; }
+h1 { margin: 0; font-size: 25px; letter-spacing: -.06em; }
+.subtitle { margin: 6px 0 15px; color: var(--muted); font-size: 12px; }
+.panel-heading { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--line); padding-top: 12px; margin-bottom: 12px; }
+h2 { font-size: 15px; margin: 0; }
+.panel-heading span { color: var(--muted); font-size: 11px; }
+label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 5px; }
+.number-field { position: relative; }
+.number-field input { border: 1px solid #cfd3c8; border-radius: 7px; background: white; padding: 5px 43px 5px 12px; width: 100%; font-size: 19px; font-weight: 650; color: var(--green); }
+.number-field > span { position: absolute; right: 29px; top: 9px; color: #8b9285; font-size: 12px; pointer-events: none; }
+.field-help { margin: 4px 0 11px; font-size: 10px; line-height: 1.4; color: #7d8478; word-break: keep-all; }
+.beat-summary { background: #e7ebdf; border-radius: 7px; padding: 8px; color: #4d614a; font-size: 10px; line-height: 1.6; margin-bottom: 9px; }
+.settings-actions { display: flex; gap: 7px; }
+.settings-actions button { flex: 1; padding: 8px 6px; font-size: 11px; }
+.save-status { min-height: 26px; margin: 6px 0 10px; font-size: 11px; line-height: 1.6; color: #58724d; overflow-wrap: anywhere; }
+.save-status.error { color: #ae3f36; }
+.trial-actions { display: grid; gap: 5px; }
+.primary { background: var(--green); border-color: var(--green); color: white; }
+.primary:hover:not(:disabled) { background: #336958; }
+.trial-actions button { font-size: 12px; padding: 8px 10px; }
+.panel-footer { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 6px; align-items: start; }
+.panel-footer > span { font-size: 10px; color: var(--muted); }
+.text-button { border: 0; background: transparent; padding: 0; font-size: 11px; color: #7b776e; font-weight: 400; }
+main { min-width: 0; padding: 22px 28px 24px; }
+.main-header { min-height: 40px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; gap: 12px; }
+.phase-steps { display: flex; align-items: center; gap: 12px; white-space: nowrap; }
+.phase-steps span { padding: 7px 11px; border-radius: 20px; color: #8a8e80; font-size: 12px; font-weight: 700; }
+.phase-steps span.active { color: white; background: var(--green); }
+.phase-steps i { color: #b7baad; font-style: normal; }
+.progress { color: #64705d; font-size: 12px; }
+.stage { position: relative; aspect-ratio: 1672 / 941; width: min(100%, calc((100vh - 220px) * 1.7768)); margin-inline: auto; border-radius: 12px; overflow: hidden; isolation: isolate; background: #c8ba8b; box-shadow: 0 8px 28px #3a321219; outline: none; }
+.background { position: absolute; width: 100%; height: 100%; object-fit: cover; }
+.omtal { position: absolute; width: 76%; left: 12%; bottom: 0; height: auto; object-fit: contain; user-select: none; pointer-events: none; }
+.stage-caption { position: absolute; top: 4%; left: 13%; width: 74%; display: flex; align-items: center; justify-content: center; gap: 14px; padding: 11px 18px; border-radius: 10px; color: #fff9df; background: #253a30e8; box-shadow: 0 3px 10px #0002; }
+.stage-caption > span { padding-right: 13px; border-right: 1px solid #ffffe84d; white-space: nowrap; font-size: clamp(11px, 1.05vw, 17px); font-weight: 700; }
+.stage-caption p { margin: 0; font-size: clamp(11px, 1.05vw, 17px); font-weight: 600; }
+.note { position: absolute; width: 13%; aspect-ratio: 1; transform: translate(-50%, -50%); }
+.note:nth-child(1) { left: 16%; top: 34%; }
+.note:nth-child(2) { left: 84%; top: 34%; }
+.note:nth-child(3) { left: 16%; top: 72%; }
+.note:nth-child(4) { left: 84%; top: 72%; }
+.note-disc { position: absolute; inset: 0; width: 100%; height: 100%; filter: drop-shadow(0 4px 5px #3f26142c); }
+.note-number { position: absolute; top: -16%; left: 50%; transform: translateX(-50%); color: #fffce7; background: #403a28d9; border-radius: 30px; min-width: 23px; text-align: center; padding: 3px 6px; font-size: clamp(10px, 1vw, 15px); }
+.note-arrow { position: absolute; width: 58%; height: auto; left: 21%; top: 28%; transform-origin: center; }
+.note-question { position: absolute; inset: 0; display: grid; place-items: center; font-size: clamp(26px, 4vw, 65px); font-weight: 800; color: #6d5d33; }
+.note-timer { position: absolute; top: 106%; left: -5%; width: 110%; text-align: center; color: #fffbdd; font-weight: 700; font-size: clamp(11px, 1.2vw, 18px); background: #283d31e8; border-radius: 20px; padding: 4px 3px; font-variant-numeric: tabular-nums; }
+.note[data-state="current"] .note-disc { filter: drop-shadow(0 0 9px #fff4aeb3); }
+.note[data-state="success"] .note-number { background: #3e684a; }
+.note[data-state="failure"] .note-number { background: #a24b42; }
+.stage-message { position: absolute; bottom: 3%; left: 26%; width: 48%; padding: 9px 12px; text-align: center; color: #fffbe6; background: #253a30e8; border-radius: 7px; font-size: clamp(10px, .95vw, 15px); }
+.controls-strip { display: flex; align-items: center; gap: 16px; margin-top: 14px; padding: 12px 18px; border: 1px solid #d8ddcf; background: #f8f8f2; border-radius: 10px; }
+.key-intro { display: flex; flex-direction: column; gap: 5px; white-space: nowrap; }
+.key-intro strong { font-size: 12px; }
+.key-intro span { color: var(--muted); font-size: 10px; }
+.direction-keys { display: grid; grid-template-columns: repeat(4, minmax(58px, 1fr)); gap: 10px; max-width: 490px; width: 100%; margin: auto; }
+.direction-key { display: grid; justify-items: center; grid-template-columns: 1fr 1fr; align-items: center; gap: 1px 4px; padding: 4px 9px; border-radius: 8px; border: 1px solid #e0e1d6; background: #eeeee4; }
+.key-arrow { font-size: 29px; line-height: 1; grid-column: 1 / -1; color: #586547; }
+.direction-key > span:not(.key-arrow) { font-size: 10px; justify-self: end; color: #64705d; }
+kbd { justify-self: start; background: #fff; border: 1px solid #c9cfc0; border-bottom-width: 2px; border-radius: 4px; padding: 1px 6px; font: 700 11px "Segoe UI", sans-serif; }
+.direction-key.pressed { background: #d2ddc5; border-color: #6b845c; }
+.input-status { font-size: 11px; color: var(--muted); white-space: nowrap; }
+.notice { color: #727b6a; font-size: 11px; line-height: 1.8; margin: 12px 0 0; }
+.result-panel { display: grid; grid-template-columns: 1fr auto; gap: 15px; padding: 18px; margin-top: 14px; border: 1px solid #d1d8c6; border-radius: 10px; background: #f9faf5; }
+.result-panel[hidden] { display: none; }
+.result-panel > div:first-child p { margin: 5px 0 0; color: var(--muted); font-size: 11px; }
+.result-table-wrap { grid-column: 1 / -1; overflow-x: auto; }
+.result-panel table { width: 100%; border-collapse: collapse; text-align: center; font-size: 12px; }
+.result-panel th { color: #76826c; font-size: 10px; }
+.result-panel td, .result-panel th { padding: 8px; border-bottom: 1px solid #e3e7db; }
+.result-panel > button { grid-column: 2; grid-row: 1; font-size: 11px; align-self: start; }
+.success-text { color: #3e684a; font-weight: 700; }
+.failure-text { color: #ac4d43; font-weight: 700; }
+@media (min-width: 1600px) { body { grid-template-columns: 320px minmax(0, 1fr); } .settings-panel { padding: 26px 30px; } main { padding: 25px 34px; } }
+@media (max-width: 760px) { .settings-panel { position: static; max-height: none; overflow: visible; } .stage { width: 100%; } }
+@media (max-width: 1100px) { body { grid-template-columns: 264px minmax(0, 1fr); } .settings-panel { padding: 22px 17px; } main { padding: 18px; } .controls-strip { gap: 8px; padding: 10px; } .input-status { display: none; } .direction-keys { gap: 5px; } .stage-caption { left: 6%; width: 88%; padding: 9px 10px; gap: 8px; } }
+@media (max-width: 760px) { body { grid-template-columns: 1fr; } .settings-panel { border-right: 0; border-bottom: 1px solid var(--line); } h1 { font-size: 22px; } .subtitle { margin-bottom: 15px; } #settings-form { display: grid; grid-template-columns: 1fr 100px; gap: 6px 12px; } #settings-form label { align-self: center; margin: 0; } .field-help { grid-column: 1 / -1; margin: 0 0 8px; } .beat-summary, .settings-actions { grid-column: 1 / -1; } .number-field input { padding: 7px 28px 7px 9px; font-size: 17px; } .number-field > span { right: 23px; top: 10px; } .trial-actions { grid-template-columns: 1fr 1fr; } #reset { grid-column: 1 / -1; } .panel-footer { flex-direction: row; justify-content: space-between; margin-top: 12px; } main { padding: 14px 12px; } .phase-steps { gap: 4px; } .phase-steps span { padding: 6px 8px; font-size: 10px; } .progress { font-size: 10px; } .controls-strip { flex-wrap: wrap; } .key-intro { display: none; } .direction-keys { max-width: none; } .stage-caption { gap: 6px; padding: 7px; } .stage-caption p { font-size: 9px; } .stage-caption > span { font-size: 9px; padding-right: 6px; } .note-timer { font-size: 9px; padding: 2px; } .note-number { font-size: 8px; min-width: 18px; padding: 2px; } .stage-message { left: 23%; width: 54%; font-size: 8px; padding: 5px; } }
+
+</style>
+</head>
+<body>
+  <aside class="settings-panel">
+    <div class="eyebrow">탈놀음 한바탕</div>
+    <h1>옴탈 채검하기</h1>
+    <p class="subtitle">네 번 보고, 순서대로 기억하기</p>
+    <div class="panel-heading"><h2>시간 설정</h2><span>단위: 초</span></div>
+    <form id="settings-form" novalidate>
+      <label for="noteHoldSeconds">공통 노트 유지 시간</label>
+      <div class="number-field"><input id="noteHoldSeconds" name="noteHoldSeconds" type="number" min="0.05" max="60" step="0.05" value="0.8" required><span>초</span></div>
+      <p class="field-help">암기에서는 방향 표시, 입력에서는 응답을 받는 시간입니다. 입력하면 즉시 판정하고 유지 시간은 끝까지 진행합니다.</p>
+      <label for="noteGapSeconds">노트 사이 간격</label>
+      <div class="number-field"><input id="noteGapSeconds" name="noteGapSeconds" type="number" min="0" max="60" step="0.05" value="0.2" required><span>초</span></div>
+      <p class="field-help">유지 시간이 끝난 뒤부터 셉니다. 입력 시점에 관계없이 이 간격까지 끝나면 다음 노트를 시작합니다.</p>
+      <div class="settings-actions"><button id="save" type="submit">JSON 저장</button><button id="reload" type="button">JSON 연결</button></div>
+      <input id="settings-file" type="file" accept="application/json,.json" hidden>
+    </form>
+    <p id="save-status" class="save-status" role="status">저장된 설정을 읽는 중입니다.</p>
+    <div class="trial-actions">
+      <button id="start" class="primary" disabled>새 순서 시작</button>
+      <button id="replay" disabled>같은 순서로 재시험</button>
+      <button id="reset">대기로 초기화</button>
+    </div>
+    <div class="panel-footer"><span>설정은 브라우저에 자동 저장됩니다.<br>JSON을 연결하면 해당 파일에도 저장됩니다.</span></div>
+  </aside>
+  <main>
+    <header class="main-header">
+      <nav class="phase-steps" aria-label="진행 단계"><span data-phase="idle" class="active">01 대기</span><i>›</i><span data-phase="memorize">02 암기</span><i>›</i><span data-phase="input">03 입력</span></nav>
+      <span id="progress" class="progress">시작 준비</span>
+    </header>
+    <section id="stage" class="stage" data-phase="idle" aria-label="옴탈 채검하기 체험 화면" tabindex="-1">
+      <img class="background" src="resources/background.png" alt="산과 한옥이 보이는 넓은 마당" draggable="false">
+      <img id="omtal" class="omtal" src="resources/omtal_front.png" alt="정면을 보는 옴탈" draggable="false">
+      <div class="stage-caption"><span id="phase-label">대기</span><p id="instruction">옴탈의 고개 움직임을 잘 기억해두게나!</p></div>
+      <div id="notes" class="notes" aria-label="기억할 방향 노트 네 개"></div>
+      <div id="stage-message" class="stage-message">왼쪽의 시작 버튼을 눌러 주세요.</div>
+    </section>
+    <section class="controls-strip" aria-label="방향별 키패드 안내">
+      <div class="key-intro"><strong>숫자 키패드</strong><span>한 번씩 눌러 입력</span></div>
+      <div class="direction-keys">
+        <div class="direction-key" data-direction="up"><span class="key-arrow">↑</span><span>상</span><kbd>1</kbd></div>
+        <div class="direction-key" data-direction="down"><span class="key-arrow">↓</span><span>하</span><kbd>2</kbd></div>
+        <div class="direction-key" data-direction="left"><span class="key-arrow">←</span><span>좌</span><kbd>3</kbd></div>
+        <div class="direction-key" data-direction="right"><span class="key-arrow">→</span><span>우</span><kbd>4</kbd></div>
+      </div>
+      <span id="input-status" class="input-status">입력 단계에서 활성화</span>
+    </section>
+    <section id="result-panel" class="result-panel" hidden aria-live="polite">
+      <div><h2 id="result-title">시험 결과</h2><p id="result-subtitle"></p></div>
+      <div class="result-table-wrap"><table><thead><tr><th>순서</th><th>정답</th><th>입력</th><th>판정</th><th>응답 시간</th></tr></thead><tbody id="result-rows"></tbody></table></div>
+      <button id="export-result">시험 기록 저장</button>
+    </section>
+    <p id="notice" class="notice" role="status">입력하면 즉시 판정합니다. 다음 노트는 유지 시간과 간격이 모두 끝난 뒤 시작합니다.</p>
+  </main>
+  <script id="initial-settings" type="application/json">{"noteHoldSeconds":1,"noteGapSeconds":1.2}</script>
+<script>
+(() => {
+'use strict';
+const DEFAULT_SETTINGS = Object.freeze({
+  noteHoldSeconds: 0.8,
+  noteGapSeconds: 0.2,
+});
+
+function validateSettings(value) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) {
+    throw new Error('시간 설정을 확인해 주세요.');
+  }
+  const labels = {
+    noteHoldSeconds: '공통 노트 유지 시간',
+    noteGapSeconds: '노트 사이 간격',
+  };
+  if (Object.keys(value).length !== Object.keys(labels).length ||
+      Object.keys(value).some(key => !(key in labels))) {
+    throw new Error('설정 파일에는 공통 유지 시간과 노트 사이 간격이 필요합니다.');
+  }
+  const settings = {};
+  for (const [key, label] of Object.entries(labels)) {
+    const number = value[key];
+    const minimum = key === 'noteGapSeconds' ? 0 : 0.05;
+    if (typeof number !== 'number' || !Number.isFinite(number) || number < minimum || number > 60) {
+      throw new Error(`${label}은 ${minimum}초 이상 60초 이하로 입력해 주세요.`);
+    }
+    settings[key] = number;
+  }
+  return settings;
+}
+
+function makeSequence(random = Math.random) {
+  const sequence = [];
+  for (let index = 0; index < 4; index++) {
+    const choices = ['up', 'down', 'left', 'right'].filter(direction => direction !== sequence[index - 1]);
+    sequence.push(choices[Math.floor(random() * choices.length)]);
+  }
+  return sequence;
+}
+
+class MemoryTrial {
+  constructor() { this.reset(); }
+
+  reset() {
+    this.phase = 'idle';
+    this.index = -1;
+    this.face = 'front';
+    this.accepting = false;
+    this.inputStage = null;
+    this.pendingInput = null;
+    this.notes = Array.from({ length: 4 }, () => ({ state: 'default', direction: null }));
+    this.sequence = [];
+    this.results = [];
+    this.events = [];
+    this.nextAt = Infinity;
+    this.startedAt = 0;
+    this.finishedAt = null;
+  }
+
+  start(settings, sequence, now) {
+    const validated = validateSettings(settings);
+    if (!Array.isArray(sequence) || sequence.length !== 4 ||
+        sequence.some((direction, index) => !['up', 'down', 'left', 'right'].includes(direction) ||
+          (index > 0 && direction === sequence[index - 1]))) {
+      throw new Error('서로 이어지는 방향이 다른 네 개의 방향이 필요합니다.');
+    }
+    this.reset();
+    this.settings = validated;
+    this.cycleMs = (validated.noteHoldSeconds + validated.noteGapSeconds) * 1000;
+    this.sequence = [...sequence];
+    this.startedAt = now;
+    this.phase = 'memorize';
+    this.showMemory(0, now, now);
+  }
+
+  record(kind, at, observed, extra = {}) {
+    this.events.push({ kind, index: this.index + 1,
+      plannedMs: Math.round((at - this.startedAt) * 1000) / 1000,
+      observedMs: Math.round((observed - this.startedAt) * 1000) / 1000,
+      ...extra });
+  }
+
+  showMemory(index, at, observed) {
+    this.index = index;
+    this.memoryVisible = true;
+    this.face = this.sequence[index];
+    this.notes[index] = { state: 'current', direction: this.face };
+    this.nextAt = at + this.settings.noteHoldSeconds * 1000;
+    this.record('memorize_on', at, observed, { direction: this.face });
+  }
+
+  openInput(index, at, observed) {
+    this.index = index;
+    this.inputStage = 'hold';
+    this.pendingInput = null;
+    this.accepting = true;
+    this.notes[index] = { state: 'current', direction: null };
+    this.openedAt = at;
+    this.nextAt = at + this.settings.noteHoldSeconds * 1000;
+    this.record('input_open', at, observed);
+  }
+
+  advance(now) {
+    // Both stages use the original timeline. User response and frame delays never shift a note.
+    for (let guard = 0; now >= this.nextAt && guard < 32; guard++) {
+      const at = this.nextAt;
+      if (this.phase === 'memorize') {
+        if (this.memoryVisible) {
+          this.memoryVisible = false;
+          this.notes[this.index].state = 'default';
+          this.face = 'front';
+          this.record('memorize_off', at, now);
+          this.nextAt = this.startedAt + (this.index + 1) * this.cycleMs;
+        } else if (this.index < 3) {
+          this.showMemory(this.index + 1, at, now);
+        } else {
+          this.phase = 'input';
+          this.inputStartedAt = at;
+          this.notes = Array.from({ length: 4 }, () => ({ state: 'default', direction: null }));
+          this.openInput(0, at, now);
+        }
+      } else if (this.phase === 'input') {
+        if (this.inputStage === 'hold') {
+          if (this.accepting) this.judge(at, now);
+          this.inputStage = 'gap';
+          this.record('gap_start', at, now);
+          this.nextAt = this.inputStartedAt + (this.index + 1) * this.cycleMs;
+        }
+        else if (this.index < 3) this.openInput(this.index + 1, at, now);
+        else {
+          // The fourth judgment gets the same full gap as the other three.
+          this.phase = 'complete';
+          this.inputStage = null;
+          this.finishedAt = at;
+          this.nextAt = Infinity;
+          this.record('complete', at, now);
+        }
+      } else break;
+    }
+  }
+
+  input(direction, now) {
+    this.advance(now);
+    if (this.phase !== 'input' || !this.accepting || !['up', 'down', 'left', 'right'].includes(direction)) return false;
+    this.pendingInput = { direction, at: now };
+    this.accepting = false;
+    this.record('input_received', now, now, { direction });
+    this.judge(now, now);
+    return true;
+  }
+
+  judge(at, observed) {
+    const direction = this.pendingInput?.direction ?? null;
+    const expected = this.sequence[this.index];
+    const success = direction === expected;
+    const result = {
+      index: this.index + 1, expected, actual: direction,
+      state: success ? 'success' : 'failure',
+      reason: success ? 'correct' : direction === null ? 'timeout' : 'wrong',
+      responseMs: Math.round(((this.pendingInput?.at ?? at) - this.openedAt) * 1000) / 1000,
+    };
+    this.results.push(result);
+    // A failed note always reveals the expected direction, including timeouts.
+    this.notes[this.index] = { state: result.state, direction: expected };
+    this.accepting = false;
+    this.record('judgment', at, observed, result);
+    // Keep the original hold deadline. The fixed gap starts only when it expires.
+  }
+
+  remaining(now) {
+    return this.phase === 'input' && this.inputStage === 'hold' ? Math.max(0, (this.nextAt - now) / 1000) : 0;
+  }
+}
+
+// Browser-only persistence. No network or background process is used.
+class LocalSettingsStore {
+  constructor(key = 'omtal-memory:' + location.pathname) {
+    this.key = key;
+    this.handle = null;
+    this.database = null;
+    this.writeTail = Promise.resolve();
+  }
+
+  cached(fallback) {
+    try {
+      const stored = localStorage.getItem(this.key);
+      return stored ? validateSettings(JSON.parse(stored)) : validateSettings(fallback);
+    } catch { return validateSettings(fallback); }
+  }
+
+  cache(settings) {
+    try { localStorage.setItem(this.key, JSON.stringify(settings)); return true; }
+    catch { return false; }
+  }
+
+  async openDatabase() {
+    if (this.database) return this.database;
+    this.database = await new Promise((resolve, reject) => {
+      const request = indexedDB.open('omtal-memory-files', 1);
+      request.onupgradeneeded = () => request.result.createObjectStore('handles');
+      request.onsuccess = () => resolve(request.result);
+      request.onerror = () => reject(request.error);
+      request.onblocked = () => reject(new Error('파일 연결 기록을 열 수 없습니다.'));
+    });
+    return this.database;
+  }
+
+  async remember(handle) {
+    this.handle = handle;
+    try {
+      const database = await this.openDatabase();
+      await new Promise((resolve, reject) => {
+        const transaction = database.transaction('handles', 'readwrite');
+        transaction.objectStore('handles').put(handle, this.key);
+        transaction.oncomplete = resolve;
+        transaction.onerror = () => reject(transaction.error);
+        transaction.onabort = () => reject(transaction.error);
+      });
+    } catch { /* The current session still works if persistent file handles are unavailable. */ }
+  }
+
+  async restore() {
+    try {
+      const database = await this.openDatabase();
+      const handle = await new Promise((resolve, reject) => {
+        const request = database.transaction('handles').objectStore('handles').get(this.key);
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error);
+      });
+      if (handle?.kind !== 'file') return null;
+      this.handle = handle;
+      if (await handle.queryPermission({ mode: 'read' }) !== 'granted') return null;
+      return this.read();
+    } catch { return null; }
+  }
+
+  async read() {
+    if (!this.handle) throw new Error('먼저 설정 JSON을 연결해 주세요.');
+    const file = await this.handle.getFile();
+    return validateSettings(JSON.parse((await file.text()).replace(/^\uFEFF/, '')));
+  }
+
+  async connect() {
+    const [handle] = await showOpenFilePicker({ id: 'omtal-settings', multiple: false,
+      types: [{ description: '시간 설정 JSON', accept: { 'application/json': ['.json'] } }] });
+    // Ask while the user's click still provides a transient activation.
+    const writable = await handle.requestPermission({ mode: 'readwrite' });
+    const previous = this.handle;
+    this.handle = handle;
+    try {
+      const settings = await this.read();
+      await this.remember(handle);
+      this.cache(settings);
+      return { settings, writable: writable === 'granted' };
+    } catch (error) { this.handle = previous; throw error; }
+  }
+
+  async prepareSave() {
+    if (!this.handle) {
+      const handle = await showSaveFilePicker({ id: 'omtal-settings', suggestedName: '설정.json',
+        types: [{ description: '시간 설정 JSON', accept: { 'application/json': ['.json'] } }] });
+      await this.remember(handle);
+    } else if (await this.handle.requestPermission({ mode: 'readwrite' }) !== 'granted') {
+      throw new Error('JSON 저장 권한을 허용해 주세요. 입력값은 브라우저에 보관됩니다.');
+    }
+  }
+
+  async save(value) {
+    const settings = validateSettings(value);
+    const cached = this.cache(settings);
+    const handle = this.handle;
+    if (!handle || await handle.queryPermission({ mode: 'readwrite' }) !== 'granted') {
+      return { settings, cached, fileSaved: false };
+    }
+    const write = this.writeTail.catch(() => {}).then(async () => {
+      const stream = await handle.createWritable();
+      try { await stream.write(JSON.stringify(settings, null, 2) + '\n'); await stream.close(); }
+      catch (error) { try { await stream.abort(); } catch {} throw error; }
+    });
+    this.writeTail = write;
+    await write;
+    return { settings, cached, fileSaved: true };
+  }
+}
+
+function downloadJson(value, filename) {
+  const blob = new Blob([JSON.stringify(value, null, 2) + '\n'], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = filename;
+  document.body.append(link);
+  link.click(); link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+
+const $ = id => document.getElementById(id);
+const labels = { up: '상', down: '하', left: '좌', right: '우', front: '정면' };
+const symbols = { up: '↑', down: '↓', left: '←', right: '→' };
+const angles = { up: -90, down: 90, left: 180, right: 0 };
+const imageStates = { default: 'default', current: 'cur', success: 'success', failure: 'failure' };
+const phaseLabels = { idle: '대기', memorize: '암기', input: '입력', complete: '완료' };
+const settingsKeys = ['noteHoldSeconds', 'noteGapSeconds'];
+const trial = new MemoryTrial();
+const settingsStore = new LocalSettingsStore();
+let ready = false, starting = false, lastSequence = null;
+let saveTimer, saveTail = Promise.resolve(), rendered = '', lastResult = null;
+let formRevision = 0, trialDate = '', runSettings;
+const heldKeys = new Set();
+
+const noteElements = Array.from({ length: 4 }, (_, index) => {
+  const note = document.createElement('div');
+  note.className = 'note';
+  note.dataset.state = 'default';
+  note.innerHTML = `<img class="note-disc" src="resources/note_default.png" alt="" draggable="false"><span class="note-number">${index + 1}</span><img class="note-arrow" alt="" draggable="false" hidden><span class="note-question" hidden>?</span><span class="note-timer" hidden></span>`;
+  $('notes').append(note);
+  return { node: note, disc: note.querySelector('.note-disc'), arrow: note.querySelector('.note-arrow'),
+    question: note.querySelector('.note-question'), timer: note.querySelector('.note-timer') };
+});
+
+function status(message, error = false) {
+  $('save-status').textContent = message;
+  $('save-status').classList.toggle('error', error);
+}
+
+function formSettings() {
+  return validateSettings(Object.fromEntries(settingsKeys.map(key => [key, $(key).valueAsNumber])));
+}
+
+function putSettings(settings) {
+  for (const key of settingsKeys) $(key).value = settings[key];
+  formRevision++;
+  formIsValid();
+}
+
+function formIsValid() {
+  try {
+    formSettings();
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function controls() {
+  const running = starting || ['memorize', 'input'].includes(trial.phase);
+  const valid = formIsValid();
+  settingsKeys.forEach(key => { $(key).disabled = running || !ready; });
+  for (const id of ['save', 'reload']) $(id).disabled = running || !ready;
+  $('start').disabled = running || !ready || !valid;
+  $('replay').disabled = running || !ready || !valid || !lastSequence;
+  $('reset').disabled = starting || !ready;
+  $('export-result').disabled = !lastResult;
+}
+
+function saveSettings() {
+  clearTimeout(saveTimer);
+  const revision = formRevision;
+  let value;
+  try { value = formSettings(); }
+  catch (error) { status(error.message, true); return Promise.reject(error); }
+  status('설정값을 저장하는 중입니다.');
+  const promise = saveTail.catch(() => {}).then(() => settingsStore.save(value));
+  saveTail = promise;
+  return promise.then(data => {
+    if (revision === formRevision) status(data.fileSaved ? `${settingsStore.handle.name} 저장 완료.` :
+      data.cached ? '브라우저에 저장 완료. JSON 연결 시 파일에도 저장됩니다.' : '현재 화면에 적용했습니다. JSON 저장으로 파일을 보관해 주세요.');
+    return data.settings;
+  }, error => {
+    status(error.message, true);
+    throw error;
+  });
+}
+
+for (const key of settingsKeys) {
+  $(key).addEventListener('input', () => {
+    formRevision++;
+    clearTimeout(saveTimer);
+    controls();
+    if (formIsValid()) {
+      status('변경된 설정을 저장합니다.');
+      saveTimer = setTimeout(() => saveSettings().catch(() => {}), 450);
+    } else {
+      try { formSettings(); } catch (error) { status(error.message, true); }
+    }
+  });
+}
+
+$('settings-form').addEventListener('submit', async event => {
+  event.preventDefault();
+  try {
+    const value = formSettings();
+    if (typeof showSaveFilePicker === 'function') {
+      await settingsStore.prepareSave();
+      await saveSettings();
+    } else {
+      await saveSettings();
+      downloadJson(value, '설정.json');
+      status('설정 JSON을 다운로드했습니다.');
+    }
+  } catch (error) {
+    if (['SecurityError', 'NotSupportedError'].includes(error.name)) {
+      downloadJson(formSettings(), '설정.json');
+      status('설정 JSON을 다운로드했습니다.');
+    } else if (error.name !== 'AbortError') status(error.message, true);
+  }
+});
+$('reload').addEventListener('click', async () => {
+  clearTimeout(saveTimer);
+  if (typeof showOpenFilePicker !== 'function') { $('settings-file').click(); return; }
+  try {
+    await saveTail.catch(() => {});
+    const data = await settingsStore.connect();
+    putSettings(data.settings);
+    status(data.writable ? `${settingsStore.handle.name} 연결 완료. 변경값을 파일에 자동 저장합니다.` :
+      'JSON을 읽었습니다. 파일에 저장하려면 JSON 저장을 눌러 주세요.');
+  } catch (error) {
+    if (['SecurityError', 'NotSupportedError'].includes(error.name)) $('settings-file').click();
+    else if (error.name !== 'AbortError') status(error.message, true);
+  }
+  controls();
+});
+$('settings-file').addEventListener('change', async event => {
+  const file = event.target.files[0];
+  if (!file) return;
+  try {
+    const settings = validateSettings(JSON.parse((await file.text()).replace(/^\uFEFF/, '')));
+    putSettings(settings); settingsStore.cache(settings);
+    status(`${file.name} 불러오기 완료. JSON 저장은 파일 다운로드로 진행합니다.`);
+  } catch (error) { status(error.message, true); }
+  event.target.value = '';
+  controls();
+});
+
+async function start(replay) {
+  if (starting || !ready || ['memorize', 'input'].includes(trial.phase)) return;
+  starting = true;
+  controls();
+  try {
+    runSettings = await saveSettings();
+    const sequence = replay && lastSequence ? [...lastSequence] : makeSequence();
+    lastSequence = [...sequence];
+    lastResult = null;
+    trialDate = new Date().toISOString();
+    $('result-panel').hidden = true;
+    $('notice').textContent = '입력하면 즉시 판정합니다. 다음 노트는 유지 시간과 간격이 모두 끝난 뒤 시작합니다.';
+    // The stage receives focus so numbers no longer edit a settings field.
+    $('stage').focus({ preventScroll: true });
+    trial.start(runSettings, sequence, performance.now());
+    rendered = '';
+  } catch (error) { status(error.message, true); }
+  finally { starting = false; controls(); render(performance.now()); }
+}
+
+$('start').addEventListener('click', () => start(false));
+$('replay').addEventListener('click', () => start(true));
+function reset(message) {
+  trial.reset();
+  heldKeys.clear();
+  document.querySelectorAll('.direction-key').forEach(node => node.classList.remove('pressed'));
+  lastResult = null;
+  $('result-panel').hidden = true;
+  rendered = '';
+  if (message) $('notice').textContent = message;
+  controls();
+  render(performance.now());
+}
+$('reset').addEventListener('click', () => reset('시험을 초기화했습니다. 저장된 시간 설정과 재시험할 순서는 유지됩니다.'));
+
+function renderResults() {
+  lastResult = { startedAt: trialDate, settings: runSettings,
+    sequence: [...trial.sequence], results: trial.results.map(item => ({ ...item })),
+    events: trial.events.map(item => ({ ...item })) };
+  const successes = trial.results.filter(result => result.state === 'success').length;
+  $('result-title').textContent = `${successes}개 성공 / 4개`;
+  $('result-subtitle').textContent = '실패 노트의 화살표는 정답 방향입니다. 입력한 방향은 아래에서 확인하세요.';
+  $('result-rows').replaceChildren(...trial.results.map(result => {
+    const row = document.createElement('tr');
+    const texts = [String(result.index), `${symbols[result.expected]} ${labels[result.expected]}`,
+      result.actual ? `${symbols[result.actual]} ${labels[result.actual]}` : '입력 없음',
+      result.reason === 'timeout' ? '실패 (시간 초과)' : result.state === 'success' ? '성공' : '실패 (방향 오류)',
+      `${(result.responseMs / 1000).toFixed(3)}초`];
+    texts.forEach((text, index) => {
+      const cell = document.createElement('td'); cell.textContent = text;
+      if (index === 3) cell.className = `${result.state}-text`;
+      row.append(cell);
+    });
+    return row;
+  }));
+  $('result-panel').hidden = false;
+  controls();
+}
+
+function render(now) {
+  const signature = JSON.stringify([trial.phase, trial.index, trial.accepting, trial.inputStage, trial.face, trial.notes]);
+  if (signature !== rendered) {
+    rendered = signature;
+    $('stage').dataset.phase = trial.phase;
+    $('phase-label').textContent = phaseLabels[trial.phase];
+    document.querySelectorAll('[data-phase]').forEach(node => {
+      if (node.tagName === 'SPAN') node.classList.toggle('active', node.dataset.phase === (trial.phase === 'complete' ? 'input' : trial.phase));
+    });
+    $('omtal').src = `resources/omtal_${trial.face}.png`;
+    $('omtal').alt = `${labels[trial.face]} 방향을 보는 옴탈`;
+    noteElements.forEach((element, index) => {
+      const value = trial.notes[index], asset = imageStates[value.state];
+      element.node.dataset.state = value.state;
+      element.node.setAttribute('aria-label', `${index + 1}번 노트: ${value.state}${value.direction ? ` ${labels[value.direction]}` : ''}`);
+      element.disc.src = `resources/note_${asset}.png`;
+      element.arrow.hidden = !value.direction;
+      if (value.direction) {
+        element.arrow.src = `resources/arrow_${asset}.png`;
+        element.arrow.style.transform = `rotate(${angles[value.direction]}deg)`;
+      }
+      const currentInput = trial.phase === 'input' && trial.inputStage === 'hold' && trial.index === index;
+      element.question.hidden = !currentInput || value.state !== 'current';
+      element.timer.hidden = !currentInput;
+    });
+    $('progress').textContent = trial.phase === 'idle' ? '시작 준비' : trial.phase === 'complete' ? '시험 완료' : `${trial.index + 1} / 4`;
+    $('instruction').textContent = trial.phase === 'idle' ? '옴탈의 고개 움직임을 잘 기억해두게나!' :
+      trial.phase === 'memorize' ? '고개 방향과 순서를 기억해 주세요.' :
+      trial.phase === 'complete' ? '네 번의 입력이 모두 끝났습니다.' : '기억한 방향을 순서대로 입력해 주세요.';
+    $('stage-message').textContent = trial.phase === 'idle' ? '왼쪽의 시작 버튼을 눌러 주세요.' :
+      trial.phase === 'memorize' ? (trial.memoryVisible ? `${trial.index + 1}번째 방향` : '다음 박을 기다려 주세요.') :
+      trial.phase === 'complete' ? `성공 ${trial.results.filter(result => result.state === 'success').length}개, 실패 ${trial.results.filter(result => result.state === 'failure').length}개` :
+      trial.inputStage === 'gap' ? '노트 사이 간격입니다. 다음 노트를 준비해 주세요.' :
+      trial.accepting ? `${trial.index + 1}번째 방향을 입력하세요.` : '판정 완료. 유지 시간이 끝나면 노트 사이 간격이 시작됩니다.';
+    $('input-status').textContent = trial.phase === 'input' ?
+      (trial.inputStage === 'gap' ? '다음 노트 준비' : trial.accepting ? '지금 입력하세요' : '판정 결과 표시 중') : '입력 단계에서 활성화';
+    if (trial.phase === 'complete') renderResults();
+  }
+  if (trial.phase === 'input' && trial.inputStage === 'hold') noteElements[trial.index].timer.textContent = `${trial.remaining(now).toFixed(1)}초`;
+}
+
+window.addEventListener('keydown', event => {
+  const match = /^(?:Numpad|Digit)([1-4])$/.exec(event.code);
+  if (!match || event.ctrlKey || event.altKey || event.metaKey ||
+      event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) return;
+  event.preventDefault();
+  if (event.repeat || heldKeys.has(event.code)) return;
+  heldKeys.add(event.code);
+  const direction = ['up', 'down', 'left', 'right'][Number(match[1]) - 1];
+  document.querySelector(`[data-direction="${direction}"]`).classList.add('pressed');
+  trial.input(direction, performance.now());
+  render(performance.now());
+});
+window.addEventListener('keyup', event => {
+  heldKeys.delete(event.code);
+  const match = /^(?:Numpad|Digit)([1-4])$/.exec(event.code);
+  if (match) document.querySelector(`[data-direction="${['up', 'down', 'left', 'right'][Number(match[1]) - 1]}"]`).classList.remove('pressed');
+});
+window.addEventListener('blur', () => {
+  heldKeys.clear();
+  document.querySelectorAll('.direction-key').forEach(node => node.classList.remove('pressed'));
+});
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden && ['memorize', 'input'].includes(trial.phase)) {
+    reset('화면을 벗어나 시험을 중단했습니다. 동일한 조건으로 다시 시작해 주세요.');
+  }
+});
+
+$('export-result').addEventListener('click', () => {
+  if (!lastResult) return;
+  const filename = '시험 ' + new Date().toISOString().replace(/[:.]/g, '-') + '.json';
+  downloadJson(lastResult, filename);
+  $('notice').textContent = `시험 기록 저장 완료: ${filename}`;
+});
+
+async function initialize() {
+  controls();
+  try {
+    const initial = JSON.parse($('initial-settings').textContent);
+    putSettings(settingsStore.cached(initial));
+    const names = ['background', ...['front', 'up', 'down', 'left', 'right'].map(face => `omtal_${face}`),
+      ...['default', 'cur', 'success', 'failure'].flatMap(state => [`note_${state}`, `arrow_${state}`])];
+    await Promise.all(names.map(name => new Promise((resolve, reject) => {
+      const image = new Image(); image.onload = resolve;
+      image.onerror = () => reject(new Error(`이미지를 읽을 수 없습니다: ${name}.png`));
+      image.src = `resources/${name}.png`;
+    })));
+    const restored = await settingsStore.restore();
+    if (restored) putSettings(restored);
+    ready = true;
+    status(restored ? `${settingsStore.handle.name} 자동 불러오기 완료.` : '설정 준비 완료. JSON 연결 없이도 바로 시작할 수 있습니다.');
+    controls();
+  } catch (error) { status(error.message, true); }
+}
+
+function frame(now) { trial.advance(now); render(now); requestAnimationFrame(frame); }
+window.addEventListener('pagehide', () => {
+  clearTimeout(saveTimer);
+  try { settingsStore.cache(formSettings()); } catch {}
+});
+requestAnimationFrame(frame);
+initialize();
+
+})();
+</script>
+</body>
+</html>

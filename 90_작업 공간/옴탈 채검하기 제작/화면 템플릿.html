@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>옴탈 채검하기 | 시간 설정 테스트</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="settings-panel">
+    <div class="eyebrow">탈놀음 한바탕</div>
+    <h1>옴탈 채검하기</h1>
+    <p class="subtitle">네 번 보고, 순서대로 기억하기</p>
+    <div class="panel-heading"><h2>시간 설정</h2><span>단위: 초</span></div>
+    <form id="settings-form" novalidate>
+      <label for="noteHoldSeconds">공통 노트 유지 시간</label>
+      <div class="number-field"><input id="noteHoldSeconds" name="noteHoldSeconds" type="number" min="0.05" max="60" step="0.05" value="0.8" required><span>초</span></div>
+      <p class="field-help">암기에서는 방향 표시, 입력에서는 응답을 받는 시간입니다. 입력하면 즉시 판정하고 유지 시간은 끝까지 진행합니다.</p>
+      <label for="noteGapSeconds">노트 사이 간격</label>
+      <div class="number-field"><input id="noteGapSeconds" name="noteGapSeconds" type="number" min="0" max="60" step="0.05" value="0.2" required><span>초</span></div>
+      <p class="field-help">유지 시간이 끝난 뒤부터 셉니다. 입력 시점에 관계없이 이 간격까지 끝나면 다음 노트를 시작합니다.</p>
+      <div class="settings-actions"><button id="save" type="submit">JSON 저장</button><button id="reload" type="button">JSON 연결</button></div>
+      <input id="settings-file" type="file" accept="application/json,.json" hidden>
+    </form>
+    <p id="save-status" class="save-status" role="status">저장된 설정을 읽는 중입니다.</p>
+    <div class="trial-actions">
+      <button id="start" class="primary" disabled>새 순서 시작</button>
+      <button id="replay" disabled>같은 순서로 재시험</button>
+      <button id="reset">대기로 초기화</button>
+    </div>
+    <div class="panel-footer"><span>설정은 브라우저에 자동 저장됩니다.<br>JSON을 연결하면 해당 파일에도 저장됩니다.</span></div>
+  </aside>
+  <main>
+    <header class="main-header">
+      <nav class="phase-steps" aria-label="진행 단계"><span data-phase="idle" class="active">01 대기</span><i>›</i><span data-phase="memorize">02 암기</span><i>›</i><span data-phase="input">03 입력</span></nav>
+      <span id="progress" class="progress">시작 준비</span>
+    </header>
+    <section id="stage" class="stage" data-phase="idle" aria-label="옴탈 채검하기 체험 화면" tabindex="-1">
+      <img class="background" src="resources/background.png" alt="산과 한옥이 보이는 넓은 마당" draggable="false">
+      <img id="omtal" class="omtal" src="resources/omtal_front.png" alt="정면을 보는 옴탈" draggable="false">
+      <div class="stage-caption"><span id="phase-label">대기</span><p id="instruction">옴탈의 고개 움직임을 잘 기억해두게나!</p></div>
+      <div id="notes" class="notes" aria-label="기억할 방향 노트 네 개"></div>
+      <div id="stage-message" class="stage-message">왼쪽의 시작 버튼을 눌러 주세요.</div>
+    </section>
+    <section class="controls-strip" aria-label="방향별 키패드 안내">
+      <div class="key-intro"><strong>숫자 키패드</strong><span>한 번씩 눌러 입력</span></div>
+      <div class="direction-keys">
+        <div class="direction-key" data-direction="up"><span class="key-arrow">↑</span><span>상</span><kbd>1</kbd></div>
+        <div class="direction-key" data-direction="down"><span class="key-arrow">↓</span><span>하</span><kbd>2</kbd></div>
+        <div class="direction-key" data-direction="left"><span class="key-arrow">←</span><span>좌</span><kbd>3</kbd></div>
+        <div class="direction-key" data-direction="right"><span class="key-arrow">→</span><span>우</span><kbd>4</kbd></div>
+      </div>
+      <span id="input-status" class="input-status">입력 단계에서 활성화</span>
+    </section>
+    <section id="result-panel" class="result-panel" hidden aria-live="polite">
+      <div><h2 id="result-title">시험 결과</h2><p id="result-subtitle"></p></div>
+      <div class="result-table-wrap"><table><thead><tr><th>순서</th><th>정답</th><th>입력</th><th>판정</th><th>응답 시간</th></tr></thead><tbody id="result-rows"></tbody></table></div>
+      <button id="export-result">시험 기록 저장</button>
+    </section>
+    <p id="notice" class="notice" role="status">입력하면 즉시 판정합니다. 다음 노트는 유지 시간과 간격이 모두 끝난 뒤 시작합니다.</p>
+  </main>
+  <script type="module" src="app.mjs"></script>
+</body>
+</html>

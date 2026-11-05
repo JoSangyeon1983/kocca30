@@ -1,0 +1,55 @@
+{
+  "browser": "Edg/156.0.4314.58",
+  "checks": [
+    "All visible assets load; initial settings are read from the real JSON file",
+    "Exactly two shared settings automatically save to disk and reload after page restart",
+    "Early and late Numpad 1-4 inputs reveal success immediately; all four succeed",
+    "Same-sequence retry and cancellation to idle work",
+    "Wrong inputs reveal failure immediately while hold timer continues; timeouts and held-key suppression work",
+    "Saved results prove immediate input judgment, fixed hold ends, fixed next-note onsets and full final interval",
+    "Invalid timing is explained, blocks start and preserves the previous JSON",
+    "Desktop and narrow viewport layouts have no horizontal overflow"
+  ],
+  "layouts": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "documentWidth": 1905,
+      "documentHeight": 1090,
+      "stage": {
+        "x": 354,
+        "y": 79,
+        "width": 1517,
+        "height": 853.765625
+      },
+      "startBottom": 490
+    },
+    {
+      "width": 1365,
+      "height": 768,
+      "documentWidth": 1350,
+      "documentHeight": 780,
+      "stage": {
+        "x": 334.15625,
+        "y": 76,
+        "width": 973.671875,
+        "height": 547.96875
+      },
+      "startBottom": 484
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "documentWidth": 375,
+      "documentHeight": 965,
+      "stage": {
+        "x": 12,
+        "y": 606,
+        "width": 351,
+        "height": 197.53125
+      },
+      "startBottom": 438
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,177 @@
+{
+  "startedAt": "2026-11-04T05:02:38.387Z",
+  "settings": {
+    "noteHoldSeconds": 0.1,
+    "noteIntervalSeconds": 0.2,
+    "judgmentGapSeconds": 0.15,
+    "inputTimeoutSeconds": 0.6
+  },
+  "sequence": [
+    "up",
+    "left",
+    "right",
+    "down"
+  ],
+  "results": [
+    {
+      "index": 1,
+      "expected": "up",
+      "actual": "down",
+      "state": "failure",
+      "reason": "wrong",
+      "responseMs": 8.8
+    },
+    {
+      "index": 2,
+      "expected": "left",
+      "actual": null,
+      "state": "failure",
+      "reason": "timeout",
+      "responseMs": 600
+    },
+    {
+      "index": 3,
+      "expected": "right",
+      "actual": null,
+      "state": "failure",
+      "reason": "timeout",
+      "responseMs": 600
+    },
+    {
+      "index": 4,
+      "expected": "down",
+      "actual": null,
+      "state": "failure",
+      "reason": "timeout",
+      "responseMs": 600
+    }
+  ],
+  "events": [
+    {
+      "kind": "memorize_on",
+      "index": 1,
+      "plannedMs": 0,
+      "observedMs": 0,
+      "direction": "up"
+    },
+    {
+      "kind": "memorize_off",
+      "index": 1,
+      "plannedMs": 100,
+      "observedMs": 100.1
+    },
+    {
+      "kind": "memorize_on",
+      "index": 2,
+      "plannedMs": 200,
+      "observedMs": 200.1,
+      "direction": "left"
+    },
+    {
+      "kind": "memorize_off",
+      "index": 2,
+      "plannedMs": 300,
+      "observedMs": 300
+    },
+    {
+      "kind": "memorize_on",
+      "index": 3,
+      "plannedMs": 400,
+      "observedMs": 400,
+      "direction": "right"
+    },
+    {
+      "kind": "memorize_off",
+      "index": 3,
+      "plannedMs": 500,
+      "observedMs": 500.1
+    },
+    {
+      "kind": "memorize_on",
+      "index": 4,
+      "plannedMs": 600,
+      "observedMs": 600,
+      "direction": "down"
+    },
+    {
+      "kind": "memorize_off",
+      "index": 4,
+      "plannedMs": 700,
+      "observedMs": 700
+    },
+    {
+      "kind": "input_open",
+      "index": 1,
+      "plannedMs": 800,
+      "observedMs": 800
+    },
+    {
+      "kind": "judgment",
+      "index": 1,
+      "plannedMs": 808.8,
+      "observedMs": 808.8,
+      "expected": "up",
+      "actual": "down",
+      "state": "failure",
+      "reason": "wrong",
+      "responseMs": 8.8
+    },
+    {
+      "kind": "input_open",
+      "index": 2,
+      "plannedMs": 958.8,
+      "observedMs": 966.7
+    },
+    {
+      "kind": "judgment",
+      "index": 2,
+      "plannedMs": 1558.8,
+      "observedMs": 1566.7,
+      "expected": "left",
+      "actual": null,
+      "state": "failure",
+      "reason": "timeout",
+      "responseMs": 600
+    },
+    {
+      "kind": "input_open",
+      "index": 3,
+      "plannedMs": 1708.8,
+      "observedMs": 1716.6
+    },
+    {
+      "kind": "judgment",
+      "index": 3,
+      "plannedMs": 2308.8,
+      "observedMs": 2316.6,
+      "expected": "right",
+      "actual": null,
+      "state": "failure",
+      "reason": "timeout",
+      "responseMs": 600
+    },
+    {
+      "kind": "input_open",
+      "index": 4,
+      "plannedMs": 2458.8,
+      "observedMs": 2466.6
+    },
+    {
+      "kind": "judgment",
+      "index": 4,
+      "plannedMs": 3058.8,
+      "observedMs": 3066.6,
+      "expected": "down",
+      "actual": null,
+      "state": "failure",
+      "reason": "timeout",
+      "responseMs": 600
+    },
+    {
+      "kind": "complete",
+      "index": 4,
+      "plannedMs": 3058.8,
+      "observedMs": 3066.6
+    }
+  ]
+}

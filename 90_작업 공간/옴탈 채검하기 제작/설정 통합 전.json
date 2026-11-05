@@ -1,0 +1,6 @@
+{
+  "noteHoldSeconds": 1,
+  "noteIntervalSeconds": 2,
+  "judgmentGapSeconds": 0.4,
+  "inputTimeoutSeconds": 3
+}

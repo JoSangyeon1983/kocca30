@@ -1,0 +1,206 @@
+{
+  "startedAt": "2026-11-04T06:21:30.452Z",
+  "settings": {
+    "noteHoldSeconds": 1,
+    "noteGapSeconds": 0.25
+  },
+  "sequence": [
+    "up",
+    "left",
+    "right",
+    "down"
+  ],
+  "results": [
+    {
+      "index": 1,
+      "expected": "up",
+      "actual": "down",
+      "state": "failure",
+      "reason": "wrong",
+      "responseMs": 25
+    },
+    {
+      "index": 2,
+      "expected": "left",
+      "actual": null,
+      "state": "failure",
+      "reason": "timeout",
+      "responseMs": 1000
+    },
+    {
+      "index": 3,
+      "expected": "right",
+      "actual": null,
+      "state": "failure",
+      "reason": "timeout",
+      "responseMs": 1000
+    },
+    {
+      "index": 4,
+      "expected": "down",
+      "actual": null,
+      "state": "failure",
+      "reason": "timeout",
+      "responseMs": 1000
+    }
+  ],
+  "events": [
+    {
+      "kind": "memorize_on",
+      "index": 1,
+      "plannedMs": 0,
+      "observedMs": 0,
+      "direction": "up"
+    },
+    {
+      "kind": "memorize_off",
+      "index": 1,
+      "plannedMs": 1000,
+      "observedMs": 1012.7
+    },
+    {
+      "kind": "memorize_on",
+      "index": 2,
+      "plannedMs": 1250,
+      "observedMs": 1262.7,
+      "direction": "left"
+    },
+    {
+      "kind": "memorize_off",
+      "index": 2,
+      "plannedMs": 2250,
+      "observedMs": 2262.6
+    },
+    {
+      "kind": "memorize_on",
+      "index": 3,
+      "plannedMs": 2500,
+      "observedMs": 2512.6,
+      "direction": "right"
+    },
+    {
+      "kind": "memorize_off",
+      "index": 3,
+      "plannedMs": 3500,
+      "observedMs": 3512.6
+    },
+    {
+      "kind": "memorize_on",
+      "index": 4,
+      "plannedMs": 3750,
+      "observedMs": 3762.6,
+      "direction": "down"
+    },
+    {
+      "kind": "memorize_off",
+      "index": 4,
+      "plannedMs": 4750,
+      "observedMs": 4762.5
+    },
+    {
+      "kind": "input_open",
+      "index": 1,
+      "plannedMs": 5000,
+      "observedMs": 5012.5
+    },
+    {
+      "kind": "input_received",
+      "index": 1,
+      "plannedMs": 5025,
+      "observedMs": 5025,
+      "direction": "down"
+    },
+    {
+      "kind": "judgment",
+      "index": 1,
+      "plannedMs": 5025,
+      "observedMs": 5025,
+      "expected": "up",
+      "actual": "down",
+      "state": "failure",
+      "reason": "wrong",
+      "responseMs": 25
+    },
+    {
+      "kind": "gap_start",
+      "index": 1,
+      "plannedMs": 6000,
+      "observedMs": 6012.4
+    },
+    {
+      "kind": "input_open",
+      "index": 2,
+      "plannedMs": 6250,
+      "observedMs": 6262.4
+    },
+    {
+      "kind": "judgment",
+      "index": 2,
+      "plannedMs": 7250,
+      "observedMs": 7262.4,
+      "expected": "left",
+      "actual": null,
+      "state": "failure",
+      "reason": "timeout",
+      "responseMs": 1000
+    },
+    {
+      "kind": "gap_start",
+      "index": 2,
+      "plannedMs": 7250,
+      "observedMs": 7262.4
+    },
+    {
+      "kind": "input_open",
+      "index": 3,
+      "plannedMs": 7500,
+      "observedMs": 7512.4
+    },
+    {
+      "kind": "judgment",
+      "index": 3,
+      "plannedMs": 8500,
+      "observedMs": 8512.4,
+      "expected": "right",
+      "actual": null,
+      "state": "failure",
+      "reason": "timeout",
+      "responseMs": 1000
+    },
+    {
+      "kind": "gap_start",
+      "index": 3,
+      "plannedMs": 8500,
+      "observedMs": 8512.4
+    },
+    {
+      "kind": "input_open",
+      "index": 4,
+      "plannedMs": 8750,
+      "observedMs": 8762.4
+    },
+    {
+      "kind": "judgment",
+      "index": 4,
+      "plannedMs": 9750,
+      "observedMs": 9762.3,
+      "expected": "down",
+      "actual": null,
+      "state": "failure",
+      "reason": "timeout",
+      "responseMs": 1000
+    },
+    {
+      "kind": "gap_start",
+      "index": 4,
+      "plannedMs": 9750,
+      "observedMs": 9762.3
+    },
+    {
+      "kind": "complete",
+      "index": 4,
+      "plannedMs": 10000,
+      "observedMs": 10012.3
+    }
+  ]
+}
