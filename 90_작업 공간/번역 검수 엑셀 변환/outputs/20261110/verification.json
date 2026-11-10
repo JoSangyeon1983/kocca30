@@ -1,0 +1,60 @@
+{
+  "snapshotTime": "2026-11-10 12:20:01 KST",
+  "delivery": "D:\\Sangyeon\\02_Task\\2026\\03_KOCCA\\30_무형문화유산\\01_Wiki\\08_산출물\\번역 검수\\번역 검수표.xlsx",
+  "sha256": "5d2ff9f31b58c131a9238d2fc07de8f1995af976a47b5704f6a2c8349ab6827e",
+  "bytes": 15426,
+  "verifiedDataCells": 609,
+  "sources": [
+    {
+      "file": "localization.json",
+      "sheet": "UI 문구",
+      "sha256": "f4370ac2854597edd63d7b976729aa9ef4ae2a13da33a8c45c6667b7a61cb24f",
+      "rows": 183,
+      "dataRange": "A7:C189"
+    },
+    {
+      "file": "character_name_pool.json",
+      "sheet": "이름 풀",
+      "sha256": "2f9528afdd8602a5e2127063cd4f14238cfabace3a78f1edae9123f498f502d4",
+      "rows": 20,
+      "dataRange": "A7:C26"
+    }
+  ],
+  "previews": [
+    {
+      "sheet": "UI 문구",
+      "range": "A1:C17",
+      "file": "ui_start.png"
+    },
+    {
+      "sheet": "UI 문구",
+      "range": "A16:C21",
+      "file": "ui_long.png"
+    },
+    {
+      "sheet": "UI 문구",
+      "range": "A180:C189",
+      "file": "ui_end.png"
+    },
+    {
+      "sheet": "이름 풀",
+      "range": "A1:C26",
+      "file": "name_pool.png"
+    }
+  ],
+  "nativeXmlChecks": [
+    {
+      "sheet": "UI 문구",
+      "rows": 183,
+      "freeze": "B7",
+      "text_cells_match": 549
+    },
+    {
+      "sheet": "이름 풀",
+      "rows": 20,
+      "freeze": "B7",
+      "text_cells_match": 60
+    }
+  ],
+  "zipIntegrity": true
+}

@@ -41,15 +41,15 @@
   },
   "1_2_inactivity_timeout_title": {
     "ko": "입력이 없습니다.",
-    "en": "No Input Detected."
+    "en": "No input detected."
   },
   "1_2_inactivity_timeout_desc": {
     "ko": "계속 이용하려면 화면을 터치해주세요. 입력이 없으면 종료됩니다.",
-    "en": "Please Touch The Screen To Continue.  This Session Will End If There Is No Input."
+    "en": "Please touch the screen to continue.  This session will end if there is no input."
   },
   "1_2_screen_timeout_desc": {
     "ko": "{0}초 후 다음 단계로 이동합니다.",
-    "en": "The Next Step Will Begin In {0} Seconds."
+    "en": "The next step will begin in {0} seconds."
   },
   "1_2_min_max": {
     "ko": "{0} / {1}",
@@ -57,79 +57,307 @@
   },
   "1_2_timeout_quit": {
     "ko": "{0}초 후 자동 종료합니다.",
-    "en": "This Session Will End Automatically In {0} Seconds."
+    "en": "This session will end automatically in {0} seconds."
   },
   "1_2_countdown": {
     "ko": "{0}",
     "en": "{0}"
   },
+  "2_0_character_1": {
+    "ko": "박첨지",
+    "en": "Park Cheomji"
+  },
+  "2_0_character_2": {
+    "ko": "꼭두각시",
+    "en": "Kkokdugaksi"
+  },
+  "2_0_character_3": {
+    "ko": "덜머리집",
+    "en": "Deolmeorijip"
+  },
+  "2_0_item_1": {
+    "ko": "물그릇",
+    "en": "Water bowl"
+  },
+  "2_0_item_2": {
+    "ko": "노리개",
+    "en": "Norigae ornament"
+  },
+  "2_0_item_3": {
+    "ko": "오동 장롱 반닫이",
+    "en": "Paulownia bandaji chest"
+  },
+  "2_0_item_4": {
+    "ko": "자개 함롱 귀닫이",
+    "en": "Mother-of-pearl chest"
+  },
+  "2_0_item_5": {
+    "ko": "깨진 매운독",
+    "en": "Broken earthenware jar"
+  },
+  "2_0_item_6": {
+    "ko": "부적가리",
+    "en": "Fire poker"
+  },
+  "2_0_item_7": {
+    "ko": "천석지기 땅문서",
+    "en": "Land deed for 1,000 seok"
+  },
+  "2_0_item_8": {
+    "ko": "세마지기 땅문서",
+    "en": "Land deed for three majigi"
+  },
+  "2_0_item_9": {
+    "ko": "엽전 꾸러미",
+    "en": "Bundle of coins"
+  },
+  "2_0_storyPhase_1": {
+    "ko": "싸움",
+    "en": "Fight"
+  },
+  "2_0_storyPhase_2": {
+    "ko": "재산 분배",
+    "en": "Property division"
+  },
+  "2_0_storyPhase_3": {
+    "ko": "노잣돈 요구",
+    "en": "Request for travel money"
+  },
+  "2_0_storyPhase_4": {
+    "ko": "박첨지 울음",
+    "en": "Park Cheomji crying"
+  },
+  "2_1_subtitle": {
+    "ko": "덜미 체험하기",
+    "en": "Experience Deolmi"
+  },
+  "2_1_desc": {
+    "ko": "인형이 되어 박첨지 마당의 꼭두각시 거리를 즐겨보세요",
+    "en": "Become a puppet and enjoy the Kkokdugaksi episode in Park Cheomji's play."
+  },
+  "2_2_title": {
+    "ko": "이용 안내",
+    "en": "User guide"
+  },
+  "2_2_dialogue": {
+    "ko": "이용 방법을 알려주겠소.",
+    "en": "Let me show you how to use it."
+  },
+  "2_2_guide_0": {
+    "ko": "내 얼굴로 내 인형을  만들어요",
+    "en": "Make your own puppet  with your face."
+  },
+  "2_2_guide_1": {
+    "ko": "몸을 움직여 인형을  조종해요",
+    "en": "Move your body  to control your puppet."
+  },
+  "2_2_guide_2": {
+    "ko": "인형을 조종해서  인형극에 참여해요",
+    "en": "Control your puppet  to take part in the puppet play."
+  },
+  "2_2_guide_3": {
+    "ko": "내 행동의 결과를  확인해요",
+    "en": "See the results  of your actions."
+  },
+  "2_3_title": {
+    "ko": "이용 동의",
+    "en": "User agreement"
+  },
+  "2_3_dialogue": {
+    "ko": "동의가 필요하오.",
+    "en": "Your consent is required."
+  },
+  "2_3_terms": {
+    "ko": "약관 내용 (입력 예정)",
+    "en": "Terms and conditions (to be added)"
+  },
+  "2_10_title": {
+    "ko": "오늘의 꼭두각시",
+    "en": "Today's puppet"
+  },
+  "2_10_tendency_title": {
+    "ko": "나의 한마당 결과",
+    "en": "Your performance results"
+  },
+  "2_10_tendency_1_name": {
+    "ko": "적극 해결사",
+    "en": "Proactive problem solver"
+  },
+  "2_10_tendency_2_name": {
+    "ko": "오지랖쟁이",
+    "en": "Busybody"
+  },
+  "2_10_tendency_3_name": {
+    "ko": "천둥 벌거숭이",
+    "en": "Reckless troublemaker"
+  },
+  "2_10_tendency_4_name": {
+    "ko": "은근한 조력자",
+    "en": "Quiet helper"
+  },
+  "2_10_tendency_5_name": {
+    "ko": "유유자적 유람객",
+    "en": "Carefree wanderer"
+  },
+  "2_10_tendency_6_name": {
+    "ko": "장난꾸러기",
+    "en": "Prankster"
+  },
+  "2_10_tendency_7_name": {
+    "ko": "조용한 수습꾼",
+    "en": "Quiet fixer"
+  },
+  "2_10_tendency_8_name": {
+    "ko": "태평한 구경꾼",
+    "en": "Relaxed spectator"
+  },
+  "2_10_tendency_9_name": {
+    "ko": "슬쩍 사고뭉치",
+    "en": "Occasional troublemaker"
+  },
+  "2_10_tendency_1_desc": {
+    "ko": "앞장서서 문제를 척척 풀었어요.",
+    "en": "You took the lead and solved problems."
+  },
+  "2_10_tendency_2_desc": {
+    "ko": "이곳저곳 참견하며 흔적을 남겼어요.",
+    "en": "You meddled here and there and left your mark."
+  },
+  "2_10_tendency_3_desc": {
+    "ko": "거침없이 무대를 뒤집어 놓았어요.",
+    "en": "You boldly turned the stage upside down."
+  },
+  "2_10_tendency_4_desc": {
+    "ko": "틈틈이 손을 보태 문제를 풀었어요.",
+    "en": "You lent a hand now and then to solve problems."
+  },
+  "2_10_tendency_5_desc": {
+    "ko": "느긋하게 즐기며 때때로 함께했어요.",
+    "en": "You took it easy and joined in now and then."
+  },
+  "2_10_tendency_6_desc": {
+    "ko": "이따금 장난으로 소동을 더했어요.",
+    "en": "Your occasional pranks stirred things up."
+  },
+  "2_10_tendency_7_desc": {
+    "ko": "조용히 지켜보다 해결을 도왔어요.",
+    "en": "You watched quietly and helped solve problems."
+  },
+  "2_10_tendency_8_desc": {
+    "ko": "한발 물러서 이야기를 즐겼어요.",
+    "en": "You stepped back and enjoyed the story."
+  },
+  "2_10_tendency_9_desc": {
+    "ko": "가끔 내민 손길로 소동을 냈어요.",
+    "en": "Your occasional actions stirred up trouble."
+  },
+  "2_10_choice_title": {
+    "ko": "내가 한 선택 {0}건",
+    "en": "Choices you made: {0}"
+  },
+  "2_10_choice_1_amount": {
+    "ko": "해결 {0}건",
+    "en": "Problem-solving actions: {0}"
+  },
+  "2_10_choice_2_amount": {
+    "ko": "중립 {0}건",
+    "en": "Neutral actions: {0}"
+  },
+  "2_10_choice_3_amount": {
+    "ko": "혼란 {0}건",
+    "en": "Disruptive actions: {0}"
+  },
+  "2_10_action_title": {
+    "ko": "기억에 남는 행동",
+    "en": "Memorable actions"
+  },
+  "2_10_action_1": {
+    "ko": "{0}{1} {2}에게 건넸어요.",
+    "en": "You gave the {0} to {2}."
+  },
+  "2_10_action_2": {
+    "ko": "{0}{1} 던졌어요.",
+    "en": "You threw the {0}."
+  },
+  "2_10_action_3": {
+    "ko": "{0}{1} 지켜보았어요.",
+    "en": "You watched the scene: {0}."
+  },
+  "2_10_action_4": {
+    "ko": "울고 있는 박첨지를 다독였어요.",
+    "en": "You comforted Park Cheomji while he was crying."
+  },
+  "2_10_action_5": {
+    "ko": "울고 있는 박첨지를 때렸어요.",
+    "en": "You hit Park Cheomji while he was crying."
+  },
   "3_1_subtitle": {
     "ko": "AI 덜미 스토리 생성",
-    "en": "AI Deolmi Story Generation"
+    "en": "AI Deolmi story generation"
   },
   "3_1_desc": {
     "ko": "박첨지와 함께 나만의 이야기를 만들고 전자책으로 완성해보세요.",
-    "en": "Create Your Own Story With Park Cheomji And Turn It Into An E-Book."
+    "en": "Create your own story with Park Cheomji and turn it into an E-Book."
   },
   "3_2_title": {
     "ko": "이용 안내",
-    "en": "User Guide"
+    "en": "User guide"
   },
   "3_2_dialogue": {
     "ko": "이용 방법을 알려주겠소.",
-    "en": "Let Me Show You How To Use It."
+    "en": "Let me show you how to use it."
   },
   "3_2_guide_0": {
     "ko": "이야기 마당 유형을  선택하세요.",
-    "en": "Select A Story Episode Type."
+    "en": "Select a story episode type."
   },
   "3_2_guide_1": {
     "ko": "질문에 답하면서  유람기를 꾸며보세요.",
-    "en": "Answer Park Cheomji’s Questions To Create Your Story."
+    "en": "Answer the questions  to create your travelogue."
   },
   "3_2_guide_2": {
     "ko": "유람기가 만들어질 때까지  기다려주세요.",
-    "en": "Your Own E-Book Will Be Created In A Moment."
+    "en": "Please wait  while your travelogue is being created."
   },
   "3_2_guide_3": {
     "ko": "QR 코드를 통해 유람기를  다운받을 수 있어요",
-    "en": "Scan The QR Code To Download Your E-Book."
+    "en": "Scan the QR code  to download your travelogue."
   },
   "3_3_title": {
     "ko": "이용 동의",
-    "en": "User Agreement"
+    "en": "User agreement"
   },
   "3_3_dialogue": {
     "ko": "동의가 필요하오.",
-    "en": "Your Consent Is Required."
+    "en": "Your consent is required."
   },
   "3_3_terms": {
     "ko": "약관 내용 (입력 예정)",
-    "en": "Terms And Conditions (To Be Added)"
+    "en": "Terms and conditions (to be added)"
   },
   "3_4_title": {
     "ko": "이야기 마당 선택",
-    "en": "Select a Story Episode"
+    "en": "Select a story episode"
   },
   "3_4_plot_0": {
     "ko": "위협 - 구원",
-    "en": "Threat And Rescue"
+    "en": "Threat and rescue"
   },
   "3_4_plot_1": {
     "ko": "권력 풍자",
-    "en": "Satire Of Power"
+    "en": "Satire of power"
   },
   "3_4_plot_2": {
     "ko": "위선 폭로",
-    "en": "Exposing Hypocrisy"
+    "en": "Exposing hypocrisy"
   },
   "3_4_plot_3": {
     "ko": "욕심과 다툼",
-    "en": "Greed And Conflict"
+    "en": "Greed and conflict"
   },
   "3_5_title": {
     "ko": "주인공 선택",
-    "en": "Character Selection"
+    "en": "Character selection"
   },
   "3_5_card_0": {
     "ko": "어린이",
@@ -145,19 +373,19 @@
   },
   "3_6_title": {
     "ko": "주인공 이름 입력",
-    "en": "Enter The Main Character’s Name"
+    "en": "Enter the main character's name"
   },
   "3_6_dialogue": {
     "ko": "나와 같이 여행을 떠날 당신은 누구신가요?",
-    "en": "Who Will Travel With Me?"
+    "en": "Who will travel with me?"
   },
   "3_6_placehold": {
     "ko": "주인공의 이름을 입력해주세요",
-    "en": "Enter The Character’s Name"
+    "en": "Enter the character's name"
   },
   "3_7_title": {
     "ko": "박첨지와 대화하기",
-    "en": "Talk With Park Cheomji"
+    "en": "Talk with Park Cheomji"
   },
   "3_7_phase_0": {
     "ko": "도입",
@@ -177,274 +405,330 @@
   },
   "3_7_placehold": {
     "ko": "박첨지의 질문에 답하세요.",
-    "en": "Answer Park Cheomji’s Question."
+    "en": "Answer Park Cheomji's question."
   },
   "3_8_title": {
     "ko": "나만의 유람기 생성 중",
-    "en": "Creating Your Own Travelogue"
+    "en": "Creating your own travelogue"
   },
   "3_8_dialogue": {
     "ko": "멋진 이야기가 만들어지고 있다네.",
-    "en": "A Wonderful Story Is Being Created."
+    "en": "A wonderful story is being created."
   },
   "3_10_title": {
     "ko": "이야기 완성",
-    "en": "Story Completed"
+    "en": "Story completed"
   },
   "3_10_dialogue": {
     "ko": "고맙소. 또 만납시다.",
-    "en": "Thank You. Let's Meet Again."
+    "en": "Thank you. Let's meet again."
   },
   "3_10_desc": {
     "ko": "QR 코드를 스캔하면  전자책을 다운로드할 수 있습니다.",
-    "en": "Scan The QR Code  To Download Your E-Book."
+    "en": "Scan the QR code  to download your E-Book."
   },
-  "5_0_role_0_name": {
+  "5_0_madang_1_name": {
+    "ko": "옴탈잡이",
+    "en": "Omtaljabi"
+  },
+  "5_0_madang_2_name": {
+    "ko": "샌님잡이",
+    "en": "Saennimjabi"
+  },
+  "5_0_madang_3_name": {
+    "ko": "먹중잡이",
+    "en": "Meokjungjabi"
+  },
+  "5_0_madang_1_0_name": {
+    "ko": "옴탈 잡아채기",
+    "en": "Grab Omtal"
+  },
+  "5_0_madang_2_0_name": {
+    "ko": "옴탈 채검하기",
+    "en": "Test Omtal"
+  },
+  "5_0_madang_3_0_name": {
+    "ko": "옴탈 몰아내기",
+    "en": "Drive out Omtal"
+  },
+  "5_0_madang_1_0_score": {
+    "ko": "{0} 냥 획득",
+    "en": "Earned {0} nyang"
+  },
+  "5_0_madang_2_0_score": {
+    "ko": "{0} 회 맞춤",
+    "en": "Correct matches: {0}"
+  },
+  "5_0_madang_3_0_score": {
+    "ko": "{0} 점 달성",
+    "en": "Points scored: {0}"
+  },
+  "5_0_role_1_name": {
     "ko": "꺽쇠",
     "en": "Kkeoksoe"
   },
-  "5_0_role_0_desc": {
-    "ko": "꽹과리를 울려 놀이판을 여는 흥의 대장입니다.  걸쭉한 입담과 신명나는 장단으로 판을 이끕니다.",
-    "en": "He Is The Leader Of Excitement Who Opens The Performance By Striking The Kkwaenggwari.  He Leads The Stage With His Boisterous Banter And Exhilarating Rhythms."
-  },
-  "5_0_role_1_name": {
-    "ko": "샌님",
-    "en": "Saennim"
-  },
-  "5_0_role_1_desc": {
-    "ko": "팔도 유람에 나선 거드름 가득한 양반입니다.  하인 말뚝이에게 번번이 골탕을 먹는 풍자의 주인공입니다.",
-    "en": "He Is A Haughty Nobleman Who Has Set Out To Tour The Eight Provinces.  He Is The Star Of The Satire Who Is Repeatedly Tricked By His Servant, Malttugi."
-  },
   "5_0_role_2_name": {
+    "ko": "말뚝이",
+    "en": "Malttugi"
+  },
+  "5_0_role_3_name": {
     "ko": "취발이",
     "en": "Chwibari"
   },
-  "5_0_role_2_desc": {
-    "ko": "힘꼴 좋고 흥이 넘치는 한량입니다.  판을 어지럽히는 먹중을 힘찬 춤 대결로 쫓아냅니다.",
-    "en": "He Is A Carefree Man Of Leisure With Great Strength And Overflowing Enthusiasm.  He Drives Away The Troublemaker Monk With A Vigorous Dance Duel."
-  },
-  "5_0_grade_0": {
-    "ko": "X",
-    "en": "X"
-  },
-  "5_0_grade_1": {
-    "ko": "OK",
-    "en": "OK"
-  },
-  "5_0_grade_2": {
-    "ko": "GOOD",
-    "en": "GOOD"
-  },
-  "5_0_grade_3": {
-    "ko": "PERFECT",
-    "en": "PERFECT"
-  },
   "5_1_subtitle": {
     "ko": "덧뵈기 체험하기",
-    "en": "Experiencing The Deotboegi"
+    "en": "Experience Deotboegi"
   },
   "5_1_desc": {
-    "ko": "말뚝이와 함께 신명나는 춤을 추고 기념 사진도 촬영하세요",
-    "en": "Dance An Exciting Dance With Malttugi And Take A Commemorative Photo."
+    "ko": "장쇠와 함께 덧뵈기 마당을 체험해보세요",
+    "en": "Experience a Deotboegi episode with Jangsoe."
   },
   "5_2_title": {
     "ko": "이용 안내",
-    "en": "User Guide"
+    "en": "User guide"
   },
   "5_2_dialogue": {
     "ko": "이용 방법을 알려주겠소.",
-    "en": "I Will Tell You How To Use It."
+    "en": "Let me show you how to use it."
   },
   "5_2_guide_0": {
-    "ko": "따라 출 배역의 탈을 골라주세요",
-    "en": "Select The Mask For The Role You Will Play."
+    "ko": "체험할 마당을 골라 주세요",
+    "en": "Choose an episode to try."
   },
   "5_2_guide_1": {
-    "ko": "화면이 안내하는 동작을 장단에 맞춰 따라 추세요",
-    "en": "Follow The Movements Guided By The Screen To The Rhythm."
+    "ko": "등장인물의 이야기를 따라가 보세요",
+    "en": "Follow the characters' story."
   },
   "5_2_guide_2": {
-    "ko": "동작이 정확할수록 높은 판정을 받습니다",
-    "en": "The More Accurate Your Movements, The Higher Your Score Will Be."
+    "ko": "안내에 따라 이야기에 참여하세요",
+    "en": "Follow the instructions to take part in the story."
   },
   "5_2_guide_3": {
-    "ko": "최종 점수와 말뚝이의 한마디를 확인하세요",
-    "en": "Check The Final Score And Malttugi's Comment."
+    "ko": "놀이가 끝나면 나의 결과를 확인하세요",
+    "en": "Check your results when the play ends."
   },
   "5_3_title": {
     "ko": "이용 동의",
-    "en": "User Agreement"
+    "en": "User agreement"
   },
   "5_3_dialogue": {
     "ko": "동의가 필요하오.",
-    "en": "Your Consent Is Required."
+    "en": "Your consent is required."
   },
   "5_3_terms": {
     "ko": "약관 내용 (입력 예정)",
-    "en": "Terms And Conditions (To Be Added)"
+    "en": "Terms and conditions (to be added)"
   },
   "5_4_title": {
-    "ko": "배역 선택",
-    "en": "Role Selection"
+    "ko": "마당 선택",
+    "en": "Madang selection"
   },
-  "5_4_dialogue": {
-    "ko": "누가 되어보고 싶은가?",
-    "en": "Who Would You Like To Be?"
+  "5_4_madang_1_name": {
+    "ko": "옴탈잡이",
+    "en": "Omtaljabi"
+  },
+  "5_4_madang_1_desc": {
+    "ko": "꺽쇠가 되어 옴탈을 쫓아내세요",
+    "en": "Become Kkeoksoe and drive out Omtal."
+  },
+  "5_4_madang_2_name": {
+    "ko": "샌님잡이",
+    "en": "Saennimjabi"
+  },
+  "5_4_madang_2_desc": {
+    "ko": "말뚝이가 되어 샌님을 조롱하세요",
+    "en": "Become Malttugi and mock Saennim."
+  },
+  "5_4_madang_3_name": {
+    "ko": "먹중잡이",
+    "en": "Meokjungjabi"
+  },
+  "5_4_madang_3_desc": {
+    "ko": "취발이가 되어 먹중의 위선을 폭로하세요",
+    "en": "Become Chwibari and expose Meokjung's hypocrisy."
+  },
+  "5_5_detect_guide": {
+    "ko": "화면의 사람 모양 가이드라인에 몸을 맞춰보세요",
+    "en": "Line up with the body outline on the screen."
   },
   "5_6_title": {
-    "ko": "나의 탈춤 점수",
-    "en": "My Mask Dance Score"
+    "ko": "판 마무리",
+    "en": "Performance complete"
   },
-  "5_6_dialogue_0": {
-    "ko": "한바탕 웃었으면 그게 바로 신명이지!",
-    "en": "If You've Had A Good Laugh, That's True Exhilaration!"
+  "5_6_dialogue": {
+    "ko": "오늘부로 {0} 노릇 한번 제대로 했다!",
+    "en": "You really played the role of {0} today!"
   },
-  "5_6_dialogue_1": {
-    "ko": "괜찮네, 탈춤은 놀다 보면 느는 법이지!",
-    "en": "That's Alright. You Get Better At Mask Dance The More You Play!"
+  "5_6_rank": {
+    "ko": "이수 단계",
+    "en": "Performance level"
   },
-  "5_6_dialogue_2": {
-    "ko": "흥은 넘치는데 몸이 반 박자 늦는구먼!",
-    "en": "You're Overflowing With Excitement, But Your Body Is Half A Beat Behind!"
+  "5_6_rank_1_name": {
+    "ko": "새내기",
+    "en": "Newcomer"
   },
-  "5_6_dialogue_3": {
-    "ko": "덩실덩실, 제법이야 제법!",
-    "en": "Deongsil-Deongsil! Not Bad At All, Not Bad!"
+  "5_6_rank_1_desc": {
+    "ko": "허허, 첫발치고 제법이구나!",
+    "en": "Heoheo, not bad for your first try!"
   },
-  "5_6_dialogue_4": {
-    "ko": "얼쑤! 오늘 마당의 주인공은 자네일세!",
-    "en": "Eolssu! You Are The Star Of The Show Today!"
+  "5_6_rank_2_name": {
+    "ko": "몸짓꾼",
+    "en": "Expressive performer"
+  },
+  "5_6_rank_2_desc": {
+    "ko": "오호, 몸짓에 흥이 붙었구나!",
+    "en": "Oho, your movements are full of spirit!"
+  },
+  "5_6_rank_3_name": {
+    "ko": "흥꾼",
+    "en": "Lively performer"
+  },
+  "5_6_rank_3_desc": {
+    "ko": "얼씨구, 제대로 흥이 올랐구나!",
+    "en": "Eolssigu, now you're really getting into it!"
+  },
+  "5_6_rank_4_name": {
+    "ko": "판놀음꾼",
+    "en": "Stage star"
+  },
+  "5_6_rank_4_desc": {
+    "ko": "좋다, 네가 판을 들썩이는구나!",
+    "en": "Great, you've brought the stage to life!"
+  },
+  "5_6_summary": {
+    "ko": "수행 요약",
+    "en": "Performance summary"
   },
   "5_6_finalScore": {
-    "ko": "최종 점수",
-    "en": "FINAL SCORE"
+    "ko": "최종 점수 {0}점",
+    "en": "Final score: {0}"
   },
   "13_1_title": {
     "ko": "그만하시겠어요?",
-    "en": "Would You Like To Quit?"
+    "en": "Would you like to quit?"
   },
   "13_1_desc": {
     "ko": "지금 그만두면 체험이 종료돼요.",
-    "en": "If You Quit Now, The Experience Will End."
+    "en": "If you quit now, the experience will end."
   },
   "13_2_title": {
     "ko": "감상을 종료하시겠습니까?",
-    "en": "Would You Like To Finish Viewing?"
+    "en": "Would you like to finish viewing?"
   },
   "13_2_desc": {
     "ko": "다음 페이지에서 전자책을 다운로드할 수 있는  QR 코드를 안내드립니다.",
-    "en": "A QR Code To Download The E-Book  Will Be Shown On The Next Page."
+    "en": "A QR code to download the E-Book  will be shown on the next page."
   },
   "14_1_title": {
     "ko": "사용할 수 없는 말이 있습니다",
-    "en": "Some Words Cannot Be Used"
+    "en": "Some words cannot be used"
   },
   "14_1_desc": {
     "ko": "비속어가 확인되었습니다. 표현을 바꿔 다시 입력해 주세요. 비속어 {0}회 입력 시 종료됩니다.",
-    "en": "Profanity Was Detected.  Please Rephrase And Try Again.  The Session Will End After {0} Profanity Attempts."
+    "en": "Profanity was detected.  Please rephrase and try again.  The session will end after {0} profanity attempts."
   },
   "14_2_title": {
     "ko": "이 내용은 사용할 수 없습니다",
-    "en": "This Content Cannot Be Used"
+    "en": "This content cannot be used"
   },
   "14_2_desc": {
     "ko": "다른 내용으로 다시 입력해 주세요. 규정 위반 내용 {0}회 입력 시 종료됩니다.",
-    "en": "Please Enter Different Content.  The Session Will End After {0} Policy Violation Attempts."
+    "en": "Please enter different content.  The session will end after {0} policy violation attempts."
   },
   "14_3_title": {
     "ko": "지금은 확인이 어렵습니다",
-    "en": "Unable To Verify At This Time"
+    "en": "Unable to verify at this time"
   },
   "14_3_desc": {
     "ko": "다시 입력해주세요.",
-    "en": "Please Enter It Again."
+    "en": "Please enter it again."
   },
   "14_4_title": {
     "ko": "음성을 확인하지 못하였습니다",
-    "en": "Voice Not Recognized"
+    "en": "Voice not recognized"
   },
   "14_4_desc": {
     "ko": "다시 말씀해주시거나,  키보드로 입력해주세요.",
-    "en": "Please Try Speaking Again,  Or Use The Keyboard."
+    "en": "Please try speaking again,  or use the keyboard."
   },
   "14_7_title": {
     "ko": "지금은 시작할 수 없습니다",
-    "en": "Unable To Start Now"
+    "en": "Unable to start now"
   },
   "14_7_desc": {
     "ko": "잠시 후 다시 시도해 주세요.",
-    "en": "Please Try Again In A Moment."
+    "en": "Please try again in a moment."
   },
   "14_8_title": {
     "ko": "준비된 내용을 불러오지 못하였습니다",
-    "en": "Failed To Load Prepared Content"
+    "en": "Failed to load prepared content"
   },
   "14_8_desc": {
     "ko": "불편을 드려 죄송합니다. 체험을 여기서 마칩니다. 다시 시작해 주세요.",
-    "en": "We’re Sorry For The Inconvenience.  This Experience Will End Here.  Please Start Again."
+    "en": "We're sorry for the inconvenience.  This experience will end here.  Please start again."
   },
   "14_9_title": {
     "ko": "내용을 만들지 못하였습니다",
-    "en": "Unable To Create The Content"
+    "en": "Unable to create the content"
   },
   "14_9_desc": {
     "ko": "불편을 드려 죄송합니다. 체험을 여기서 마칩니다. 다시 시작해 주세요.",
-    "en": "We’re Sorry For The Inconvenience.  This Experience Will End Here.  Please Start Again."
+    "en": "We're sorry for the inconvenience.  This experience will end here.  Please start again."
   },
   "14_10_title": {
     "ko": "이미지를 만들지 못하였습니다",
-    "en": "Unable To Create The Image"
+    "en": "Unable to create the image"
   },
   "14_10_desc": {
     "ko": "불편을 드려 죄송합니다. 체험을 여기서 마칩니다. 다시 시작해 주세요.",
-    "en": "We’re Sorry For The Inconvenience.  This Experience Will End Here.  Please Start Again."
+    "en": "We're sorry for the inconvenience.  This experience will end here.  Please start again."
   },
   "14_11_title": {
     "ko": "결과물이 검사를 통과하지 못하였습니다",
-    "en": "The Result Did Not Pass Review"
+    "en": "The result did not pass review"
   },
   "14_11_desc": {
     "ko": "불편을 드려 죄송합니다. 체험을 여기서 마칩니다. 다시 시작해 주세요.",
-    "en": "We’re Sorry For The Inconvenience.  This Experience Will End Here.  Please Start Again."
+    "en": "We're sorry for the inconvenience.  This experience will end here.  Please start again."
   },
   "14_12_title": {
     "ko": "결과물을 확인하지 못하였습니다",
-    "en": "Unable To Verify The Result"
+    "en": "Unable to verify the result"
   },
   "14_12_desc": {
     "ko": "불편을 드려 죄송합니다. 체험을 여기서 마칩니다. 다시 시작해 주세요.",
-    "en": "We’re Sorry For The Inconvenience.  This Experience Will End Here.  Please Start Again."
+    "en": "We're sorry for the inconvenience.  This experience will end here.  Please start again."
   },
   "14_13_title": {
     "ko": "결과물을 완성하지 못하였습니다",
-    "en": "Unable To Complete The Result"
+    "en": "Unable to complete the result"
   },
   "14_13_desc": {
     "ko": "불편을 드려 죄송합니다. 체험을 여기서 마칩니다. 다시 시작해 주세요.",
-    "en": "We’re Sorry For The Inconvenience.  This Experience Will End Here.  Please Start Again."
+    "en": "We're sorry for the inconvenience.  This experience will end here.  Please start again."
   },
   "14_14_title": {
     "ko": "결과물을 올리지 못하였습니다",
-    "en": "Unable To Upload The Result"
+    "en": "Unable to upload the result"
   },
   "14_14_desc": {
     "ko": "불편을 드려 죄송합니다. 체험을 여기서 마칩니다. 다시 시작해 주세요.",
-    "en": "We’re Sorry For The Inconvenience.  This Experience Will End Here.  Please Start Again."
+    "en": "We're sorry for the inconvenience.  This experience will end here.  Please start again."
   },
   "14_15_title": {
     "ko": "준비된 내용을 불러오지 못하였습니다",
-    "en": "Failed To Load Prepared Content"
+    "en": "Failed to load prepared content"
   },
   "14_15_desc": {
     "ko": "불편을 드려 죄송합니다. 체험을 여기서 마칩니다. 다시 시작해 주세요.",
-    "en": "We’re Sorry For The Inconvenience.  This Experience Will End Here.  Please Start Again."
+    "en": "We're sorry for the inconvenience.  This experience will end here.  Please start again."
   },
   "14_16_title": {
     "ko": "탈을 만들지 못하였습니다",
-    "en": "Unable To Create The Mask"
+    "en": "Unable to create the mask"
   },
   "14_16_desc": {
     "ko": "불편을 드려 죄송합니다. 체험을 여기서 마칩니다. 다시 시작해 주세요.",
-    "en": "We’re Sorry For The Inconvenience.  This Experience Will End Here.  Please Start Again."
+    "en": "We're sorry for the inconvenience.  This experience will end here.  Please start again."
   }
 }
